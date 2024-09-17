@@ -7,12 +7,7 @@ const NewsItem = (props: Props) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      style={styles.card}
-      onClick={() => {
-        navigate("/news/" + props.id);
-      }}
-    >
+    <div style={styles.card} onClick={() => navigate("/news/" + props.id)}>
       <img src={props.articleImage} alt="News" style={styles.image} />
 
       <div style={styles.content}>

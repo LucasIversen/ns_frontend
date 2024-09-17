@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Props from "./interfaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,10 +13,22 @@ import { useTranslation } from "react-i18next";
 
 const Footer = (props: Props) => {
   const { t } = useTranslation();
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowWidth <= 920;
 
   return (
-    <div style={styles.footer}>
-      <div style={styles.mainContent}>
+    <div style={isMobile ? styles.footerMobile : styles.footer}>
+      <div style={isMobile ? styles.mainContentMobile : styles.mainContent}>
         <div style={styles.contact}>
           <h3 style={styles.title}>{t("contact")}</h3>
           <a href="mailto:contact@email.com" style={styles.email}>

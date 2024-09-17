@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import NoPage from "./components/NoPage";
 import Layout from "./components/Layout";
 import "./App.css";
+import News from "./components/News";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="news" element={<NewsOverview />} />
+          <Route path="news/:id" element={<News />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Layout>

@@ -81,6 +81,12 @@ const styles: { [key: string]: CSSProperties } = {
     marginBottom: "50px",
     scrollbarWidth: "none",
   },
+  SponsorCarousel: {
+    display: "flex",
+    width: "100%",
+    backgroundColor: colors.lighterBlue,
+    height: "300px",
+  },
 };
 
 export default styles;

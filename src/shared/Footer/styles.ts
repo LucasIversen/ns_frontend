@@ -6,11 +6,22 @@ const styles: { [key: string]: CSSProperties } = {
     backgroundColor: colors.darkBlue,
     height: "400px",
   },
+  footerMobile: {
+    backgroundColor: colors.darkBlue,
+    height: "auto",
+  },
   mainContent: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     width: "100%",
     height: "380px",
+  },
+  mainContentMobile: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "auto",
   },
   contact: {
     display: "flex",
