@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Props from "./interfaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -11,7 +10,7 @@ import styles from "./styles";
 import SecondaryLogo from "../../assets/secondary_logo.png";
 import { useTranslation } from "react-i18next";
 
-const Footer = (props: Props) => {
+const Footer = () => {
   const { t } = useTranslation();
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
 

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Props } from "./interfaces";
+import { useEffect, useState } from "react";
 import styles from "./styles";
 import { useNavigate } from "react-router-dom";
 import PrimaryLogo from "../../assets/primary_logo.png";
@@ -15,7 +14,7 @@ import { colors } from "../../assets/colors";
 import { faGlobe, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 
-const Header = (props: Props) => {
+const Header = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

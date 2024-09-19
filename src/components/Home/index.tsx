@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Props from "./interfaces";
+import { useEffect, useState } from "react";
 import styles from "./styles";
 import Stadium from "../../assets/stadium.png";
-import StockImage from "../../assets/stock_image.jpg";
 import NewsItem from "./NewsItem";
 import { useTranslation } from "react-i18next";
 import { addDoc, collection, getDocs } from "firebase/firestore";
@@ -12,8 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
 
-const Home = (props: Props) => {
-  const { t, i18n } = useTranslation();
+const Home = () => {
+  const { t } = useTranslation();
   const [news, setNews] = useState<any[]>([]);
   const [media, setMedia] = useState<any[]>([]);
 

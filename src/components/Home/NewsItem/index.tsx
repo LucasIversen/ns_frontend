@@ -1,4 +1,3 @@
-import React from "react";
 import Props from "./interfaces";
 import styles from "./styles";
 import { useNavigate } from "react-router-dom";

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import StockImage from "../../assets/stock_image.jpg";
+import { useEffect, useState } from "react";
 import styles from "./styles";
 import NewsOverviewItem from "./NewsOverviewItem";
 import { collection, getDocs } from "firebase/firestore";
@@ -28,72 +27,6 @@ const NewsOverview = () => {
   useEffect(() => {
     fetchNews();
   }, []);
-
-  // const news = [
-  //   {
-  //     id: "1",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "2",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "3",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "4",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "5",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "6",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "7",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "8",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  //   {
-  //     id: "9",
-  //     title: "Denmark wins Flag Worlds!",
-  //     description: "Denmark surprises the world as rookie QB Lucas",
-  //     newsDate: "13 september 2023",
-  //     articleImage: StockImage,
-  //   },
-  // ];
 
   return (
     <div style={styles.container}>

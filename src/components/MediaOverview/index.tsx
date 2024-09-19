@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import StockImage from "../../assets/stock_image.jpg";
+import { useEffect, useState } from "react";
 import styles from "./styles";
 import MediaOverviewItem from "./MediaOverviewItem";
 import { collection, getDocs } from "firebase/firestore";
