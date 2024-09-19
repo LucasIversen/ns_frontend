@@ -3,7 +3,7 @@ import { colors } from "../../../assets/colors";
 
 const styles: { [key: string]: CSSProperties } = {
   card: {
-    backgroundColor: colors.offWhite,
+    backgroundColor: colors.white,
     borderRadius: "20px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
     width: "250px", // Adjust the width as needed
@@ -23,7 +23,8 @@ const styles: { [key: string]: CSSProperties } = {
     marginTop: "10px",
   },
   content: {
-    padding: "15px",
+    width: "80%",
+    paddingTop: "15px",
   },
   date: {
     fontSize: "12px",

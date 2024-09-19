@@ -4,5 +4,12 @@
   "media": "Media",
   "faq": "FAQ",
   "contact": "Contact",
-  "readMore": "Read more"
+  "readMore": "Read more",
+  "newsletterSignUp": "Sign up for our newsletter",
+  "enterValidEmail": "Please enter a valid email address",
+  "newsletterSignUpSuccess": "You have successfully signed up for our newsletter",
+  "aboutUs": "About us",
+  "investor": "Investor",
+  "info": "Info",
+  "faqTitle": "Frequently asked questions"
 }

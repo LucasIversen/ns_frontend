@@ -32,16 +32,15 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    backgroundColor: colors.lighterBlue,
+    backgroundColor: colors.offWhite,
   },
   newsTitle: {
     fontSize: "30px",
     fontFamily: "Montserrat, sans-serif",
-    color: colors.offWhite,
+    color: colors.darkBlue,
     marginLeft: "50px",
     marginTop: "20px",
     marginBottom: "20px",
-    textShadow: "2px 2px 4px #000000",
     textTransform: "uppercase",
   },
   newsItems: {
@@ -53,16 +52,18 @@ const styles: { [key: string]: CSSProperties } = {
   },
   item: {
     flexShrink: 0,
+    marginBottom: "5px",
   },
   firstItem: {
     marginLeft: "50px",
     flexShrink: 0,
+    marginBottom: "5px",
   },
   mediaBar: {
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.offWhite,
   },
   mediaTitle: {
     fontSize: "30px",
@@ -71,7 +72,6 @@ const styles: { [key: string]: CSSProperties } = {
     marginLeft: "50px",
     marginTop: "20px",
     marginBottom: "20px",
-    textShadow: "2px 2px 4px #000000",
     textTransform: "uppercase",
   },
   mediaItems: {
@@ -81,11 +81,44 @@ const styles: { [key: string]: CSSProperties } = {
     marginBottom: "50px",
     scrollbarWidth: "none",
   },
-  SponsorCarousel: {
+  sponsorCarousel: {
     display: "flex",
     width: "100%",
     backgroundColor: colors.lighterBlue,
     height: "300px",
+  },
+  newsletterBar: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "40px 50px",
+    backgroundColor: colors.lighterBlue,
+  },
+  newsletterTitle: {
+    fontSize: "30px",
+    fontFamily: "Montserrat, sans-serif",
+    color: colors.offWhite,
+    textTransform: "uppercase",
+  },
+  newsletterInputContatiner: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  newsletterInput: {
+    padding: "10px",
+    borderRadius: "25px",
+    border: "none",
+    marginRight: "10px",
+    width: "300px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    color: colors.darkBlue,
+    backgroundColor: colors.offWhite,
+    fontSize: "16px",
+  },
+  newsletterButton: {
+    padding: "10px",
+    cursor: "pointer",
   },
 };
 

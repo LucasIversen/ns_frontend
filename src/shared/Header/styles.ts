@@ -16,7 +16,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "grid",
     height: "71px",
     width: "100%",
-    gridTemplateColumns: "1fr 1fr 1fr",
+    gridTemplateColumns: "1.5fr 1fr 1.5fr",
   },
   navButtons: {
     display: "flex",

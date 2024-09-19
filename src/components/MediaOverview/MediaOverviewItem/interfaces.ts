@@ -1,6 +1,6 @@
 interface Props {
-  image?: string;
-  date: string;
+  mediaImage?: string;
+  mediaDate: string;
   title: string;
   id: string;
 }

@@ -19,6 +19,7 @@ const Header = (props: Props) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [aboutUsMenuOpen, setAboutUsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -48,6 +49,7 @@ const Header = (props: Props) => {
                 currentRoute === "/" ? styles.navButtonPicked : styles.navButton
               }
               onClick={() => {
+                setAboutUsMenuOpen(false);
                 navigate("/");
               }}
             >
@@ -60,6 +62,7 @@ const Header = (props: Props) => {
                   : styles.navButton
               }
               onClick={() => {
+                setAboutUsMenuOpen(false);
                 navigate("/news");
               }}
             >
@@ -72,6 +75,7 @@ const Header = (props: Props) => {
                   : styles.navButton
               }
               onClick={() => {
+                setAboutUsMenuOpen(false);
                 navigate("/media");
               }}
             >
@@ -79,15 +83,18 @@ const Header = (props: Props) => {
             </div>
             <div
               style={
-                currentRoute.includes("faq")
+                currentRoute.includes("faq") ||
+                currentRoute.includes("investor") ||
+                currentRoute.includes("about_us")
                   ? styles.navButtonPicked
                   : styles.navButton
               }
               onClick={() => {
-                navigate("/faq");
+                //navigate("/faq");
+                setAboutUsMenuOpen(!aboutUsMenuOpen);
               }}
             >
-              {t("faq")}
+              {t("info")}
             </div>
           </div>
           <div style={styles.logo}>
@@ -158,6 +165,52 @@ const Header = (props: Props) => {
         </div>
       )}
       <div style={styles.borderBottom}></div>
+
+      {!isMobile && aboutUsMenuOpen ? (
+        <div style={styles.mobileMenu}>
+          <div
+            style={
+              currentRoute.includes("faq")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              navigate("faq");
+              setAboutUsMenuOpen(false);
+            }}
+          >
+            {t("faq")}
+          </div>
+
+          <div
+            style={
+              currentRoute.includes("investor")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              navigate("investor");
+              setAboutUsMenuOpen(false);
+            }}
+          >
+            {t("investor")}
+          </div>
+
+          <div
+            style={
+              currentRoute.includes("about_us")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              navigate("about_us");
+              setAboutUsMenuOpen(false);
+            }}
+          >
+            {t("aboutUs")}
+          </div>
+        </div>
+      ) : null}
 
       {isMobile && isMenuOpen && (
         <div style={styles.mobileMenu}>

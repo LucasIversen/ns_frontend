@@ -5,6 +5,11 @@ import NoPage from "./components/NoPage";
 import Layout from "./components/Layout";
 import "./App.css";
 import News from "./components/News";
+import MediaOverview from "./components/MediaOverview";
+import Media from "./components/Media";
+import FAQ from "./components/Faq";
+import Investor from "./components/Investor";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -14,6 +19,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path="news" element={<NewsOverview />} />
           <Route path="news/:id" element={<News />} />
+          <Route path="media" element={<MediaOverview />} />
+          <Route path="media/:id" element={<Media />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="investor" element={<Investor />} />
+          <Route path="about_us" element={<AboutUs />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Layout>

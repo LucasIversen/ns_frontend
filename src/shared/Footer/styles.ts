@@ -51,7 +51,8 @@ const styles: { [key: string]: CSSProperties } = {
     flexDirection: "column",
   },
   logo: {
-    height: "120px",
+    maxWidth: "440px",
+    width: "80%",
   },
   socials: {
     display: "flex",
