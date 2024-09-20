@@ -10,6 +10,9 @@ import Media from "./components/Media";
 import FAQ from "./components/Faq";
 import Investor from "./components/Investor";
 import AboutUs from "./components/AboutUs";
+import Cms from "./components/Cms";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute/indes";
 
 function App() {
   return (
@@ -24,6 +27,15 @@ function App() {
           <Route path="faq" element={<FAQ />} />
           <Route path="investor" element={<Investor />} />
           <Route path="about_us" element={<AboutUs />} />
+          <Route path="login" element={<Login />} />
+          <Route
+            path="cms"
+            element={
+              <PrivateRoute>
+                <Cms />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Layout>
