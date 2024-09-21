@@ -4,10 +4,12 @@ import { db } from "../../firebase";
 import styles from "./styles";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import { useTranslation } from "react-i18next";
 
 const Media = () => {
   const [media, setMedia] = useState<any>(undefined);
   const id = window.location.pathname.split("/")[2];
+  const { i18n } = useTranslation();
 
   const fetchSingleMedia = async () => {
     const docRef = doc(db, "media", id); // Reference to the specific document with the given ID
@@ -30,12 +32,16 @@ const Media = () => {
     fetchSingleMedia();
   }, []);
 
+  const languageIsEnglish = i18n.language.includes("en");
+
   return (
     <div style={styles.mediaOuterContainer}>
       {media ? (
         <div style={styles.mediaContainer}>
           <div style={styles.mediaTitleContainer}>
-            <div style={styles.mediaTitle}>{media.mediaName}</div>
+            <div style={styles.mediaTitle}>
+              {languageIsEnglish ? media.mediaNameEn : media.mediaName}
+            </div>
             <div style={styles.mediaDate}>{media.date}</div>
           </div>
 

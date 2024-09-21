@@ -3,9 +3,11 @@ import styles from "./styles";
 import MediaOverviewItem from "./MediaOverviewItem";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useTranslation } from "react-i18next";
 
 const MediaOverview = () => {
   const [media, setMedia] = useState<any[]>([]);
+  const { i18n } = useTranslation();
 
   const fetchMedia = async () => {
     console.log("fetching");
@@ -28,13 +30,17 @@ const MediaOverview = () => {
     fetchMedia();
   }, []);
 
+  const languageIsEnglish = i18n.language.includes("en");
+
   return (
     <div style={styles.container}>
       <div style={styles.mediaPage}>
         {media.map((mediaItem, index) => (
           <MediaOverviewItem
             key={index}
-            title={mediaItem.mediaName}
+            title={
+              languageIsEnglish ? mediaItem.mediaNameEn : mediaItem.mediaName
+            }
             mediaDate={mediaItem.date}
             mediaImage={mediaItem.images[0]}
             id={mediaItem.id}

@@ -31,8 +31,8 @@ const Footer = () => {
       <div style={isMobile ? styles.mainContentMobile : styles.mainContent}>
         <div style={styles.contact}>
           <h3 style={styles.title}>{t("contact")}</h3>
-          <a href="mailto:contact@email.com" style={styles.email}>
-            contact@email.com
+          <a href="mailto:info@nordicstorm.net" style={styles.email}>
+            info@nordicstorm.net
           </a>
         </div>
 

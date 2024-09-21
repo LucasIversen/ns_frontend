@@ -11,7 +11,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [news, setNews] = useState<any[]>([]);
   const [media, setMedia] = useState<any[]>([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -87,6 +87,7 @@ const Home = () => {
   };
 
   const isMobile = windowWidth <= 920;
+  const languageIsEnglish = i18n.language.includes("en");
 
   return (
     <div style={styles.homepage}>
@@ -108,8 +109,12 @@ const Home = () => {
                   key={index}
                 >
                   <NewsItem
-                    title={article.title}
-                    description={article.description}
+                    title={languageIsEnglish ? article.titleEn : article.title}
+                    description={
+                      languageIsEnglish
+                        ? article.descriptionEn
+                        : article.description
+                    }
                     newsDate={article.newsDate}
                     articleImage={article.articleImage}
                     id={article.id}
@@ -132,7 +137,9 @@ const Home = () => {
                   key={index}
                 >
                   <MediaItem
-                    title={media.mediaName}
+                    title={
+                      languageIsEnglish ? media.mediaNameEn : media.mediaName
+                    }
                     date={media.date}
                     image={media.images[0]}
                     id={media.id}
