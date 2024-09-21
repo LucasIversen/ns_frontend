@@ -7,7 +7,7 @@ import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 const FAQ = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [faqs, setFaq] = useState<any[]>([]);
 
@@ -36,6 +36,8 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const languageIsEnglish = i18n.language.includes("en");
+
   return (
     <div style={styles.container}>
       <div style={styles.titleContainer}>
@@ -44,7 +46,7 @@ const FAQ = () => {
       {faqs.map((faq, index) => (
         <div key={index} style={styles.faqItem}>
           <div style={styles.question} onClick={() => toggleFAQ(index)}>
-            {faq.question}
+            {languageIsEnglish ? faq.questionEn : faq.question}
             <FontAwesomeIcon
               icon={activeIndex === index ? faChevronUp : faChevronDown}
               style={styles.icon}
@@ -52,7 +54,9 @@ const FAQ = () => {
             />
           </div>
           {activeIndex === index && (
-            <div style={styles.answer}>{faq.answer}</div>
+            <div style={styles.answer}>
+              {languageIsEnglish ? faq.answerEn : faq.answer}
+            </div>
           )}
         </div>
       ))}
