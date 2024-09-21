@@ -28,6 +28,15 @@ const styles: { [key: string]: CSSProperties } = {
     letterSpacing: "10px",
     color: colors.offWhite,
   },
+  imageTextMobile: {
+    position: "absolute",
+    fontSize: "24px",
+    fontFamily: "Montserrat, sans-serif",
+    textAlign: "center",
+    textShadow: "2px 2px 4px #000000",
+    letterSpacing: "5px",
+    color: colors.offWhite,
+  },
   newsBar: {
     display: "flex",
     flexDirection: "column",
@@ -90,6 +99,14 @@ const styles: { [key: string]: CSSProperties } = {
   newsletterBar: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
+    padding: "40px 50px",
+    backgroundColor: colors.lighterBlue,
+  },
+  newsletterBarMobile: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
     padding: "40px 50px",
     backgroundColor: colors.lighterBlue,

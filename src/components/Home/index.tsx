@@ -14,8 +14,17 @@ const Home = () => {
   const { t } = useTranslation();
   const [news, setNews] = useState<any[]>([]);
   const [media, setMedia] = useState<any[]>([]);
-
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [email, setEmail] = useState<string>("");
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const fetchNews = async () => {
     console.log("fetching news");
@@ -77,11 +86,15 @@ const Home = () => {
     }
   };
 
+  const isMobile = windowWidth <= 920;
+
   return (
     <div style={styles.homepage}>
       <div style={styles.bannerImage}>
         <img src={Stadium} style={styles.image} alt="Stadium" />
-        <div style={styles.imageText}>WE ARE NORDIC STORM</div>
+        <div style={isMobile ? styles.imageTextMobile : styles.imageText}>
+          WE ARE NORDIC STORM
+        </div>
       </div>
 
       {news.length > 0 ? (
@@ -131,7 +144,7 @@ const Home = () => {
         </div>
       ) : null}
 
-      <div style={styles.newsletterBar}>
+      <div style={isMobile ? styles.newsletterBarMobile : styles.newsletterBar}>
         <div style={styles.newsletterTitle}>{t("newsletterSignUp")}</div>
         <div style={styles.newsletterInputContatiner}>
           <input

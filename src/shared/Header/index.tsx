@@ -19,6 +19,7 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutUsMenuOpen, setAboutUsMenuOpen] = useState(false);
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -254,17 +255,68 @@ const Header = () => {
           </div>
           <div
             style={
-              currentRoute.includes("faq")
+              currentRoute.includes("faq") ||
+              currentRoute.includes("investor") ||
+              currentRoute.includes("about_us") ||
+              mobileSubMenuOpen
                 ? styles.mobileNavButtonPicked
                 : styles.mobileNavButton
             }
             onClick={() => {
-              navigate("/faq");
-              setIsMenuOpen(false);
+              setMobileSubMenuOpen(!mobileSubMenuOpen);
             }}
           >
-            {t("faq")}
+            {t("info")}
           </div>
+
+          {mobileSubMenuOpen ? (
+            <div style={styles.mobileSubMenu}>
+              <div
+                style={
+                  currentRoute.includes("faq")
+                    ? styles.mobileSubNavButtonPicked
+                    : styles.mobileSubNavButton
+                }
+                onClick={() => {
+                  navigate("faq");
+                  setMobileSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("faq")}
+              </div>
+
+              <div
+                style={
+                  currentRoute.includes("investor")
+                    ? styles.mobileSubNavButtonPicked
+                    : styles.mobileSubNavButton
+                }
+                onClick={() => {
+                  navigate("investor");
+                  setMobileSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("investor")}
+              </div>
+
+              <div
+                style={
+                  currentRoute.includes("about_us")
+                    ? styles.mobileSubNavButtonPicked
+                    : styles.mobileSubNavButton
+                }
+                onClick={() => {
+                  navigate("about_us");
+                  setMobileSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("aboutUs")}
+              </div>
+            </div>
+          ) : null}
 
           <div style={styles.mobileSocials}>
             <FontAwesomeIcon
