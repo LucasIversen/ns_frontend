@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faInstagram,
+  faLinkedin,
   faTiktok,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
@@ -47,32 +48,39 @@ const Footer = () => {
           <h3 style={styles.title}>SOCIALS</h3>
           <div style={styles.socialIcons}>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=61563584339767&locale=da_DK"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faFacebookF} style={styles.icon} />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/nordicstormfootball/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faInstagram} style={styles.icon} />
             </a>
             <a
-              href="https://tiktok.com"
+              href="https://x.com/NordicStormFTB"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faXTwitter} style={styles.icon} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@nordic_storm"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faTiktok} style={styles.icon} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://www.linkedin.com/company/nordic-storm/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faXTwitter} style={styles.icon} />
+              <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
             </a>
           </div>
         </div>

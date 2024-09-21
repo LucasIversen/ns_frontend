@@ -1,5 +1,5 @@
 interface Props {
-  articleImage?: string;
+  articleImage: string | null;
   newsDate: string;
   title: string;
   description: string;

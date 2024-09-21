@@ -4,9 +4,10 @@ import { db } from "../../firebase";
 import styles from "./styles";
 import "./htmlStyles.css";
 import { useTranslation } from "react-i18next";
+import { article } from "../../shared/types";
 
 const News = () => {
-  const [news, setNews] = useState<any>(undefined);
+  const [news, setNews] = useState<article | undefined>(undefined);
   const id = window.location.pathname.split("/")[2];
   const { i18n } = useTranslation();
 
@@ -17,7 +18,7 @@ const News = () => {
     try {
       const docSnap = await getDoc(docRef); // Fetch the document snapshot
       if (docSnap.exists()) {
-        const newsItem = { ...docSnap.data(), id: docSnap.id };
+        const newsItem = { ...docSnap.data(), id: docSnap.id } as article;
         setNews(newsItem); // Set the fetched news item to state
         console.log("Fetched news item:", newsItem);
       } else {

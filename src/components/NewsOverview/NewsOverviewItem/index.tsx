@@ -7,7 +7,7 @@ const NewsItem = (props: Props) => {
 
   return (
     <div style={styles.card} onClick={() => navigate("/news/" + props.id)}>
-      <img src={props.articleImage} alt="News" style={styles.image} />
+      <img src={props.articleImage || ""} alt="News" style={styles.image} />
 
       <div style={styles.content}>
         <div style={styles.date}>{props.newsDate}</div>

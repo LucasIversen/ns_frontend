@@ -8,7 +8,7 @@ import {
   faFacebookF,
   faInstagram,
   faTiktok,
-  faTwitter,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { colors } from "../../assets/colors";
 import { faGlobe, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -107,24 +107,38 @@ const Header = () => {
                 icon={faFacebookF}
                 size="1x"
                 color={colors.darkBlue}
+                onClick={() => {
+                  window.open(
+                    "https://www.facebook.com/profile.php?id=61563584339767&locale=da_DK"
+                  );
+                }}
               />
               <FontAwesomeIcon
                 style={styles.socialIcon}
                 icon={faInstagram}
                 size="1x"
                 color={colors.darkBlue}
+                onClick={() => {
+                  window.open("https://www.instagram.com/nordicstormfootball/");
+                }}
               />
               <FontAwesomeIcon
                 style={styles.socialIcon}
-                icon={faTwitter}
+                icon={faXTwitter}
                 size="1x"
                 color={colors.darkBlue}
+                onClick={() => {
+                  window.open("https://x.com/NordicStormFTB");
+                }}
               />
               <FontAwesomeIcon
                 style={styles.socialIcon}
                 icon={faTiktok}
                 size="1x"
                 color={colors.darkBlue}
+                onClick={() => {
+                  window.open("https://www.tiktok.com/@nordic_storm");
+                }}
               />
             </div>
             <div
@@ -324,24 +338,38 @@ const Header = () => {
               icon={faFacebookF}
               size="1x"
               color={colors.darkBlue}
+              onClick={() => {
+                window.open(
+                  "https://www.facebook.com/profile.php?id=61563584339767&locale=da_DK"
+                );
+              }}
             />
             <FontAwesomeIcon
               style={styles.socialIcon}
               icon={faInstagram}
               size="1x"
               color={colors.darkBlue}
+              onClick={() => {
+                window.open("https://www.instagram.com/nordicstormfootball/");
+              }}
             />
             <FontAwesomeIcon
               style={styles.socialIcon}
-              icon={faTwitter}
+              icon={faXTwitter}
               size="1x"
               color={colors.darkBlue}
+              onClick={() => {
+                window.open("https://x.com/NordicStormFTB");
+              }}
             />
             <FontAwesomeIcon
               style={styles.socialIcon}
               icon={faTiktok}
               size="1x"
               color={colors.darkBlue}
+              onClick={() => {
+                window.open("https://www.tiktok.com/@nordic_storm");
+              }}
             />
           </div>
         </div>

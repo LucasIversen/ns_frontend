@@ -4,9 +4,10 @@ import NewsOverviewItem from "./NewsOverviewItem";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useTranslation } from "react-i18next";
+import { article } from "../../shared/types";
 
 const NewsOverview = () => {
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<article[]>([]);
   const { i18n } = useTranslation();
 
   const fetchNews = async () => {
@@ -14,10 +15,13 @@ const NewsOverview = () => {
     await getDocs(collection(db, "news"))
       .then((querySnapshot) => {
         console.log("querySnapshot", querySnapshot);
-        const newData = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
+        const newData = querySnapshot.docs.map(
+          (doc) =>
+            ({
+              ...doc.data(),
+              id: doc.id,
+            } as article)
+        );
         setNews(newData);
       })
       .catch((error) => {
