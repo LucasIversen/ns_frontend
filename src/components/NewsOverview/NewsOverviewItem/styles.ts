@@ -34,14 +34,14 @@ const styles: { [key: string]: CSSProperties } = {
     textShadow: "none",
   },
   title: {
-    fontSize: "20px",
+    fontSize: "16px",
     fontWeight: "bold",
     color: colors.darkBlue,
     margin: "5px 0",
     textShadow: "none",
   },
   description: {
-    fontSize: "16px",
+    fontSize: "14px",
     color: colors.darkBlue,
     textShadow: "none",
   },

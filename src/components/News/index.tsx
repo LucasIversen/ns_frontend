@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import styles from "./styles";
 import "./htmlStyles.css";
+import { useTranslation } from "react-i18next";
 
 const News = () => {
   const [news, setNews] = useState<any>(undefined);
   const id = window.location.pathname.split("/")[2];
+  const { i18n } = useTranslation();
 
   const fetchSingleNews = async () => {
     console.log("Fetching news item with ID:", id);
@@ -30,16 +32,21 @@ const News = () => {
     fetchSingleNews();
   }, []);
 
+  const languageIsEnglish = i18n.language.includes("en");
+  const parts = !news ? [] : languageIsEnglish ? news.partsEn : news.parts;
+
   return (
     <div style={styles.newsOuterContainer}>
       {news ? (
         <div style={styles.newsContainer}>
           <div style={styles.newsTitleContainer}>
-            <div style={styles.newsTitle}>{news.title}</div>
+            <div style={styles.newsTitle}>
+              {languageIsEnglish ? news.titleEn : news.title}
+            </div>
             <div style={styles.newsDate}>{news.newsDate}</div>
           </div>
           <div style={styles.parts}>
-            {news.parts.map((part: any, index: number) => {
+            {parts.map((part: any, index: number) => {
               switch (part.type) {
                 case "htmlBlock":
                   return (

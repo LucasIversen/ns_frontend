@@ -1,26 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const FAQ = () => {
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [faqs, setFaq] = useState<any[]>([]);
 
-  const faqs = [
-    {
-      question: "WHAT IS FOOTBALL?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer potenti cubilia torquent efficitur imperdiet proin scelerisque sociosqu. Magnis commodo porttitor integer dictum elementum sociosqu. Ante senectus justo nibh ac egestas venenatis. Maximus purus felis vulputate rhoncus aliquam magnis arcu. Conubia libero turpis sociosqu eleifend mattis quisque tincidunt nibh. Quis torquent litora suscipit nostra sem. Finibus class bibendum lacinia ut tortor cras imperdiet. Elit facilisi nostra erat euismod ultrices platea luctus.",
-    },
-    {
-      question: "WHAT IS FOOTBALL?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer potenti cubilia torquent efficitur imperdiet proin scelerisque sociosqu. Magnis commodo porttitor integer dictum elementum sociosqu. Ante senectus justo nibh ac egestas venenatis. Maximus purus felis vulputate rhoncus aliquam magnis arcu. Conubia libero turpis sociosqu eleifend mattis quisque tincidunt nibh. Quis torquent litora suscipit nostra sem. Finibus class bibendum lacinia ut tortor cras imperdiet. Elit facilisi nostra erat euismod ultrices platea luctus.",
-    },
-    // Add more items as needed
-  ];
+  const fetchFaq = async () => {
+    console.log("fetching");
+    await getDocs(collection(db, "faq"))
+      .then((querySnapshot) => {
+        console.log("querySnapshot", querySnapshot);
+        const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setFaq(newData);
+        console.log(faqs, newData);
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchFaq();
+  }, []);
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

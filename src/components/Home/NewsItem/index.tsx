@@ -16,8 +16,7 @@ const NewsItem = (props: Props) => {
 
       <div style={styles.content}>
         <div style={styles.date}>{props.newsDate}</div>
-        <div style={styles.title}>{props.title}</div>
-        <div style={styles.description}>{props.description}...</div>
+        <div style={styles.title}>{props.title.substring(0, 40)}</div>
       </div>
     </div>
   );

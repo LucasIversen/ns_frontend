@@ -3,9 +3,11 @@ import styles from "./styles";
 import NewsOverviewItem from "./NewsOverviewItem";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useTranslation } from "react-i18next";
 
 const NewsOverview = () => {
   const [news, setNews] = useState<any[]>([]);
+  const { i18n } = useTranslation();
 
   const fetchNews = async () => {
     console.log("fetching news");
@@ -17,7 +19,6 @@ const NewsOverview = () => {
           id: doc.id,
         }));
         setNews(newData);
-        console.log(news, newData);
       })
       .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -28,14 +29,18 @@ const NewsOverview = () => {
     fetchNews();
   }, []);
 
+  const languageIsEnglish = i18n.language.includes("en");
+
   return (
     <div style={styles.container}>
       <div style={styles.newsPage}>
         {news.map((newsItem, index) => (
           <NewsOverviewItem
             key={index}
-            title={newsItem.title}
-            description={newsItem.description}
+            title={languageIsEnglish ? newsItem.titleEn : newsItem.title}
+            description={
+              languageIsEnglish ? newsItem.descriptionEn : newsItem.description
+            }
             newsDate={newsItem.newsDate}
             articleImage={newsItem.articleImage}
             id={newsItem.id}
