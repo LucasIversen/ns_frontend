@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./styles";
-import Stadium from "../../assets/stadium.png";
+import Video from "../../assets/video.mp4";
 import NewsItem from "./NewsItem";
 import { useTranslation } from "react-i18next";
 import { addDoc, collection, getDocs } from "firebase/firestore";
@@ -92,10 +92,11 @@ const Home = () => {
   return (
     <div style={styles.homepage}>
       <div style={styles.bannerImage}>
-        <img src={Stadium} style={styles.image} alt="Stadium" />
+        {/* <img src={Stadium} style={styles.image} alt="Stadium" />
         <div style={isMobile ? styles.imageTextMobile : styles.imageText}>
           WE ARE NORDIC STORM
-        </div>
+        </div> */}
+        <video style={styles.video} src={Video} autoPlay loop muted />
       </div>
 
       {news.length > 0 ? (
