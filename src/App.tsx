@@ -12,7 +12,7 @@ import Investor from "./components/Investor";
 import AboutUs from "./components/AboutUs";
 import Cms from "./components/Cms";
 import Login from "./components/Login";
-import PrivateRoute from "./components/PrivateRoute/indes";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (

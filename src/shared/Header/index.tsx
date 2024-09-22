@@ -21,6 +21,7 @@ const Header = () => {
   const [aboutUsMenuOpen, setAboutUsMenuOpen] = useState(false);
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [mobileLanguageMenuOpen, setMobileLanguageMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -98,7 +99,14 @@ const Header = () => {
             </div>
           </div>
           <div style={styles.logo}>
-            <img style={styles.logoImage} src={PrimaryLogo} alt="Logo" />
+            <img
+              style={styles.logoImage}
+              src={PrimaryLogo}
+              alt="Logo"
+              onClick={() => {
+                navigate("/");
+              }}
+            />
           </div>
           <div style={styles.socialsAndLanguage}>
             <div style={styles.socials}>
@@ -164,7 +172,14 @@ const Header = () => {
       ) : (
         <div style={styles.mainContentMobile}>
           <div style={styles.simpleLogo}>
-            <img style={styles.simpleLogoImage} src={SimpleLogo} alt="Logo" />
+            <img
+              style={styles.simpleLogoImage}
+              src={SimpleLogo}
+              alt="Logo"
+              onClick={() => {
+                navigate("/");
+              }}
+            />
           </div>
 
           <div style={styles.burgerMenu}>
@@ -172,7 +187,11 @@ const Header = () => {
               icon={isMenuOpen ? faTimes : faBars}
               size="2x"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              style={styles.burgerIcon}
+              style={{
+                ...styles.burgerIcon,
+                transition: "transform 0.3s ease-in-out",
+                transform: isMenuOpen ? "rotate(90deg)" : "rotate(0deg)",
+              }}
               color={colors.darkBlue}
             />
           </div>
@@ -328,6 +347,39 @@ const Header = () => {
                 }}
               >
                 {t("aboutUs")}
+              </div>
+            </div>
+          ) : null}
+
+          <div
+            style={styles.mobileNavButton}
+            onClick={() => setMobileLanguageMenuOpen(!mobileLanguageMenuOpen)}
+          >
+            {"Language"}
+          </div>
+
+          {mobileLanguageMenuOpen ? (
+            <div style={styles.mobileLanguageSubMenu}>
+              <div
+                style={styles.mobileSubNavButton}
+                onClick={() => {
+                  changeLanguage("da");
+                  setMobileLanguageMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                DA
+              </div>
+
+              <div
+                style={styles.mobileSubNavButton}
+                onClick={() => {
+                  changeLanguage("en");
+                  setMobileLanguageMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                EN
               </div>
             </div>
           ) : null}

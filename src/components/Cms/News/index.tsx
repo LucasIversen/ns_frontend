@@ -2,9 +2,12 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { useEffect, useState } from "react";
 import styles from "./styles";
+import DeleteDialog from "../DeleteDialog";
 
 const News = () => {
   const [news, setNews] = useState<any[]>([]);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [selectedNewsId, setSelectedNewsId] = useState("");
 
   const fetchNews = async () => {
     console.log("fetching news");
@@ -27,6 +30,13 @@ const News = () => {
     fetchNews();
   }, []);
 
+  const onDelete = async (id: string) => {
+    console.log("Deleting news item with ID:", id);
+    // Delete the news item with the given ID
+    // ...
+    setShowDeleteDialog(false);
+  };
+
   return (
     <div style={styles.newsList}>
       <div style={styles.newNews}>
@@ -39,10 +49,26 @@ const News = () => {
           </div>
           <div style={styles.buttons}>
             <div style={styles.editButton}>Rediger</div>
-            <div style={styles.deleteButton}>Slet</div>
+            <div
+              style={styles.deleteButton}
+              onClick={() => {
+                setSelectedNewsId(newsItem.id);
+                setShowDeleteDialog(true);
+              }}
+            >
+              Slet
+            </div>
           </div>
         </div>
       ))}
+
+      <DeleteDialog
+        open={showDeleteDialog}
+        onClose={() => {
+          setShowDeleteDialog(false);
+        }}
+        onDelete={() => onDelete(selectedNewsId)}
+      />
     </div>
   );
 };

@@ -30,6 +30,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
   logoImage: {
     height: "50px",
+    cursor: "pointer",
   },
   navButton: {
     color: colors.darkBlue,
@@ -94,6 +95,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
   simpleLogoImage: {
     height: "50px",
+    cursor: "pointer",
   },
   burgerMenu: {
     display: "flex",
@@ -103,7 +105,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
   burgerIcon: {
     cursor: "pointer",
-    transition: "transform 0.5s",
+    transition: "transform 0.3s ease-in-out",
   },
   mobileMenu: {
     display: "flex",
@@ -122,6 +124,14 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
+    width: "80%",
+    margin: "20px 0",
+  },
+  mobileLanguageSubMenu: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
     alignItems: "center",
     width: "80%",
     margin: "20px 0",
