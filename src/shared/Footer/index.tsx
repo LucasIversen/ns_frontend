@@ -86,9 +86,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div style={styles.copyright}>
-        <p>© Nordic Storm 2024</p>
-      </div>
+      <div style={styles.copyright}>© Nordic Storm 2024</div>
     </div>
   );
 };

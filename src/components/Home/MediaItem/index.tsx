@@ -11,7 +11,7 @@ const MediaItem = (props: Props) => {
 
       <div style={styles.content}>
         <div style={styles.date}>{props.date}</div>
-        <div style={styles.title}>{props.title.substring(0, 40)}</div>
+        <div style={styles.title}>{props.title}</div>
       </div>
     </div>
   );

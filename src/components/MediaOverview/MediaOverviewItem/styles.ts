@@ -11,16 +11,16 @@ const styles: { [key: string]: CSSProperties } = {
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
   },
   image: {
     borderRadius: "10px",
     height: "170px",
-    width: "90%",
+    width: "306px",
     objectFit: "cover",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)", // Soft shadow
-    marginTop: "10px",
+    border: "1px solid #c0c0c0",
+    marginTop: "17px",
   },
   content: {
     width: "80%",

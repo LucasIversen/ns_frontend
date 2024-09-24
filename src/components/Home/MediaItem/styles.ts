@@ -11,15 +11,15 @@ const styles: { [key: string]: CSSProperties } = {
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
   },
   image: {
     borderRadius: "10px",
     height: "170px",
     width: "90%",
     objectFit: "cover",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)", // Soft shadow
+    border: "1px solid #ededed",
     marginTop: "10px",
   },
   content: {
