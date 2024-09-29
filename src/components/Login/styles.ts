@@ -16,7 +16,7 @@ const styles: { [key: string]: CSSProperties } = {
     width: "300px",
   },
   input: {
-    width: "100%",
+    width: "280px",
     padding: "10px",
     margin: "10px 0",
     borderRadius: "5px",

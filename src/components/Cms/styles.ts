@@ -5,6 +5,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     justifyContent: "center",
     marginBottom: "20px",
+    marginTop: "10px",
   },
   tab: {
     padding: "10px 20px",

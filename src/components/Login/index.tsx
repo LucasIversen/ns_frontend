@@ -17,7 +17,7 @@ const Login = () => {
       console.log("User logged in successfully");
       navigate("/cms");
     } catch (error) {
-      setError("Failed to log in. Please check your credentials.");
+      setError("Failed to log in. Please check your credentials." + error);
     }
   };
 

@@ -4,6 +4,7 @@ import Newsletter from "./Newsletter";
 import News from "./News";
 import Media from "./Media";
 import Investor from "./Investor";
+import Faq from "./Faq";
 
 const Cms = () => {
   const [tab, setTab] = useState("news");
@@ -15,7 +16,7 @@ const Cms = () => {
       case "media":
         return <Media />;
       case "faq":
-        return <div>FAQ</div>;
+        return <Faq />;
       case "investor":
         return <Investor />;
       case "newsletter":

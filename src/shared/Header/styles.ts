@@ -179,6 +179,44 @@ const styles: { [key: string]: CSSProperties } = {
     alignItems: "center",
     marginTop: "10px",
   },
+  languageSelector: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: colors.offWhite,
+    position: "absolute",
+    top: "78px", // Below the header
+    left: "80%",
+    right: 0,
+    padding: "10px 0",
+    zIndex: 1000,
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
+  },
+  languageSelectorContent: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "10px",
+  },
+  languageSelectorButton: {
+    color: colors.darkBlue,
+    fontSize: "24px",
+    fontWeight: "semibold",
+    cursor: "pointer",
+    fontFamily: "Montserrat, sans-serif",
+    textTransform: "uppercase",
+    margin: "10px",
+  },
+  languageSelectorButtonPicked: {
+    color: colors.darkBlue,
+    fontSize: "24px",
+    fontWeight: "semibold",
+    cursor: "pointer",
+    fontFamily: "Montserrat, sans-serif",
+    textTransform: "uppercase",
+    borderBottom: `1px solid ${colors.darkBlue}`,
+    margin: "10px",
+  },
 };
 
 export default styles;

@@ -25,6 +25,7 @@
     "react-firebase-hooks": "^5.1.1",
     "react-i18next": "^15.0.1",
     "react-multi-carousel": "^2.8.5",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.26.2",
     "react-slideshow-image": "^4.3.1"
   },

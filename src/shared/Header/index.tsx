@@ -22,6 +22,7 @@ const Header = () => {
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobileLanguageMenuOpen, setMobileLanguageMenuOpen] = useState(false);
+  const [languageModalOpen, setLanguageModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -151,14 +152,10 @@ const Header = () => {
             </div>
             <div
               style={styles.language}
-              onClick={() => {
-                i18n.language.includes("en")
-                  ? changeLanguage("da")
-                  : changeLanguage("en");
-              }}
+              onClick={() => setLanguageModalOpen(!languageModalOpen)}
             >
               <div style={styles.languageText}>
-                {i18n.language.includes("en") ? "DK" : "EN"}
+                {i18n.language.includes("en") ? "EN" : "DK"}
               </div>
               <FontAwesomeIcon
                 style={styles.socialIcon}
@@ -426,6 +423,39 @@ const Header = () => {
           </div>
         </div>
       )}
+
+      {languageModalOpen ? (
+        <div style={styles.languageSelector}>
+          <div style={styles.languageSelectorContent}>
+            <div
+              style={
+                i18n.language.includes("en")
+                  ? styles.languageSelectorButton
+                  : styles.languageSelectorButtonPicked
+              }
+              onClick={() => {
+                changeLanguage("da");
+                setLanguageModalOpen(false);
+              }}
+            >
+              Dansk
+            </div>
+            <div
+              style={
+                i18n.language.includes("en")
+                  ? styles.languageSelectorButtonPicked
+                  : styles.languageSelectorButton
+              }
+              onClick={() => {
+                changeLanguage("en");
+                setLanguageModalOpen(false);
+              }}
+            >
+              English
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
