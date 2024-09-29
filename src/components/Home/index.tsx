@@ -96,7 +96,14 @@ const Home = () => {
         <div style={isMobile ? styles.imageTextMobile : styles.imageText}>
           WE ARE NORDIC STORM
         </div> */}
-        <video style={styles.video} src={Video} autoPlay loop muted />
+        <video
+          style={styles.video}
+          src={Video}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
 
       {news.length > 0 ? (

@@ -17,7 +17,7 @@ const styles: { [key: string]: CSSProperties } = {
   image: {
     borderRadius: "10px",
     height: "170px",
-    width: "306px",
+    width: "80%",
     objectFit: "cover",
     border: "1px solid #c0c0c0",
     marginTop: "17px",
