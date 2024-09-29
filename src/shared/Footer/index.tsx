@@ -10,10 +10,13 @@ import {
 import styles from "./styles";
 import SecondaryLogo from "../../assets/secondary_logo.png";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useTranslation();
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -86,7 +89,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div style={styles.copyright}>© Nordic Storm 2024</div>
+      <div style={styles.copyright} onClick={() => navigate("login")}>
+        © Nordic Storm 2024
+      </div>
     </div>
   );
 };
