@@ -97,7 +97,7 @@ const Home = () => {
           WE ARE NORDIC STORM
         </div> */}
         <video
-          style={styles.video}
+          style={isMobile ? styles.mobileVideo : styles.video}
           src={Video}
           autoPlay
           loop

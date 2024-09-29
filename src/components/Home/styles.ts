@@ -25,6 +25,11 @@ const styles: { [key: string]: CSSProperties } = {
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "20px",
   },
+  mobileVideo: {
+    width: "100%",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "20px",
+  },
   imageText: {
     position: "absolute",
     fontSize: "48px",
