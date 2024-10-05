@@ -64,10 +64,17 @@ const News = () => {
                       <img key={part.id} src={part.imageUrl} alt={part.alt} />
                     </div>
                   );
-                case "imageHtmkBlock":
+                case "imageHtmlBlock":
                   return (
                     <div style={styles.imageHtmlContainer} key={index}>
-                      <img key={part.id} src={part.imageUrl} alt={part.alt} />
+                      <div style={styles.imageContainer}>
+                        <img
+                          style={styles.halfImage}
+                          key={part.id}
+                          src={part.imageUrl}
+                          alt={part.alt}
+                        />
+                      </div>
                       <div
                         key={part.id}
                         dangerouslySetInnerHTML={{ __html: part.html }}
@@ -81,7 +88,14 @@ const News = () => {
                         key={part.id}
                         dangerouslySetInnerHTML={{ __html: part.html }}
                       />
-                      <img key={part.id} src={part.imageUrl} alt={part.alt} />
+                      <div style={styles.imageContainer}>
+                        <img
+                          style={styles.halfImage}
+                          key={part.id}
+                          src={part.imageUrl}
+                          alt={part.alt}
+                        />
+                      </div>
                     </div>
                   );
                 case "linkBlock":

@@ -32,6 +32,18 @@ const styles: { [key: string]: CSSProperties } = {
     marginBottom: "20px",
   },
   htmlBlock: {},
+  htmlImageContainer: {},
+  imageHtmlContainer: {},
+  halfImage: {
+    width: "60%",
+    height: "auto",
+  },
+  imageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "20px 0px",
+  },
 };
 
 export default styles;

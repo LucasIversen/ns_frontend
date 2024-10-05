@@ -3,7 +3,14 @@ import styles from "./styles";
 import Video from "../../assets/video.mp4";
 import NewsItem from "./NewsItem";
 import { useTranslation } from "react-i18next";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import MediaItem from "./MediaItem";
 import { db } from "../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,10 +34,14 @@ const Home = () => {
   }, []);
 
   const fetchNews = async () => {
-    console.log("fetching news");
-    await getDocs(collection(db, "news"))
+    const newsQuery = query(
+      collection(db, "news"),
+      orderBy("newsDate", "desc"),
+      limit(5)
+    );
+
+    await getDocs(newsQuery)
       .then((querySnapshot) => {
-        console.log("querySnapshot", querySnapshot);
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
@@ -44,8 +55,13 @@ const Home = () => {
   };
 
   const fetchMedia = async () => {
-    console.log("fetching");
-    await getDocs(collection(db, "media"))
+    const mediaQuery = query(
+      collection(db, "media"),
+      orderBy("date", "desc"),
+      limit(5)
+    );
+
+    await getDocs(mediaQuery)
       .then((querySnapshot) => {
         console.log("querySnapshot", querySnapshot);
         const newData = querySnapshot.docs.map((doc) => ({
