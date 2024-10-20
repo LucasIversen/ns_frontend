@@ -30,5 +30,6 @@
   "investorInfoDescriotion": "Nordic Storm is a unique investment opportunity in the sports industry. We are the first ELF team in the Nordic region and have a clear ambition to become one of the best European teams by 2030.",
   "investorInfoContact": "Contact us for more information",
   "message": "Message",
-  "page": "Page"
+  "page": "Page",
+  "emailError": "Please enter both your email and message."
 }

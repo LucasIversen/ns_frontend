@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
+import emailjs from "emailjs-com";
 
 const Investor = () => {
   const [message, setMessage] = useState<string>("");
@@ -11,9 +12,31 @@ const Investor = () => {
   const { t } = useTranslation();
 
   const contact = () => {
-    console.log("contacting");
-    setEmail("");
-    setMessage("");
+    if (email && message) {
+      const templateParams = {
+        from_email: email,
+        message: message,
+      };
+
+      emailjs
+        .send(
+          "service_cdqkopm",
+          "template_rqiiusd",
+          templateParams,
+          "PAus3tozKlYEIZWPK"
+        )
+        .then(
+          (result) => {
+            setEmail("");
+            setMessage("");
+          },
+          (error) => {
+            alert("Failed to send the message, please try again.");
+          }
+        );
+    } else {
+      alert(t("emailError"));
+    }
   };
 
   return (
