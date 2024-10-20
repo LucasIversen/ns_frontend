@@ -40,8 +40,20 @@ const styles: { [key: string]: CSSProperties } = {
     margin: "5px 0",
     textShadow: "none",
   },
+  smallTitle: {
+    fontSize: "14px",
+    fontWeight: "bold",
+    color: colors.darkBlue,
+    margin: "5px 0",
+    textShadow: "none",
+  },
   description: {
     fontSize: "14px",
+    color: colors.darkBlue,
+    textShadow: "none",
+  },
+  smallDescription: {
+    fontSize: "12px",
     color: colors.darkBlue,
     textShadow: "none",
   },

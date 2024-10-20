@@ -16,7 +16,9 @@ const NewsItem = (props: Props) => {
 
       <div style={styles.content}>
         <div style={styles.date}>{props.newsDate}</div>
-        <div style={styles.title}>{props.title}</div>
+        <div style={props.title.length > 45 ? styles.smallTitle : styles.title}>
+          {props.title}
+        </div>
       </div>
     </div>
   );
