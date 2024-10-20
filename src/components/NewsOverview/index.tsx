@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import { article } from "../../shared/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const NewsOverview = () => {
   const [news, setNews] = useState<article[]>([]);
@@ -88,38 +89,62 @@ const NewsOverview = () => {
   };
 
   return (
-    <div style={styles.container}>
-      {/* {loading && <Spinner />} */}
-      <div style={styles.newsPage}>
-        {news.map((newsItem, index) => (
-          <NewsOverviewItem
-            key={index}
-            title={languageIsEnglish ? newsItem.titleEn : newsItem.title}
-            description={
-              languageIsEnglish ? newsItem.descriptionEn : newsItem.description
-            }
-            newsDate={newsItem.newsDate}
-            articleImage={newsItem.articleImage}
-            id={newsItem.id}
-          />
-        ))}
-      </div>
-      {news.length >= articlesPerPage || currentPage > 1 ? (
-        <div style={styles.pagination}>
-          {currentPage > 1 ? (
-            <div onClick={handlePrevPage} style={styles.paginationButton}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </div>
-          ) : null}
-          <div style={styles.pageNumber}>{`${t("page")} ${currentPage}`}</div>
-          {news.length >= articlesPerPage ? (
-            <div onClick={handleNextPage} style={styles.paginationButton}>
-              <FontAwesomeIcon icon={faArrowRight} />
-            </div>
-          ) : null}
+    <HelmetProvider>
+      <Helmet>
+        <title>Nordic Storm News - Latest Updates on American Football</title>
+        <meta
+          name="description"
+          content="Stay updated with the latest news, events, and highlights from the Nordic Storm American football team."
+        />
+        <meta
+          name="keywords"
+          content="Nordic Storm News, American Football News, Copenhagen Football News, Denmark Football Updates, ELF Team News, Nordic Storm Events, American Football Copenhagen, American Football Denmark"
+        />
+        <meta
+          property="og:title"
+          content="Nordic Storm News - Latest Updates on American Football"
+        />
+        <meta
+          property="og:description"
+          content="Stay updated with the latest news, events, and highlights from the Nordic Storm American football team."
+        />
+        <meta property="og:image" content="/path/to/your/news-page-image.jpg" />
+      </Helmet>
+      <div style={styles.container}>
+        {/* {loading && <Spinner />} */}
+        <div style={styles.newsPage}>
+          {news.map((newsItem, index) => (
+            <NewsOverviewItem
+              key={index}
+              title={languageIsEnglish ? newsItem.titleEn : newsItem.title}
+              description={
+                languageIsEnglish
+                  ? newsItem.descriptionEn
+                  : newsItem.description
+              }
+              newsDate={newsItem.newsDate}
+              articleImage={newsItem.articleImage}
+              id={newsItem.id}
+            />
+          ))}
         </div>
-      ) : null}
-    </div>
+        {news.length >= articlesPerPage || currentPage > 1 ? (
+          <div style={styles.pagination}>
+            {currentPage > 1 ? (
+              <div onClick={handlePrevPage} style={styles.paginationButton}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </div>
+            ) : null}
+            <div style={styles.pageNumber}>{`${t("page")} ${currentPage}`}</div>
+            {news.length >= articlesPerPage ? (
+              <div onClick={handleNextPage} style={styles.paginationButton}>
+                <FontAwesomeIcon icon={faArrowRight} />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+      </div>
+    </HelmetProvider>
   );
 };
 
