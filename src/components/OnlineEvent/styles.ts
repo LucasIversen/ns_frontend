@@ -27,6 +27,11 @@ const styles: { [key: string]: CSSProperties } = {
     marginBottom: "10px",
     textTransform: "uppercase",
   },
+  eventDate: {
+    fontSize: "12px",
+    color: colors.darkBlue,
+    marginBottom: "20px",
+  },
   eventDescription: {
     fontSize: "18px",
     color: colors.darkBlue,

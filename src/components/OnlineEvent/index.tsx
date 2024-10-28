@@ -60,6 +60,7 @@ const OnlineEvent = (props: Props) => {
             <div>
               <div style={styles.eventTitleContainer}>
                 <div style={styles.eventTitle}>{event.eventNameEn}</div>
+                <div style={styles.eventDate}>{event.eventDate}</div>
               </div>
               <div style={styles.eventDescription}>
                 {event.eventDescriptionEn}
@@ -69,6 +70,7 @@ const OnlineEvent = (props: Props) => {
             <div>
               <div style={styles.eventTitleContainer}>
                 <div style={styles.eventTitle}>{event.eventName}</div>
+                <div style={styles.eventDate}>{event.eventDate}</div>
               </div>
               <div style={styles.eventDescription}>
                 {event.eventDescription}
