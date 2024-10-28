@@ -26,11 +26,11 @@ const Investor = () => {
           "PAus3tozKlYEIZWPK"
         )
         .then(
-          (result) => {
+          () => {
             setEmail("");
             setMessage("");
           },
-          (error) => {
+          () => {
             alert("Failed to send the message, please try again.");
           }
         );

@@ -2,13 +2,12 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import { useTranslation } from "react-i18next";
-import Props from "./interfaces";
 import styles from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
 
-const OnlineEvent = (props: Props) => {
+const OnlineEvent = () => {
   const [event, setEvent] = useState<any | undefined>(undefined);
   const [email, setEmail] = useState<string>("");
   const id = window.location.pathname.split("/")[2];
@@ -41,7 +40,7 @@ const OnlineEvent = (props: Props) => {
     const isEmailValid = email.includes("@") && email.includes(".");
     if (isEmailValid) {
       console.log("Signing up with email:", email);
-      const docRef = await updateDoc(doc(db, "onlineEvent", id), {
+      await updateDoc(doc(db, "onlineEvent", id), {
         signupEmails: [...event.signupEmails, email],
       });
       setEmail("");
