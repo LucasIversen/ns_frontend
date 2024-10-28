@@ -31,5 +31,7 @@
   "investorInfoContact": "Kontakt os for mere information",
   "message": "Besked",
   "page": "Side",
-  "emailError": "Indtast venligst både din e-mail og besked."
+  "emailError": "Indtast venligst både din e-mail og besked.",
+  "eventSignUp": "Tilmeld dig her",
+  "signedUp": "Du har tilmeldt dig begivenheden"
 }

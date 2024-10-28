@@ -61,7 +61,12 @@ const News = () => {
                 case "imageBlock":
                   return (
                     <div style={styles.imageContainer} key={index}>
-                      <img key={part.id} src={part.imageUrl} alt={part.alt} />
+                      <img
+                        style={styles.image}
+                        key={part.id}
+                        src={part.imageUrl}
+                        alt={part.alt}
+                      />
                     </div>
                   );
                 case "imageHtmlBlock":

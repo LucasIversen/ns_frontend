@@ -44,6 +44,10 @@ const styles: { [key: string]: CSSProperties } = {
     alignItems: "center",
     margin: "20px 0px",
   },
+  image: {
+    width: "100%",
+    height: "auto",
+  },
 };
 
 export default styles;

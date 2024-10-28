@@ -13,6 +13,7 @@ import AboutUs from "./components/AboutUs";
 import Cms from "./components/Cms";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
+import OnlineEvent from "./components/OnlineEvent";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="faq" element={<FAQ />} />
           <Route path="investor" element={<Investor />} />
           <Route path="about_us" element={<AboutUs />} />
+          <Route path="online_event/:id" element={<OnlineEvent />} />
           <Route path="login" element={<Login />} />
           <Route
             path="cms"

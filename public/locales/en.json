@@ -31,5 +31,7 @@
   "investorInfoContact": "Contact us for more information",
   "message": "Message",
   "page": "Page",
-  "emailError": "Please enter both your email and message."
+  "emailError": "Please enter both your email and message.",
+  "eventSignUp": "Sign up here",
+  "signedUp": "You have successfully signed up for the event"
 }
