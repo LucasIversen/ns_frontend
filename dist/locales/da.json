@@ -33,5 +33,9 @@
   "page": "Side",
   "emailError": "Indtast venligst både din e-mail og besked.",
   "eventSignUp": "Tilmeld dig her",
-  "signedUp": "Du har tilmeldt dig begivenheden"
+  "signedUp": "Du har tilmeldt dig begivenheden",
+  "team": "Hold",
+  "roster": "Roster",
+  "schedule": "Kampplan",
+  "updates": "Opdateringer"
 }

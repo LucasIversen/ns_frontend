@@ -33,5 +33,9 @@
   "page": "Page",
   "emailError": "Please enter both your email and message.",
   "eventSignUp": "Sign up here",
-  "signedUp": "You have successfully signed up for the event"
+  "signedUp": "You have successfully signed up for the event",
+  "team": "Team",
+  "roster": "Roster",
+  "schedule": "Schedule",
+  "updates": "Updates"
 }
