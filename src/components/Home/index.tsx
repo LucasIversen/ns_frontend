@@ -126,7 +126,8 @@ const Home = () => {
           property="og:description"
           content="Welcome to Nordic Storm, the premier American football team in Copenhagen, Denmark. Get the latest news, events, and updates."
         />
-        <meta property="og:image" content="/path/to/your/frontpage-image.jpg" />
+        <meta property="og:image" content="/assets/primary_logo-oczmX7WM.png" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <div style={styles.homepage}>
