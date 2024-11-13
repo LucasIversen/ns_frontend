@@ -41,7 +41,7 @@ const styles: { [key: string]: CSSProperties } = {
     marginBottom: "15px",
   },
   htmlFieldGroup: {
-    height: "300px",
+    height: "700px",
   },
   label: {
     display: "block",
@@ -69,6 +69,8 @@ const styles: { [key: string]: CSSProperties } = {
   },
   quill: {
     height: "200px",
+    marginBottom: "100px",
+    backgroundColor: "#fff",
   },
 };
 

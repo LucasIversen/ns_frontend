@@ -10,6 +10,7 @@ import {
   startAfter,
   QueryDocumentSnapshot,
   DocumentData,
+  where,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useTranslation } from "react-i18next";
@@ -34,6 +35,7 @@ const NewsOverview = () => {
       // Create a query with sorting, limiting, and pagination
       let newsQuery = query(
         collection(db, "news"),
+        where("published", "==", true),
         orderBy("newsDate", "desc"),
         limit(articlesPerPage)
       );
@@ -42,6 +44,7 @@ const NewsOverview = () => {
       if (page > 1 && lastVisible) {
         newsQuery = query(
           collection(db, "news"),
+          where("published", "==", true),
           orderBy("newsDate", "desc"),
           startAfter(lastVisible),
           limit(articlesPerPage)

@@ -10,6 +10,7 @@ import {
   limit,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 import MediaItem from "./MediaItem";
 import { db } from "../../firebase";
@@ -37,6 +38,7 @@ const Home = () => {
   const fetchNews = async () => {
     const newsQuery = query(
       collection(db, "news"),
+      where("published", "==", true),
       orderBy("newsDate", "desc"),
       limit(5)
     );
@@ -126,7 +128,8 @@ const Home = () => {
           property="og:description"
           content="Welcome to Nordic Storm, the premier American football team in Copenhagen, Denmark. Get the latest news, events, and updates."
         />
-        <meta property="og:image" content="/path/to/your/frontpage-image.jpg" />
+        <meta property="og:image" content="/assets/primary_logo-oczmX7WM.png" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <div style={styles.homepage}>
@@ -175,7 +178,7 @@ const Home = () => {
           </div>
         ) : null}
 
-        {news.length > 0 ? (
+        {media.length > 0 ? (
           <div style={styles.mediaBar}>
             <div style={styles.mediaTitle}>{t("media")}</div>
             <div style={styles.mediaItems}>

@@ -8,15 +8,16 @@ export type article = {
   titleEn: string;
   parts: parts[];
   partsEn: parts[];
+  published: boolean;
 };
 
 export type parts = {
   sortValue: number;
   html: string | null;
+  htmlEn: string | null;
   imageText: string | null;
+  imageTextEn: string | null;
   imageUrl: string | null;
-  linkText: string | null;
-  linkUrl: string | null;
   type: string;
   imageFile?: File | null; // Tilføjet for at gemme billedfilen midlertidigt
 };
