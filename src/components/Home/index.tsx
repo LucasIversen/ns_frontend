@@ -10,6 +10,7 @@ import {
   limit,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 import MediaItem from "./MediaItem";
 import { db } from "../../firebase";
@@ -37,6 +38,7 @@ const Home = () => {
   const fetchNews = async () => {
     const newsQuery = query(
       collection(db, "news"),
+      where("published", "==", true),
       orderBy("newsDate", "desc"),
       limit(5)
     );
@@ -176,7 +178,7 @@ const Home = () => {
           </div>
         ) : null}
 
-        {news.length > 0 ? (
+        {media.length > 0 ? (
           <div style={styles.mediaBar}>
             <div style={styles.mediaTitle}>{t("media")}</div>
             <div style={styles.mediaItems}>

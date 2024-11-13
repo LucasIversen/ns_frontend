@@ -36,6 +36,12 @@ const PartEditor = ({
     onChange(updatedPart);
   };
 
+  const handleHtmlEnChange = (content: string) => {
+    const updatedPart = { ...partData, htmlEn: content };
+    setPartData(updatedPart);
+    onChange(updatedPart);
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -100,6 +106,12 @@ const PartEditor = ({
             onChange={handleHtmlChange}
             style={styles.quill}
           />
+          <label style={styles.label}>HTML Indhold Engelsk:</label>
+          <ReactQuill
+            value={partData.htmlEn || ""}
+            onChange={handleHtmlEnChange}
+            style={styles.quill}
+          />
         </div>
       )}
       {["imageBlock", "htmlImageBlock", "imageHtmlBlock"].includes(
@@ -132,6 +144,14 @@ const PartEditor = ({
             type="text"
             name="imageText"
             value={partData.imageText || ""}
+            onChange={handleInputChange}
+            style={styles.input}
+          />
+          <label style={styles.label}>Billedtekst Engelsk:</label>
+          <input
+            type="text"
+            name="imageTextEn"
+            value={partData.imageTextEn || ""}
             onChange={handleInputChange}
             style={styles.input}
           />

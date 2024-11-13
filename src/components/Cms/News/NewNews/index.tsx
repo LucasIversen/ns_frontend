@@ -17,6 +17,7 @@ const NewNews = (props: Props) => {
     titleEn: "",
     parts: [],
     partsEn: [],
+    published: false,
   });
   const [articleImageFile, setArticleImageFile] = useState<File | null>(null);
 
@@ -36,10 +37,10 @@ const NewNews = (props: Props) => {
     const newPart: parts = {
       sortValue: articleData.parts.length,
       html: null,
+      htmlEn: null,
       imageText: null,
+      imageTextEn: null,
       imageUrl: null,
-      linkText: null,
-      linkUrl: null,
       type: "htmlBlock",
     };
     setArticleData({ ...articleData, parts: [...articleData.parts, newPart] });
@@ -90,10 +91,33 @@ const NewNews = (props: Props) => {
     try {
       // Create a new article in Firestore
       const articlesCollection = collection(db, "articles");
-      const docRef = await addDoc(articlesCollection, {
-        ...articleData,
-        newsDate: new Date().toISOString().split("T")[0], // Ensure date is current date
-      });
+
+      const correctedArticleData = {
+        id: articleData.id,
+        articleImage: articleData.articleImage,
+        description: articleData.description,
+        descriptionEn: articleData.descriptionEn,
+        newsDate: new Date().toISOString().split("T")[0],
+        title: articleData.title,
+        titleEn: articleData.titleEn,
+        parts: articleData.parts.map((part) => ({
+          sortValue: part.sortValue,
+          html: part.html,
+          imageText: part.imageText,
+          imageUrl: part.imageUrl,
+          type: part.type,
+        })),
+        partsEn: articleData.parts.map((part) => ({
+          sortValue: part.sortValue,
+          html: part.htmlEn,
+          imageText: part.imageTextEn,
+          imageUrl: part.imageUrl,
+          type: part.type,
+        })),
+        published: false,
+      };
+
+      const docRef = await addDoc(articlesCollection, correctedArticleData);
       const articleId = docRef.id;
       setArticleData((prevData) => ({ ...prevData, id: articleId }));
 
@@ -189,7 +213,6 @@ const NewNews = (props: Props) => {
 
       alert("Artiklen er gemt");
       props.setTabContent("news");
-      // Optionally, reset the form or navigate away
     } catch (error) {
       console.error("Fejl ved gemning af artikel:", error);
       alert("Der opstod en fejl ved gemning af artiklen");

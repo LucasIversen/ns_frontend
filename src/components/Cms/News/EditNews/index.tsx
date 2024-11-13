@@ -14,7 +14,22 @@ import {
 const EditNews = (props: Props) => {
   const { article: initialArticle, setTabContent } = props;
 
-  const [articleData, setArticleData] = useState<article>(initialArticle);
+  const [articleData, setArticleData] = useState<article>({
+    id: initialArticle.id,
+    articleImage: initialArticle.articleImage,
+    description: initialArticle.description,
+    descriptionEn: initialArticle.descriptionEn,
+    newsDate: initialArticle.newsDate,
+    title: initialArticle.title,
+    titleEn: initialArticle.titleEn,
+    parts: initialArticle.parts.map((part, index) => ({
+      ...part,
+      htmlEn: initialArticle.partsEn[index]?.htmlEn || "",
+      imageTextEn: initialArticle.partsEn[index]?.imageTextEn || "",
+    })),
+    partsEn: [],
+    published: false,
+  });
   const [articleImageFile, setArticleImageFile] = useState<File | null>(null);
 
   useEffect(() => {
@@ -37,10 +52,10 @@ const EditNews = (props: Props) => {
     const newPart: parts = {
       sortValue: articleData.parts.length,
       html: null,
+      htmlEn: null,
       imageText: null,
+      imageTextEn: null,
       imageUrl: null,
-      linkText: null,
-      linkUrl: null,
       type: "htmlBlock",
       imageFile: undefined,
     };
@@ -197,7 +212,22 @@ const EditNews = (props: Props) => {
       }
 
       // Update the article with the updated parts
-      await updateDoc(docRef, { parts: updatedParts });
+      await updateDoc(docRef, {
+        parts: updatedParts.map((part) => ({
+          sortValue: part.sortValue,
+          html: part.html,
+          imageText: part.imageText,
+          imageUrl: part.imageUrl,
+          type: part.type,
+        })),
+        partsEn: updatedParts.map((part) => ({
+          sortValue: part.sortValue,
+          htmlEn: part.htmlEn,
+          imageTextEn: part.imageTextEn,
+          imageUrl: part.imageUrl,
+          type: part.type,
+        })),
+      });
 
       // Update local state
       setArticleData((prevData) => ({
