@@ -35,18 +35,19 @@ const styles: { [key: string]: CSSProperties } = {
   htmlImageContainer: {},
   imageHtmlContainer: {},
   halfImage: {
-    width: "60%",
-    height: "auto",
+    maxHeight: "500px",
   },
   imageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     margin: "20px 0px",
+    maxHeight: "500px",
   },
   image: {
-    width: "100%",
     height: "auto",
+    maxHeight: "500px",
+    objectFit: "cover",
   },
 };
 

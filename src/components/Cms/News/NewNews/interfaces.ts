@@ -1,5 +1,4 @@
 export type article = {
-  id: string;
   articleImage: string | null;
   description: string;
   descriptionEn: string;

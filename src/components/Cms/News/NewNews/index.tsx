@@ -8,7 +8,6 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const NewNews = (props: Props) => {
   const [articleData, setArticleData] = useState<article>({
-    id: "", // ID vil blive sat efter gemning
     articleImage: null,
     description: "",
     descriptionEn: "",
@@ -90,10 +89,9 @@ const NewNews = (props: Props) => {
   const handleSaveArticle = async () => {
     try {
       // Create a new article in Firestore
-      const articlesCollection = collection(db, "articles");
+      const articlesCollection = collection(db, "news");
 
       const correctedArticleData = {
-        id: articleData.id,
         articleImage: articleData.articleImage,
         description: articleData.description,
         descriptionEn: articleData.descriptionEn,
