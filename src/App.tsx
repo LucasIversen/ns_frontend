@@ -15,6 +15,8 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import OnlineEvent from "./components/OnlineEvent";
 import Roster from "./components/Roster";
+import Schedule from "./components/Schedule";
+import NewsletterUnsubscripe from "./components/NewsletterUnsubscripe";
 
 function App() {
   return (
@@ -31,6 +33,11 @@ function App() {
           <Route path="about_us" element={<AboutUs />} />
           <Route path="online_event/:id" element={<OnlineEvent />} />
           <Route path="roster" element={<Roster />} />
+          <Route path="schedule" element={<Schedule />} />
+          <Route
+            path="newsletter_unsubscripe"
+            element={<NewsletterUnsubscripe />}
+          />
           <Route path="login" element={<Login />} />
           <Route
             path="cms"
