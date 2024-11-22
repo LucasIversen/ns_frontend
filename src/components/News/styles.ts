@@ -41,6 +41,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
     margin: "20px 0px",
     maxHeight: "500px",
   },
@@ -48,6 +49,11 @@ const styles: { [key: string]: CSSProperties } = {
     height: "auto",
     maxHeight: "500px",
     objectFit: "cover",
+  },
+  imageCaption: {
+    fontSize: "12px",
+    color: colors.darkBlue,
+    textAlign: "center",
   },
 };
 

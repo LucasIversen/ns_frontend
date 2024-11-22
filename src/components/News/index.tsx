@@ -87,6 +87,11 @@ const News = () => {
                           src={part.imageUrl}
                           alt={part.alt}
                         />
+                        {part.imageText ? (
+                          <div style={styles.imageCaption}>
+                            {part.imageText}
+                          </div>
+                        ) : null}
                       </div>
                     );
                   case "imageHtmlBlock":
