@@ -108,10 +108,12 @@ const Roster = () => {
         </div>
       </div>
 
-      <div className="grid">
-        {filteredPlayers.map((player) => (
-          <PlayerCard key={player.id} player={player} />
-        ))}
+      <div className="grid-container">
+        <div className="grid">
+          {filteredPlayers.map((player) => (
+            <PlayerCard key={player.id} player={player} />
+          ))}
+        </div>
       </div>
     </div>
   );

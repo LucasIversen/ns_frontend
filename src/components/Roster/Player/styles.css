@@ -1,5 +1,8 @@
 .player-card {
   perspective: 1000px;
+  display: flex; /* Ensures central alignment */
+  justify-content: center;
+  align-items: center;
 }
 
 .card-content {
@@ -10,9 +13,17 @@
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Ensure proper centering */
+  justify-content: center;
+  align-items: center;
 }
 
 .player-card:hover .card-content {
+  transform: rotateY(180deg);
+}
+
+/* Flip on click by toggling a class */
+.card-content.flip {
   transform: rotateY(180deg);
 }
 
@@ -78,4 +89,27 @@
 
 .back p {
   margin: 5px 0;
+}
+
+.social-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.social-icon {
+  margin: 0 5px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #0077b5;
+}
+
+/* Disable hover effect on smaller screens */
+@media (max-width: 600px) {
+  .player-card:hover .card-content {
+    transform: none;
+  }
 }

@@ -9,4 +9,5 @@ export interface Player {
   nationality: string;
   nationalityEn: string;
   number: number;
+  instagram: string;
 }
