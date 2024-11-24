@@ -41,6 +41,7 @@ const NewNews = (props: Props) => {
       imageTextEn: null,
       imageUrl: null,
       type: "htmlBlock",
+      link: null,
     };
     setArticleData({ ...articleData, parts: [...articleData.parts, newPart] });
   };
@@ -104,6 +105,7 @@ const NewNews = (props: Props) => {
           imageText: part.imageText,
           imageUrl: part.imageUrl,
           type: part.type,
+          link: part.link,
         })),
         partsEn: articleData.parts.map((part) => ({
           sortValue: part.sortValue,
@@ -111,6 +113,7 @@ const NewNews = (props: Props) => {
           imageText: part.imageTextEn,
           imageUrl: part.imageUrl,
           type: part.type,
+          link: part.link,
         })),
         published: false,
       };

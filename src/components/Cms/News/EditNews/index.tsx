@@ -58,6 +58,7 @@ const EditNews = (props: Props) => {
       imageUrl: null,
       type: "htmlBlock",
       imageFile: undefined,
+      link: null,
     };
     setArticleData({ ...articleData, parts: [...articleData.parts, newPart] });
   };
@@ -219,6 +220,7 @@ const EditNews = (props: Props) => {
           imageText: part.imageText,
           imageUrl: part.imageUrl,
           type: part.type,
+          link: part.link,
         })),
         partsEn: updatedParts.map((part) => ({
           sortValue: part.sortValue,
@@ -226,6 +228,7 @@ const EditNews = (props: Props) => {
           imageTextEn: part.imageTextEn,
           imageUrl: part.imageUrl,
           type: part.type,
+          link: part.link,
         })),
       });
 

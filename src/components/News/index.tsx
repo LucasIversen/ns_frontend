@@ -6,6 +6,7 @@ import "./htmlStyles.css";
 import { useTranslation } from "react-i18next";
 import { article } from "../../shared/types";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { InstagramEmbed } from "react-social-media-embed";
 
 const News = () => {
   const [news, setNews] = useState<article | undefined>(undefined);
@@ -134,6 +135,13 @@ const News = () => {
                         <a key={part.id} href={part.linkUrl}>
                           {part.linkText}
                         </a>
+                      </div>
+                    );
+                  case "instagram_post":
+                    console.log("Instagram post:", part.link);
+                    return (
+                      <div style={styles.instagramContainer} key={index}>
+                        <InstagramEmbed url={part.link} width={500} />
                       </div>
                     );
                   default:

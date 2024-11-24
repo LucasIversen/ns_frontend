@@ -15,7 +15,6 @@ export type parts = {
   html: string | null;
   imageText: string | null;
   imageUrl: string | null;
-  linkText: string | null;
-  linkUrl: string | null;
+  link: string | null;
   type: string;
 };

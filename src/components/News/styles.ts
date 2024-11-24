@@ -55,6 +55,12 @@ const styles: { [key: string]: CSSProperties } = {
     color: colors.darkBlue,
     textAlign: "center",
   },
+  instagramContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: "50px 0px",
+  },
 };
 
 export default styles;
