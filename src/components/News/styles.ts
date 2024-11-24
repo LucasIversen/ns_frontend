@@ -44,11 +44,13 @@ const styles: { [key: string]: CSSProperties } = {
     flexDirection: "column",
     margin: "20px 0px",
     maxHeight: "500px",
+    width: "100%",
   },
   image: {
     height: "auto",
     maxHeight: "500px",
     objectFit: "cover",
+    width: "100%",
   },
   imageCaption: {
     fontSize: "12px",
