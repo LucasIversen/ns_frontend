@@ -138,10 +138,11 @@ const News = () => {
                       </div>
                     );
                   case "instagram_post":
-                    console.log("Instagram post:", part.link);
                     return (
                       <div style={styles.instagramContainer} key={index}>
-                        <InstagramEmbed url={part.link} width={500} />
+                        <div style={styles.instagramInnerContainer}>
+                          <InstagramEmbed url={part.link} />
+                        </div>
                       </div>
                     );
                   default:

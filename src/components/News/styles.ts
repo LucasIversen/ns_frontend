@@ -61,6 +61,12 @@ const styles: { [key: string]: CSSProperties } = {
     alignItems: "center",
     margin: "50px 0px",
   },
+  instagramInnerContainer: {
+    display: "flex",
+    flexDirection: "column",
+    width: "80%",
+    maxWidth: "500px",
+  },
 };
 
 export default styles;
