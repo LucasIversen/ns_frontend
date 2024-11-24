@@ -19,6 +19,7 @@ export type parts = {
   imageTextEn: string | null;
   imageUrl: string | null;
   type: string;
+  link: string | null;
   imageFile?: File | null; // Tilføjet for at gemme billedfilen midlertidigt
 };
 

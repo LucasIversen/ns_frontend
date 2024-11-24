@@ -1,5 +1,4 @@
 export type article = {
-  id: string;
   articleImage: string | null;
   description: string;
   descriptionEn: string;
@@ -18,6 +17,7 @@ export type parts = {
   imageText: string | null;
   imageTextEn: string | null;
   imageUrl: string | null;
+  link: string | null;
   type: string;
   imageFile?: File | null; // Tilføjet for at gemme billedfilen midlertidigt
 };

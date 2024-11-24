@@ -35,18 +35,31 @@ const styles: { [key: string]: CSSProperties } = {
   htmlImageContainer: {},
   imageHtmlContainer: {},
   halfImage: {
-    width: "60%",
-    height: "auto",
+    maxHeight: "500px",
   },
   imageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
     margin: "20px 0px",
+    maxHeight: "500px",
   },
   image: {
-    width: "100%",
     height: "auto",
+    maxHeight: "500px",
+    objectFit: "cover",
+  },
+  imageCaption: {
+    fontSize: "12px",
+    color: colors.darkBlue,
+    textAlign: "center",
+  },
+  instagramContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: "50px 0px",
   },
 };
 

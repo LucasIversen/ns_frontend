@@ -94,6 +94,7 @@ const PartEditor = ({
           <option value="imageBlock">Billede Blok</option>
           <option value="imageHtmlBlock">Billede + HTML Blok</option>
           <option value="htmlImageBlock">HTML + Billede Blok</option>
+          <option value="instagram_post">Instagram post</option>
         </select>
       </div>
       {["htmlBlock", "htmlImageBlock", "imageHtmlBlock"].includes(
@@ -152,6 +153,19 @@ const PartEditor = ({
             type="text"
             name="imageTextEn"
             value={partData.imageTextEn || ""}
+            onChange={handleInputChange}
+            style={styles.input}
+          />
+        </div>
+      )}
+
+      {["instagram_post"].includes(partData.type) && (
+        <div style={styles.fieldGroup}>
+          <label style={styles.label}>Instagram post URL:</label>
+          <input
+            type="text"
+            name="link"
+            value={partData.link || ""}
             onChange={handleInputChange}
             style={styles.input}
           />
