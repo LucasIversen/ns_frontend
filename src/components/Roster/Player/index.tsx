@@ -10,7 +10,7 @@ const PlayerCard = (props: Props) => {
   const { player } = props;
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const languageIsEnglish = i18n.language === "en";
 
   const handleCardClick = () => {
@@ -52,16 +52,32 @@ const PlayerCard = (props: Props) => {
         </div>
         <div className="back">
           <h3>{player.name}</h3>
-          {player.position ? <p>Position: {player.position}</p> : null}
+          {player.position ? (
+            <p>
+              {t("position")}: {player.position}
+            </p>
+          ) : null}
           {player.nationality ? (
             <p>
-              Nationality:{" "}
+              {t("nationality")}:{" "}
               {languageIsEnglish ? player.nationalityEn : player.nationality}
             </p>
           ) : null}
-          {player.age ? <p>Age: {player.age}</p> : null}
-          {player.height ? <p>Height: {player.height}</p> : null}
-          {player.number ? <p>Number: {player.number}</p> : null}
+          {player.age ? (
+            <p>
+              {t("age")}: {player.age}
+            </p>
+          ) : null}
+          {player.height ? (
+            <p>
+              {t("height")}: {player.height}
+            </p>
+          ) : null}
+          {player.number ? (
+            <p>
+              {t("number")}: {player.number}
+            </p>
+          ) : null}
           {player.instagram ? (
             <div className="social-icon-container">
               <FontAwesomeIcon
