@@ -199,6 +199,18 @@ const Header = () => {
       {!isMobile && aboutUsMenuOpen ? (
         <div style={styles.mobileMenu}>
           <div
+            style={styles.mobileNavButton}
+            onClick={() => {
+              setAboutUsMenuOpen(false);
+              window.open(
+                "https://www.ticketmaster.dk/artist/nordic-storm-billetter/1346323"
+              );
+            }}
+          >
+            {t("tickets")}
+          </div>
+
+          <div
             style={
               currentRoute.includes("faq")
                 ? styles.mobileNavButtonPicked
@@ -301,6 +313,18 @@ const Header = () => {
 
           {mobileSubMenuOpen ? (
             <div style={styles.mobileSubMenu}>
+              <div
+                style={styles.mobileSubNavButton}
+                onClick={() => {
+                  setAboutUsMenuOpen(false);
+                  window.open(
+                    "https://www.ticketmaster.dk/artist/nordic-storm-billetter/1346323"
+                  );
+                }}
+              >
+                {t("tickets")}
+              </div>
+
               <div
                 style={
                   currentRoute.includes("faq")
