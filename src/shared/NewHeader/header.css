@@ -1,0 +1,115 @@
+/* Sticky header styling */
+.header {
+  position: fixed; /* Keeps the header at the top of the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Initial height of the header */
+  background-color: rgba(8, 35, 60, 0.95);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+/* Logo styling */
+.logo {
+  position: absolute;
+  top: 100%; /* Starts below the header */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s ease, transform 0.3s ease, width 0.3s ease,
+    height 0.3s ease;
+  width: 240px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Shrunk logo style */
+.logo.shrunk {
+  top: 75%; /* Moves up when scrolled */
+  width: 140px;
+  height: 70px;
+}
+
+/* Navigation styling */
+.nav {
+  margin-top: 5px; /* Ensure the navigation is below the logo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 20 0 20;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  position: relative; /* Parent container for dropdowns */
+}
+
+.nav-item {
+  cursor: pointer;
+  font-size: 18px;
+  color: #faf9f6;
+  position: relative; /* Establishes a positioning context for the dropdown */
+  font: Montserrat, sans-serif;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: absolute;
+  top: 150%; /* Positioned directly below the parent nav-item */
+  left: 0; /* Aligns dropdown with the parent */
+  min-width: 200px;
+  background-color: #faf9f6;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+/* Show dropdown when hovering over parent */
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #08233c;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer of the dropdown */
+.dropdown-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Header from "../../shared/Header";
+import Header from "../../shared/NewHeader";
 import { CSSProperties } from "react"; // Import CSSProperties from React
 import Footer from "../../shared/Footer";
 

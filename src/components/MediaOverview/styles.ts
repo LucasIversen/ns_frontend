@@ -6,7 +6,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "50px",
+    padding: "120px 50px 50px 50px",
     flexDirection: "column",
   },
   mediaPage: {

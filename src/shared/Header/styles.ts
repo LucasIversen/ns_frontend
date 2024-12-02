@@ -217,6 +217,20 @@ const styles: { [key: string]: CSSProperties } = {
     borderBottom: `1px solid ${colors.darkBlue}`,
     margin: "10px",
   },
+  floatingLogo: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    transition: "transform 0.3s ease, width 0.3s ease, height 0.3s ease",
+    width: "120px",
+    height: "120px",
+  },
+  floatingLogoShrunk: {
+    transform: "translate(-50%, -50%) scale(0.7)",
+    width: "80px",
+    height: "80px",
+  },
 };
 
 export default styles;

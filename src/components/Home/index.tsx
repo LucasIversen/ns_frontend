@@ -134,10 +134,6 @@ const Home = () => {
 
       <div style={styles.homepage}>
         <div style={styles.bannerImage}>
-          {/* <img src={Stadium} style={styles.image} alt="Stadium" />
-        <div style={isMobile ? styles.imageTextMobile : styles.imageText}>
-          WE ARE NORDIC STORM
-        </div> */}
           <video
             style={isMobile ? styles.mobileVideo : styles.video}
             src={Video}
