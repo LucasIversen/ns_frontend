@@ -42,6 +42,13 @@ const Roster = () => {
         "Head Coach",
         "Offensive Coordinator",
         "Defensive Coordinator",
+        "Special Teams Coordinator",
+        "Assistant Coach",
+        "Secondary coach",
+        "Defensive Line coach",
+        "Offensive Line coach",
+        "Quarterbacks coach",
+        "Wide Receivers coach",
       ];
 
       const playersSorted = playerDocs.sort((a, b) =>
