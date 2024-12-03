@@ -19,6 +19,8 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutUsMenuOpen, setAboutUsMenuOpen] = useState(false);
+  const [teamOpen, setTeamOpen] = useState(false);
+  const [updatesOpen, setUpdatesOpen] = useState(false);
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobileLanguageMenuOpen, setMobileLanguageMenuOpen] = useState(false);
@@ -41,6 +43,30 @@ const Header = () => {
 
   const isMobile = windowWidth <= 920;
 
+  const setModalOpen = (modal: string) => {
+    switch (modal) {
+      case "aboutUs":
+        setAboutUsMenuOpen(true);
+        setTeamOpen(false);
+        setUpdatesOpen(false);
+        break;
+      case "team":
+        setTeamOpen(true);
+        setAboutUsMenuOpen(false);
+        setUpdatesOpen(false);
+        break;
+      case "updates":
+        setUpdatesOpen(true);
+        setAboutUsMenuOpen(false);
+        setTeamOpen(false);
+        break;
+      default:
+        setAboutUsMenuOpen(false);
+        setTeamOpen(false);
+        setUpdatesOpen(false);
+    }
+  };
+
   return (
     <div style={styles.header}>
       {!isMobile ? (
@@ -51,7 +77,7 @@ const Header = () => {
                 currentRoute === "/" ? styles.navButtonPicked : styles.navButton
               }
               onClick={() => {
-                setAboutUsMenuOpen(false);
+                setModalOpen("");
                 navigate("/");
               }}
             >
@@ -59,29 +85,27 @@ const Header = () => {
             </div>
             <div
               style={
-                currentRoute.includes("news")
+                currentRoute.includes("team")
                   ? styles.navButtonPicked
                   : styles.navButton
               }
               onClick={() => {
-                setAboutUsMenuOpen(false);
-                navigate("/news");
+                setModalOpen("team");
               }}
             >
-              {t("news")}
+              {t("team")}
             </div>
             <div
               style={
-                currentRoute.includes("media")
+                currentRoute.includes("news") || currentRoute.includes("media")
                   ? styles.navButtonPicked
                   : styles.navButton
               }
               onClick={() => {
-                setAboutUsMenuOpen(false);
-                navigate("/media");
+                setModalOpen("updates");
               }}
             >
-              {t("media")}
+              {t("updates")}
             </div>
             <div
               style={
@@ -92,8 +116,7 @@ const Header = () => {
                   : styles.navButton
               }
               onClick={() => {
-                //navigate("/faq");
-                setAboutUsMenuOpen(!aboutUsMenuOpen);
+                setModalOpen("aboutUs");
               }}
             >
               {t("info")}
@@ -105,6 +128,7 @@ const Header = () => {
               src={PrimaryLogo}
               alt="Logo"
               onClick={() => {
+                setModalOpen("");
                 navigate("/");
               }}
             />
@@ -174,6 +198,7 @@ const Header = () => {
               src={SimpleLogo}
               alt="Logo"
               onClick={() => {
+                setModalOpen("");
                 navigate("/");
               }}
             />
@@ -217,8 +242,8 @@ const Header = () => {
                 : styles.mobileNavButton
             }
             onClick={() => {
+              setModalOpen("");
               navigate("faq");
-              setAboutUsMenuOpen(false);
             }}
           >
             {t("faq")}
@@ -231,8 +256,8 @@ const Header = () => {
                 : styles.mobileNavButton
             }
             onClick={() => {
+              setModalOpen("");
               navigate("investor");
-              setAboutUsMenuOpen(false);
             }}
           >
             {t("investor")}
@@ -245,11 +270,75 @@ const Header = () => {
                 : styles.mobileNavButton
             }
             onClick={() => {
+              setModalOpen("");
               navigate("about_us");
-              setAboutUsMenuOpen(false);
             }}
           >
             {t("aboutUs")}
+          </div>
+        </div>
+      ) : null}
+
+      {!isMobile && teamOpen ? (
+        <div style={styles.mobileMenu}>
+          <div
+            style={
+              currentRoute.includes("roster")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("roster");
+            }}
+          >
+            {t("roster")}
+          </div>
+
+          <div
+            style={
+              currentRoute.includes("schedule")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("schedule");
+            }}
+          >
+            {t("schedule")}
+          </div>
+        </div>
+      ) : null}
+
+      {!isMobile && updatesOpen ? (
+        <div style={styles.mobileMenu}>
+          <div
+            style={
+              currentRoute.includes("news")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("news");
+            }}
+          >
+            {t("news")}
+          </div>
+
+          <div
+            style={
+              currentRoute.includes("media")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("media");
+            }}
+          >
+            {t("media")}
           </div>
         </div>
       ) : null}

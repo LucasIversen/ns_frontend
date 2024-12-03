@@ -33,5 +33,11 @@
   "page": "Side",
   "emailError": "Indtast venligst både din e-mail og besked.",
   "eventSignUp": "Tilmeld dig her",
-  "signedUp": "Du har tilmeldt dig begivenheden"
+  "signedUp": "Du har tilmeldt dig begivenheden",
+  "keepYouPosted": "Vi holder dig opdateret...",
+  "age": "Alder",
+  "height": "Højde",
+  "nationality": "Nationalitet",
+  "number": "Nummer",
+  "position": "Position"
 }

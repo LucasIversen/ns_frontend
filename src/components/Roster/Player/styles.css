@@ -1,0 +1,115 @@
+.player-card {
+  perspective: 1000px;
+  display: flex; /* Ensures central alignment */
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Ensure proper centering */
+  justify-content: center;
+  align-items: center;
+}
+
+.player-card:hover .card-content {
+  transform: rotateY(180deg);
+}
+
+/* Flip on click by toggling a class */
+.card-content.flip {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.front {
+  z-index: 2;
+}
+
+.player-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.overlay h3,
+.overlay p {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  color: #faf9f6;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #faf9f6;
+  color: #08233c;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+}
+
+.back h3 {
+  margin: 10px 0;
+}
+
+.back p {
+  margin: 5px 0;
+}
+
+.social-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.social-icon {
+  margin: 0 5px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #0077b5;
+}
+
+/* Disable hover effect on smaller screens */
+@media (max-width: 600px) {
+  .player-card:hover .card-content {
+    transform: none;
+  }
+}
