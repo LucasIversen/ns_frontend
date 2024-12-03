@@ -14,8 +14,6 @@ const PlayerCard = (props: Props) => {
   const languageIsEnglish = i18n.language === "en";
 
   const handleCardClick = () => {
-    console.log("Hello");
-    console.log(window.innerWidth);
     if (window.innerWidth <= 600) {
       setIsFlipped(!isFlipped);
     }

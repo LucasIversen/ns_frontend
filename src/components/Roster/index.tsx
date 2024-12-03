@@ -26,6 +26,7 @@ const Roster = () => {
         "Wide Receiver",
         "Tight End",
         "Tackle",
+        "Tackle/Guard",
         "Guard",
         "Center",
         "Linebacker",
