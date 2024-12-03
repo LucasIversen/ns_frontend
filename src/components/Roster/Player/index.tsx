@@ -13,9 +13,14 @@ const PlayerCard = (props: Props) => {
   const { t, i18n } = useTranslation();
   const languageIsEnglish = i18n.language === "en";
 
-  const handleCardClick = () => {
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    console.log(window.innerWidth);
+
     if (window.innerWidth <= 600) {
-      setIsFlipped(!isFlipped);
+      setIsFlipped((prev) => !prev);
     }
   };
 
@@ -33,7 +38,13 @@ const PlayerCard = (props: Props) => {
   }, []);
 
   return (
-    <div key={player.id} className="player-card" onClick={handleCardClick}>
+    <div
+      key={player.id}
+      className="player-card"
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+    >
       <div className={`card-content ${isFlipped ? "flip" : ""}`}>
         <div className="front">
           <img src={player.image} alt={player.name} className="player-image" />

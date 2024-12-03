@@ -18,8 +18,10 @@
   align-items: center;
 }
 
-.player-card:hover .card-content {
-  transform: rotateY(180deg);
+@media (min-width: 600px) {
+  .player-card:hover .card-content {
+    transform: rotateY(180deg);
+  }
 }
 
 /* Flip on click by toggling a class */
@@ -105,11 +107,4 @@
 
 .social-icon:hover {
   color: #0077b5;
-}
-
-/* Disable hover effect on smaller screens */
-@media (max-width: 600px) {
-  .player-card:hover .card-content {
-    transform: none;
-  }
 }
