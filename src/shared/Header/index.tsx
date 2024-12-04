@@ -19,7 +19,12 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutUsMenuOpen, setAboutUsMenuOpen] = useState(false);
-  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
+  const [teamOpen, setTeamOpen] = useState(false);
+  const [updatesOpen, setUpdatesOpen] = useState(false);
+  const [mobileInfoSubMenuOpen, setMobileInfoSubMenuOpen] = useState(false);
+  const [mobileTeamSubMenuOpen, setMobileTeamSubMenuOpen] = useState(false);
+  const [mobileUpdatesSubMenuOpen, setMobileUpdatesSubMenuOpen] =
+    useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobileLanguageMenuOpen, setMobileLanguageMenuOpen] = useState(false);
   const [languageModalOpen, setLanguageModalOpen] = useState(false);
@@ -41,6 +46,30 @@ const Header = () => {
 
   const isMobile = windowWidth <= 920;
 
+  const setModalOpen = (modal: string) => {
+    switch (modal) {
+      case "aboutUs":
+        setAboutUsMenuOpen(true);
+        setTeamOpen(false);
+        setUpdatesOpen(false);
+        break;
+      case "team":
+        setTeamOpen(true);
+        setAboutUsMenuOpen(false);
+        setUpdatesOpen(false);
+        break;
+      case "updates":
+        setUpdatesOpen(true);
+        setAboutUsMenuOpen(false);
+        setTeamOpen(false);
+        break;
+      default:
+        setAboutUsMenuOpen(false);
+        setTeamOpen(false);
+        setUpdatesOpen(false);
+    }
+  };
+
   return (
     <div style={styles.header}>
       {!isMobile ? (
@@ -51,7 +80,7 @@ const Header = () => {
                 currentRoute === "/" ? styles.navButtonPicked : styles.navButton
               }
               onClick={() => {
-                setAboutUsMenuOpen(false);
+                setModalOpen("");
                 navigate("/");
               }}
             >
@@ -59,29 +88,27 @@ const Header = () => {
             </div>
             <div
               style={
-                currentRoute.includes("news")
+                currentRoute.includes("team")
                   ? styles.navButtonPicked
                   : styles.navButton
               }
               onClick={() => {
-                setAboutUsMenuOpen(false);
-                navigate("/news");
+                setModalOpen("team");
               }}
             >
-              {t("news")}
+              {t("team")}
             </div>
             <div
               style={
-                currentRoute.includes("media")
+                currentRoute.includes("news") || currentRoute.includes("media")
                   ? styles.navButtonPicked
                   : styles.navButton
               }
               onClick={() => {
-                setAboutUsMenuOpen(false);
-                navigate("/media");
+                setModalOpen("updates");
               }}
             >
-              {t("media")}
+              {t("updates")}
             </div>
             <div
               style={
@@ -92,8 +119,7 @@ const Header = () => {
                   : styles.navButton
               }
               onClick={() => {
-                //navigate("/faq");
-                setAboutUsMenuOpen(!aboutUsMenuOpen);
+                setModalOpen("aboutUs");
               }}
             >
               {t("info")}
@@ -105,6 +131,7 @@ const Header = () => {
               src={PrimaryLogo}
               alt="Logo"
               onClick={() => {
+                setModalOpen("");
                 navigate("/");
               }}
             />
@@ -174,6 +201,7 @@ const Header = () => {
               src={SimpleLogo}
               alt="Logo"
               onClick={() => {
+                setModalOpen("");
                 navigate("/");
               }}
             />
@@ -217,8 +245,8 @@ const Header = () => {
                 : styles.mobileNavButton
             }
             onClick={() => {
+              setModalOpen("");
               navigate("faq");
-              setAboutUsMenuOpen(false);
             }}
           >
             {t("faq")}
@@ -231,8 +259,8 @@ const Header = () => {
                 : styles.mobileNavButton
             }
             onClick={() => {
+              setModalOpen("");
               navigate("investor");
-              setAboutUsMenuOpen(false);
             }}
           >
             {t("investor")}
@@ -245,11 +273,75 @@ const Header = () => {
                 : styles.mobileNavButton
             }
             onClick={() => {
+              setModalOpen("");
               navigate("about_us");
-              setAboutUsMenuOpen(false);
             }}
           >
             {t("aboutUs")}
+          </div>
+        </div>
+      ) : null}
+
+      {!isMobile && teamOpen ? (
+        <div style={styles.mobileMenu}>
+          <div
+            style={
+              currentRoute.includes("roster")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("roster");
+            }}
+          >
+            {t("roster")}
+          </div>
+
+          <div
+            style={
+              currentRoute.includes("schedule")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("schedule");
+            }}
+          >
+            {t("schedule")}
+          </div>
+        </div>
+      ) : null}
+
+      {!isMobile && updatesOpen ? (
+        <div style={styles.mobileMenu}>
+          <div
+            style={
+              currentRoute.includes("news")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("news");
+            }}
+          >
+            {t("news")}
+          </div>
+
+          <div
+            style={
+              currentRoute.includes("media")
+                ? styles.mobileNavButtonPicked
+                : styles.mobileNavButton
+            }
+            onClick={() => {
+              setModalOpen("");
+              navigate("media");
+            }}
+          >
+            {t("media")}
           </div>
         </div>
       ) : null}
@@ -271,55 +363,117 @@ const Header = () => {
           </div>
           <div
             style={
-              currentRoute.includes("news")
+              currentRoute.includes("roster") ||
+              currentRoute.includes("schedule")
                 ? styles.mobileNavButtonPicked
                 : styles.mobileNavButton
             }
             onClick={() => {
-              navigate("/news");
-              setIsMenuOpen(false);
+              setMobileTeamSubMenuOpen(!mobileTeamSubMenuOpen);
             }}
           >
-            {t("news")}
+            {t("team")}
           </div>
+
+          {mobileTeamSubMenuOpen ? (
+            <div style={styles.mobileSubMenu}>
+              <div
+                style={styles.mobileSubNavButton}
+                onClick={() => {
+                  navigate("/roster");
+                  setMobileTeamSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("roster")}
+              </div>
+
+              <div
+                style={
+                  currentRoute.includes("faq")
+                    ? styles.mobileSubNavButtonPicked
+                    : styles.mobileSubNavButton
+                }
+                onClick={() => {
+                  navigate("/schedule");
+                  setMobileTeamSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("schedule")}
+              </div>
+            </div>
+          ) : null}
+
           <div
             style={
-              currentRoute.includes("media")
+              currentRoute.includes("news") || currentRoute.includes("media")
                 ? styles.mobileNavButtonPicked
                 : styles.mobileNavButton
             }
             onClick={() => {
-              navigate("/media");
-              setIsMenuOpen(false);
+              setMobileUpdatesSubMenuOpen(!mobileUpdatesSubMenuOpen);
             }}
           >
-            {t("media")}
+            {t("updates")}
           </div>
+
+          {mobileUpdatesSubMenuOpen ? (
+            <div style={styles.mobileSubMenu}>
+              <div
+                style={styles.mobileSubNavButton}
+                onClick={() => {
+                  navigate("/news");
+                  setMobileUpdatesSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("news")}
+              </div>
+
+              <div
+                style={
+                  currentRoute.includes("faq")
+                    ? styles.mobileSubNavButtonPicked
+                    : styles.mobileSubNavButton
+                }
+                onClick={() => {
+                  navigate("/media");
+                  setMobileUpdatesSubMenuOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t("media")}
+              </div>
+            </div>
+          ) : null}
+
           <div
             style={
               currentRoute.includes("faq") ||
               currentRoute.includes("investor") ||
               currentRoute.includes("about_us") ||
-              mobileSubMenuOpen
+              mobileInfoSubMenuOpen
                 ? styles.mobileNavButtonPicked
                 : styles.mobileNavButton
             }
             onClick={() => {
-              setMobileSubMenuOpen(!mobileSubMenuOpen);
+              setMobileInfoSubMenuOpen(!mobileInfoSubMenuOpen);
             }}
           >
             {t("info")}
           </div>
 
-          {mobileSubMenuOpen ? (
+          {mobileInfoSubMenuOpen ? (
             <div style={styles.mobileSubMenu}>
               <div
                 style={styles.mobileSubNavButton}
                 onClick={() => {
-                  setAboutUsMenuOpen(false);
                   window.open(
                     "https://www.ticketmaster.dk/artist/nordic-storm-billetter/1346323"
                   );
+                  setMobileInfoSubMenuOpen(false);
+                  setIsMenuOpen(false);
                 }}
               >
                 {t("tickets")}
@@ -333,7 +487,7 @@ const Header = () => {
                 }
                 onClick={() => {
                   navigate("faq");
-                  setMobileSubMenuOpen(false);
+                  setMobileInfoSubMenuOpen(false);
                   setIsMenuOpen(false);
                 }}
               >
@@ -348,7 +502,7 @@ const Header = () => {
                 }
                 onClick={() => {
                   navigate("investor");
-                  setMobileSubMenuOpen(false);
+                  setMobileInfoSubMenuOpen(false);
                   setIsMenuOpen(false);
                 }}
               >
@@ -363,7 +517,7 @@ const Header = () => {
                 }
                 onClick={() => {
                   navigate("about_us");
-                  setMobileSubMenuOpen(false);
+                  setMobileInfoSubMenuOpen(false);
                   setIsMenuOpen(false);
                 }}
               >
