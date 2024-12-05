@@ -57,12 +57,33 @@
   position: relative; /* Parent container for dropdowns */
 }
 
+.nav-list.right {
+  padding-right: 40px;
+  display: flex;
+  align-items: center;
+}
+
 .nav-item {
   cursor: pointer;
   font-size: 18px;
   color: #faf9f6;
   position: relative; /* Establishes a positioning context for the dropdown */
   font: Montserrat, sans-serif;
+}
+
+.nav-item.tickets {
+  background-color: #f7b500;
+  color: #08233c;
+  padding: 10px 20px;
+}
+
+.nav-item.tickets:hover {
+  color: #145593;
+  background-color: #f4ca55;
+}
+
+.nav-item:hover {
+  color: #ccc;
 }
 
 /* Dropdown container */
@@ -84,6 +105,17 @@
   z-index: 1000;
 }
 
+.dropdown.left {
+  left: auto; /* Reset left */
+  right: 0; /* Reset right */
+}
+
+/* Adjust for the language dropdown specifically */
+.nav-item:hover .dropdown.left {
+  left: auto; /* Reset left */
+  right: 0; /* Align dropdown to the right of the parent */
+}
+
 /* Show dropdown when hovering over parent */
 .nav-item:hover .dropdown {
   opacity: 1;
@@ -103,6 +135,7 @@
 
 .dropdown-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: #145593;
 }
 
 /* Footer of the dropdown */

@@ -39,5 +39,10 @@
   "height": "Højde",
   "nationality": "Nationalitet",
   "number": "Nummer",
-  "position": "Position"
+  "position": "Position",
+  "team": "Hold",
+  "updates": "Opdateringer",
+  "schedule": "Kampplan",
+  "roster": "Trup",
+  "tickets": "Billetter"
 }

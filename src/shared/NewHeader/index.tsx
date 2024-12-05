@@ -3,15 +3,6 @@ import "./Header.css"; // Import the CSS file
 import FloatingHeader from "../../assets/floating_logo.png";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faInstagram,
-  faTiktok,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { colors } from "../../assets/colors";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -71,11 +62,31 @@ const Header = () => {
           >
             {t("home")}
           </li>
-          <li className="nav-item" onClick={() => navigate("/news")}>
-            {t("news")}
+          <li
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter("team")}
+            onMouseLeave={handleMouseLeave}
+          >
+            {t("team")}
+            {activeDropdown === "team" && (
+              <ul className="dropdown">
+                <li className="dropdown-item">{t("roster")}</li>
+                <li className="dropdown-item">{t("schedule")}</li>
+              </ul>
+            )}
           </li>
-          <li className="nav-item" onClick={() => navigate("/media")}>
-            {t("media")}
+          <li
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter("news")}
+            onMouseLeave={handleMouseLeave}
+          >
+            {t("updates")}
+            {activeDropdown === "news" && (
+              <ul className="dropdown">
+                <li className="dropdown-item">{t("news")}</li>
+                <li className="dropdown-item">{t("media")}</li>
+              </ul>
+            )}
           </li>
           <li
             className="nav-item"
@@ -93,48 +104,24 @@ const Header = () => {
             )}
           </li>
         </ul>
-        <div>
-          <div>
-            <FontAwesomeIcon
-              icon={faFacebookF}
-              size="1x"
-              color={colors.offWhite}
-              onClick={() => {
-                window.open(
-                  "https://www.facebook.com/profile.php?id=61563584339767&locale=da_DK"
-                );
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faInstagram}
-              size="1x"
-              color={colors.offWhite}
-              onClick={() => {
-                window.open("https://www.instagram.com/nordicstormfootball/");
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faXTwitter}
-              size="1x"
-              color={colors.offWhite}
-              onClick={() => {
-                window.open("https://x.com/NordicStormFTB");
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faTiktok}
-              size="1x"
-              color={colors.offWhite}
-              onClick={() => {
-                window.open("https://www.tiktok.com/@nordic_storm");
-              }}
-            />
-          </div>
-          <div>
-            <div>{i18n.language.includes("en") ? "EN" : "DK"}</div>
-            <FontAwesomeIcon icon={faGlobe} size="1x" color={colors.offWhite} />
-          </div>
-        </div>
+        <ul className="nav-list right">
+          <li className="nav-item tickets" onClick={() => navigate("/tickets")}>
+            {t("tickets")}
+          </li>
+          <li
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter("language")}
+            onMouseLeave={handleMouseLeave}
+          >
+            {i18n.language.includes("en") ? "EN" : "DK"}
+            {activeDropdown === "language" && (
+              <ul className="dropdown left">
+                <li className="dropdown-item">{t("danish")}</li>
+                <li className="dropdown-item">{t("english")}</li>
+              </ul>
+            )}
+          </li>
+        </ul>
       </nav>
     </header>
   );
