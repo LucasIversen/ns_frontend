@@ -7,6 +7,7 @@ const styles: { [key: string]: CSSProperties } = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: "80px",
   },
   eventContainer: {
     display: "flex",

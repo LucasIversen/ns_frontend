@@ -49,6 +49,7 @@ const styles: { [key: string]: CSSProperties } = {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    cursor: "pointer",
   },
   logo: {
     maxWidth: "440px",

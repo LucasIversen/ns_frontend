@@ -6,6 +6,7 @@ const styles: { [key: string]: CSSProperties } = {
     width: "80%",
     margin: "50px auto",
     fontFamily: "Arial, sans-serif",
+    marginTop: "80px",
   },
   titleContainer: {
     display: "flex",

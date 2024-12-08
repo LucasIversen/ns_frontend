@@ -12,7 +12,6 @@ const styles: { [key: string]: CSSProperties } = {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    marginBottom: "50px",
   },
   image: {
     width: "80%",
@@ -20,15 +19,13 @@ const styles: { [key: string]: CSSProperties } = {
     borderRadius: "20px",
   },
   video: {
-    width: "80%",
-    maxWidth: "800px",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "20px",
+    width: "100%",
+    maxHeight: "500px",
+    objectFit: "cover",
   },
   mobileVideo: {
     width: "100%",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "20px",
   },
   imageText: {
     position: "absolute",
@@ -147,6 +144,19 @@ const styles: { [key: string]: CSSProperties } = {
   newsletterButton: {
     padding: "10px",
     cursor: "pointer",
+  },
+  instagram: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    paddingTop: "20px",
+    paddingBottom: "20px",
+    backgroundColor: colors.offWhite,
+  },
+  instagramInnerContainer: {
+    width: "80%",
+    maxWidth: "600px",
   },
 };
 

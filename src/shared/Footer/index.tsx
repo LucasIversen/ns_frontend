@@ -39,7 +39,13 @@ const Footer = () => {
           </a>
         </div>
 
-        <div style={styles.logoContainer}>
+        <div
+          style={styles.logoContainer}
+          onClick={() => {
+            navigate("/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           <img
             src={SecondaryLogo}
             alt="Nordic Storm Logo"

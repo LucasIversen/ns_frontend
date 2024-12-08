@@ -39,5 +39,13 @@
   "height": "Height",
   "nationality": "Nationality",
   "number": "Number",
-  "position": "Position"
+  "position": "Position",
+  "team": "Team",
+  "updates": "Updates",
+  "schedule": "Schedule",
+  "roster": "Roster",
+  "tickets": "Tickets",
+  "danish": "Danish",
+  "english": "English",
+  "language": "Language"
 }

@@ -7,6 +7,7 @@ const styles: { [key: string]: CSSProperties } = {
     alignItems: "center",
     height: "100vh",
     backgroundColor: "#f0f0f0",
+    marginTop: "80px",
   },
   form: {
     backgroundColor: "#ffffff",

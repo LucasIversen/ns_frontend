@@ -6,6 +6,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: "80px",
   },
   newsContainer: {
     display: "flex",
