@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Header.css"; // Import the CSS file
+import "./header.css"; // Import the CSS file
 import FloatingHeader from "../../assets/floating_logo.png";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
