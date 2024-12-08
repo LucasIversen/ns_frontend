@@ -10,6 +10,7 @@ const styles: { [key: string]: CSSProperties } = {
     padding: "40px 50px",
     height: "500px",
     backgroundColor: colors.offWhite,
+    marginTop: "80px",
   },
   newsletterBarMobile: {
     display: "flex",

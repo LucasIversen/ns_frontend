@@ -44,5 +44,8 @@
   "updates": "Updates",
   "schedule": "Schedule",
   "roster": "Roster",
-  "tickets": "Tickets"
+  "tickets": "Tickets",
+  "danish": "Danish",
+  "english": "English",
+  "language": "Language"
 }

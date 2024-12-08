@@ -40,6 +40,12 @@ const Header = () => {
     setHideTimeout(timeout);
   };
 
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng); // Switch the language
+  };
+
+  const currentRoute = window.location.pathname;
+
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div
@@ -70,8 +76,28 @@ const Header = () => {
             {t("team")}
             {activeDropdown === "team" && (
               <ul className="dropdown">
-                <li className="dropdown-item">{t("roster")}</li>
-                <li className="dropdown-item">{t("schedule")}</li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("roster") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/roster");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("roster")}
+                </li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("schedule") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/schedule");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("schedule")}
+                </li>
               </ul>
             )}
           </li>
@@ -83,8 +109,28 @@ const Header = () => {
             {t("updates")}
             {activeDropdown === "news" && (
               <ul className="dropdown">
-                <li className="dropdown-item">{t("news")}</li>
-                <li className="dropdown-item">{t("media")}</li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("news") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/news");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("news")}
+                </li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("media") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/media");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("media")}
+                </li>
               </ul>
             )}
           </li>
@@ -96,16 +142,52 @@ const Header = () => {
             {t("info")}
             {activeDropdown === "contact" && (
               <ul className="dropdown">
-                <li className="dropdown-item">{t("tickets")}</li>
-                <li className="dropdown-item">{t("faq")}</li>
-                <li className="dropdown-item">{t("investor")}</li>
-                <li className="dropdown-item">{t("aboutUs")}</li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("faq") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/faq");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("faq")}
+                </li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("investor") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/investor");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("investor")}
+                </li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("about_us") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/about_us");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("aboutUs")}
+                </li>
               </ul>
             )}
           </li>
         </ul>
         <ul className="nav-list right">
-          <li className="nav-item tickets" onClick={() => navigate("/tickets")}>
+          <li
+            className="nav-item tickets"
+            onClick={() =>
+              window.open(
+                "https://www.ticketmaster.dk/artist/nordic-storm-billetter/1346323"
+              )
+            }
+          >
             {t("tickets")}
           </li>
           <li
@@ -116,8 +198,18 @@ const Header = () => {
             {i18n.language.includes("en") ? "EN" : "DK"}
             {activeDropdown === "language" && (
               <ul className="dropdown left">
-                <li className="dropdown-item">{t("danish")}</li>
-                <li className="dropdown-item">{t("english")}</li>
+                <li
+                  className="dropdown-item"
+                  onClick={() => changeLanguage("da")}
+                >
+                  {t("danish")}
+                </li>
+                <li
+                  className="dropdown-item"
+                  onClick={() => changeLanguage("en")}
+                >
+                  {t("english")}
+                </li>
               </ul>
             )}
           </li>

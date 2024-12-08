@@ -9,7 +9,7 @@ const Schedule = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        margin: "100px 0",
+        height: "100vh",
       }}
     >
       <h1

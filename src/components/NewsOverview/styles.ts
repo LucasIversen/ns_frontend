@@ -8,6 +8,7 @@ const styles: { [key: string]: CSSProperties } = {
     justifyContent: "center",
     padding: "120px 50px 50px 50px",
     flexDirection: "column",
+    marginTop: "80px",
   },
   newsPage: {
     display: "grid",
