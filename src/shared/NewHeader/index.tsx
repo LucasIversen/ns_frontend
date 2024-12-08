@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Header.css"; // Import the CSS file
 import FloatingHeader from "../../assets/floating_logo.png";
 import { useTranslation } from "react-i18next";

@@ -18,7 +18,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { InstagramEmbed } from "react-social-media-embed";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -199,12 +198,6 @@ const Home = () => {
             </div>
           </div>
         ) : null}
-
-        {/* <div style={styles.instagram}>
-          <div style={styles.instagramInnerContainer}>
-            <InstagramEmbed url="https://www.instagram.com/nordicstormfootball/" />
-          </div>
-        </div> */}
 
         <div
           style={isMobile ? styles.newsletterBarMobile : styles.newsletterBar}
