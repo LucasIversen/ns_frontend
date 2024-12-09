@@ -17,13 +17,13 @@
 /* Logo styling */
 .logo {
   position: absolute;
-  top: 100%; /* Starts below the header */
+  top: 80%; /* Starts below the header */
   left: 50%;
   transform: translate(-50%, -50%);
   transition: top 0.3s ease, transform 0.3s ease, width 0.3s ease,
     height 0.3s ease;
-  width: 200px;
-  height: 100px;
+  width: 140px;
+  height: 70px;
   cursor: pointer;
 }
 
@@ -35,9 +35,9 @@
 
 /* Shrunk logo style */
 .logo.shrunk {
-  top: 75%; /* Moves up when scrolled */
-  width: 140px;
-  height: 70px;
+  top: 60%; /* Moves up when scrolled */
+  width: 100px;
+  height: 50px;
 }
 
 /* Navigation styling */
@@ -66,18 +66,18 @@
 
 .nav-item {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   color: #faf9f6;
   position: relative; /* Establishes a positioning context for the dropdown */
   font: Montserrat, sans-serif;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .nav-item.tickets {
   background-color: #f7b500;
   color: #08233c;
-  padding: 10px 20px;
+  padding: 5px 10px;
 }
 
 .nav-item.tickets:hover {
