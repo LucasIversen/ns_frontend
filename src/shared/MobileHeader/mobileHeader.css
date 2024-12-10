@@ -1,5 +1,5 @@
 /* Sticky header styling */
-.header {
+.mobile-header {
   position: fixed; /* Keeps the header at the top of the viewport */
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@
 }
 
 /* Logo styling */
-.logo {
+.mobile-logo {
   position: absolute;
   top: 80%; /* Starts below the header */
   left: 50%;
@@ -27,21 +27,21 @@
   cursor: pointer;
 }
 
-.logo img {
+.mobile-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 /* Shrunk logo style */
-.logo.shrunk {
+.mobile-logo.shrunk {
   top: 60%; /* Moves up when scrolled */
   width: 100px;
   height: 50px;
 }
 
 /* Navigation styling */
-.nav {
+.mobile-nav {
   margin-top: 5px; /* Ensure the navigation is below the logo */
   display: flex;
   align-items: center;
@@ -50,7 +50,7 @@
   margin: 0 20 0 20;
 }
 
-.nav-list {
+.mobile-nav-list {
   list-style: none;
   display: flex;
   gap: 20px;
@@ -58,13 +58,13 @@
   margin: 0 20 0 20;
 }
 
-.nav-list.right {
+.mobile-nav-list.right {
   padding-right: 40px;
   display: flex;
   align-items: center;
 }
 
-.nav-item {
+.mobile-nav-item {
   cursor: pointer;
   font-size: 14px;
   color: #faf9f6;
@@ -74,18 +74,18 @@
   margin-right: 10px;
 }
 
-.nav-item.tickets {
+.mobile-nav-item.tickets {
   background-color: #f7b500;
   color: #08233c;
   padding: 5px 10px;
 }
 
-.nav-item.tickets:hover {
+.mobile-nav-item.tickets:hover {
   color: #145593;
   background-color: #f4ca55;
 }
 
-.nav-item:hover {
+.mobile-nav-item:hover {
   color: #ccc;
 }
 

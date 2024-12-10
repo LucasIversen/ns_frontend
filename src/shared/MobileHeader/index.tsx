@@ -44,9 +44,9 @@ const MobileHeader = () => {
   };
 
   return (
-    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
+    <header className={`mobile-header ${isScrolled ? "scrolled" : ""}`}>
       <div
-        className={`logo ${isScrolled ? "shrunk" : ""}`}
+        className={`mobile-logo ${isScrolled ? "shrunk" : ""}`}
         onClick={() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
           performNavigate("/");
@@ -54,8 +54,8 @@ const MobileHeader = () => {
       >
         <img src={FloatingHeader} alt="Logo" />
       </div>
-      <nav className="nav">
-        <div className="nav-item">
+      <nav className="mobile-nav">
+        <div className="mobile-nav-item">
           <FontAwesomeIcon
             icon={isMenuOpen ? faTimes : faBars}
             size="2x"
@@ -65,7 +65,7 @@ const MobileHeader = () => {
           />
         </div>
         <div
-          className="nav-item tickets"
+          className="mobile-nav-item tickets"
           onClick={() =>
             window.open(
               "https://www.ticketmaster.dk/artist/nordic-storm-billetter/1346323"
