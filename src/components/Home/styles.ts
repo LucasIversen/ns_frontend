@@ -20,7 +20,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
   video: {
     width: "100%",
-    maxHeight: "500px",
+    maxHeight: "60vh",
     objectFit: "cover",
   },
   mobileVideo: {
