@@ -47,11 +47,19 @@ const styles: { [key: string]: CSSProperties } = {
     maxHeight: "500px",
     width: "100%",
   },
+  innerImageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    borderRadius: "20px",
+    backgroundColor: "#e5e5e5",
+  },
   image: {
-    height: "auto",
+    height: "100%",
     maxHeight: "500px",
     objectFit: "cover",
-    width: "100%",
+    width: "auto",
   },
   imageCaption: {
     fontSize: "12px",
