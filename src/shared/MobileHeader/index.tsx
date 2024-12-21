@@ -160,19 +160,6 @@ const MobileHeader = () => {
             )}
           </li>
 
-          <li>
-            <div
-              className="submenu-header"
-              onClick={() =>
-                window.open(
-                  "https://www.ticketmaster.dk/artist/nordic-storm-billetter/1346323"
-                )
-              }
-            >
-              {t("tickets")}
-            </div>
-          </li>
-
           {/* Language Menu */}
           <li>
             <div
