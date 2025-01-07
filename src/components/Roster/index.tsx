@@ -45,6 +45,7 @@ const Roster = () => {
         "Cornerback",
         "Defensive End",
         "Defensive Back",
+        "Defensive Back/Return Specialist",
         "Defensive Tackle",
         "Safety",
         "Safety/Return Specialist",
