@@ -4,7 +4,6 @@ import Video from "../../assets/video.mp4";
 import NewsItem from "./NewsItem";
 import { useTranslation } from "react-i18next";
 import {
-  addDoc,
   collection,
   getDocs,
   limit,
@@ -85,23 +84,25 @@ const Home = () => {
   }, []);
 
   const newsletterSignUp = async () => {
-    try {
-      const isEmailValid = email.includes("@") && email.includes(".");
-      if (!isEmailValid) {
-        alert(t("enterValidEmail"));
-      } else {
-        // add to database
-        const docRef = await addDoc(collection(db, "newsletterSignups"), {
-          email,
-        });
-        console.log("Document written with ID: ", docRef.id);
+    const isEmailValid = email.includes("@") && email.includes(".");
+    if (!isEmailValid) {
+      alert(t("enterValidEmail"));
+    } else {
+      const mcEndpoint =
+        "https://nordicstorm.us14.list-manage.com/subscribe/post?u=4733b77aff832ee71ea28fe20&id=2afc549ac1";
+      const params = new URLSearchParams({
+        EMAIL: email,
+      });
 
-        console.log(email);
-        setEmail("");
-        alert(t("newsletterSignUpSuccess"));
-      }
-    } catch (error) {
-      alert(t("newsletterSignUpError"));
+      fetch(`${mcEndpoint}&${params.toString()}`, {
+        method: "POST",
+        mode: "no-cors",
+      })
+        .then(() => {
+          alert(t("newsletterSignUpSuccess"));
+          setEmail("");
+        })
+        .catch(() => alert(t("newsletterSignUpError")));
     }
   };
 
