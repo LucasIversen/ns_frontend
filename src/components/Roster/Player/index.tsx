@@ -50,7 +50,7 @@ const PlayerCard = (props: Props) => {
           <img src={player.image} alt={player.name} className="player-image" />
           <div className="overlay">
             <h3>{player.name}</h3>
-            {player.number ? (
+            {player.number !== null ? (
               <p>
                 #{player.number} - {player.position}
               </p>
