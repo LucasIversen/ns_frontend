@@ -60,6 +60,7 @@ const styles: { [key: string]: CSSProperties } = {
     maxHeight: "500px",
     objectFit: "cover",
     width: "auto",
+    maxWidth: "100%",
   },
   imageCaption: {
     fontSize: "12px",
