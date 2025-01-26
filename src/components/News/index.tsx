@@ -35,28 +35,27 @@ const News = () => {
     fetchSingleNews();
   }, []);
 
+  if (!news) return <p>Loading...</p>;
+
   const languageIsEnglish = i18n.language.includes("en");
   const parts = !news ? [] : languageIsEnglish ? news.partsEn : news.parts;
 
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Nordic Storm - Latest News</title>
+        <title>{news.title}</title>
+        <meta property="og:title" content={news.title} />
+        <meta property="og:description" content={news.description} />
+        <meta property="og:image" content={news.articleImage || ""} />
         <meta
-          name="description"
-          content="Read the latest news on Nordic Storm."
+          property="og:url"
+          content={`https://nordicstorm.net/news/${news.id}`}
         />
-        <meta
-          name="keywords"
-          content="Nordic Storm, American Football Copenhagen, American Football Denmark, American Football Sweden, Football Copenhagen, Football Denmark, Football Sweden, Copenhagen Football Team, ELF Team Denmark, ELF Team Sweden, ELF Team Nordic, ELF Team Copenhagen"
-        />
-        <meta property="og:title" content="Nordic Storm - Latest News" />
-        <meta
-          property="og:description"
-          content="Read the latest news on Nordic Storm."
-        />
-        <meta property="og:image" content="/assets/primary_logo-oczmX7WM.png" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={news.title} />
+        <meta name="twitter:description" content={news.description} />
+        <meta name="twitter:image" content={news.articleImage || ""} />
       </Helmet>
       <div style={styles.newsOuterContainer}>
         {news ? (

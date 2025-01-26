@@ -62,7 +62,7 @@ const News = () => {
           {news.map((newsItem) => (
             <div key={newsItem.id} style={styles.newsItem}>
               <div style={styles.newsTitle}>
-                {newsItem.title} - {newsItem.newsDate}
+                {newsItem.id} - {newsItem.title} - {newsItem.newsDate}
               </div>
               <div style={styles.buttons}>
                 <div
