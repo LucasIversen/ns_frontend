@@ -20,6 +20,7 @@ type matchup = {
   home: boolean;
   teamLogo: string;
   bye: boolean | null;
+  time: string | null;
 };
 
 const Schedule = () => {
@@ -60,12 +61,16 @@ const Schedule = () => {
           <div className="matchup_header">
             <div className="week">
               <div className="week_text">{t("week") + " " + matchup.week}</div>
-              {matchup.date !== null && matchup.date !== "" ? (
+              {!!matchup.date && matchup.date !== "" ? (
                 <div className="dot">•</div>
               ) : null}
               <div className="date">
                 {i18n.language === "en" ? matchup.dateEn : matchup.date}
               </div>
+              {!!matchup.time && matchup.time !== "" ? (
+                <div className="dot">•</div>
+              ) : null}
+              <div className="date">{matchup.time}</div>
             </div>
             {matchup.result !== null ? (
               <div className="result">
