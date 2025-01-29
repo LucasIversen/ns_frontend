@@ -178,6 +178,14 @@ const Header = () => {
               </ul>
             )}
           </li>
+          <li
+            className="nav-item"
+            onClick={() =>
+              window.open("https://nordicstorm.shop/shop/frontpage.html")
+            }
+          >
+            {t("shop")}
+          </li>
         </ul>
         <ul className="nav-list right">
           <li

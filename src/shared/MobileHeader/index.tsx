@@ -160,6 +160,17 @@ const MobileHeader = () => {
             )}
           </li>
 
+          <li>
+            <div
+              className="submenu-header"
+              onClick={() =>
+                window.open("https://nordicstorm.shop/shop/frontpage.html")
+              }
+            >
+              {t("shop")}
+            </div>
+          </li>
+
           {/* Language Menu */}
           <li>
             <div
