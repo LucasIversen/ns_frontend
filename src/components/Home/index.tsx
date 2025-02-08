@@ -17,13 +17,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { matchup } from "../Schedule/interfaces";
+import "./home.css";
 
 const Home = () => {
+  const calculateTimeLeft = () => {
+    if (!nextHomeGame?.isoTime) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+    const now = new Date();
+    const target = new Date(nextHomeGame.isoTime);
+    const difference = target.getTime() - now.getTime();
+
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0 };
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    return { days, hours, minutes, seconds };
+  };
+
   const { t, i18n } = useTranslation();
   const [news, setNews] = useState<any[]>([]);
   const [media, setMedia] = useState<any[]>([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [email, setEmail] = useState<string>("");
+  const [nextHomeGame, setNextHomeGame] = useState<matchup | null>(null);
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -49,7 +73,6 @@ const Home = () => {
           id: doc.id,
         }));
         setNews(newData);
-        console.log(news, newData);
       })
       .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -65,13 +88,35 @@ const Home = () => {
 
     await getDocs(mediaQuery)
       .then((querySnapshot) => {
-        console.log("querySnapshot", querySnapshot);
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
         setMedia(newData);
-        console.log(media, newData);
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+  };
+
+  const fetchNextHomeGame = async () => {
+    const matchupQuery = query(
+      collection(db, "schedule"),
+      where("home", "==", true),
+      where("result", "==", null),
+      orderBy("week"),
+      limit(1)
+    );
+
+    await getDocs(matchupQuery)
+      .then((querySnapshot) => {
+        const nextHomeGame = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))[0] as matchup;
+        console.log("nextHomeGame", nextHomeGame);
+
+        setNextHomeGame(nextHomeGame);
       })
       .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -81,6 +126,7 @@ const Home = () => {
   useEffect(() => {
     fetchNews();
     fetchMedia();
+    fetchNextHomeGame();
   }, []);
 
   const newsletterSignUp = async () => {
@@ -105,6 +151,14 @@ const Home = () => {
         .catch(() => alert(t("newsletterSignUpError")));
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [nextHomeGame]);
 
   const isMobile = windowWidth <= 920;
   const languageIsEnglish = i18n.language.includes("en");
@@ -143,6 +197,104 @@ const Home = () => {
             muted
             playsInline
           />
+
+          {nextHomeGame && !isMobile ? (
+            <div style={styles.nextGameBar}>
+              <div style={styles.nextGameInfo}>
+                <div style={styles.timeAndDate}>
+                  <div style={styles.nextGameDate}>
+                    {i18n.language === "en"
+                      ? nextHomeGame.dateEn
+                      : nextHomeGame.date}
+                  </div>
+                  <div style={styles.nextGameTime}>{nextHomeGame.time}</div>
+                </div>
+                <div style={styles.nextGameTeam}>
+                  <img
+                    style={styles.nextGameLogo}
+                    src={nextHomeGame.teamLogo}
+                    alt="Team Logo"
+                  />
+                </div>
+                <div style={styles.nextGameName}>{nextHomeGame.teamName}</div>
+                {nextHomeGame.isoTime && (
+                  <div style={styles.nextGameCountdown}>
+                    {languageIsEnglish ? (
+                      <div style={styles.nextGameCountdownTime}>
+                        {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
+                        {timeLeft.seconds}s
+                      </div>
+                    ) : (
+                      <div style={styles.nextGameCountdownTime}>
+                        {timeLeft.days}d {timeLeft.hours}t {timeLeft.minutes}m{" "}
+                        {timeLeft.seconds}s
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div style={styles.ticketsContainer}>
+                  <div className="next_game_tickets">
+                    <a
+                      href={nextHomeGame.ticketsLink || ""}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t("tickets")}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : nextHomeGame && isMobile ? (
+            <div style={styles.nextGameBar}>
+              <div style={styles.nextGameInfoMobile}>
+                <div style={styles.nextGameTopInfoMobile}>
+                  <div style={styles.nextGameTeam}>
+                    <img
+                      style={styles.nextGameLogo}
+                      src={nextHomeGame.teamLogo}
+                      alt="Team Logo"
+                    />
+                  </div>
+                  <div style={styles.nextGameName}>{nextHomeGame.teamName}</div>
+                  <div style={styles.timeAndDate}>
+                    <div style={styles.nextGameDate}>
+                      {i18n.language === "en"
+                        ? nextHomeGame.dateEn
+                        : nextHomeGame.date}
+                    </div>
+                    <div style={styles.nextGameTime}>{nextHomeGame.time}</div>
+                  </div>
+                  <div style={styles.ticketsContainer}>
+                    <div className="next_game_tickets_mobile">
+                      <a
+                        href={nextHomeGame.ticketsLink || ""}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {t("tickets")}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {nextHomeGame.isoTime && (
+                  <div style={styles.nextGameCountdownMobile}>
+                    {languageIsEnglish ? (
+                      <div style={styles.nextGameCountdownTime}>
+                        {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
+                        {timeLeft.seconds}s
+                      </div>
+                    ) : (
+                      <div style={styles.nextGameCountdownTime}>
+                        {timeLeft.days}d {timeLeft.hours}t {timeLeft.minutes}m{" "}
+                        {timeLeft.seconds}s
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : null}
         </div>
 
         {news.length > 0 ? (

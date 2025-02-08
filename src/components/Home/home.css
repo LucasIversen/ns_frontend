@@ -1,0 +1,57 @@
+.next_game_tickets {
+  background-color: #08233c;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.next_game_tickets a {
+  color: #faf9f6;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Montserrat, sans-serif;
+}
+
+.next_game_tickets.disabled {
+  background-color: #dad9d3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.next_game_tickets:hover {
+  background-color: #f7b500;
+}
+
+.next_game_tickets:hover a {
+  color: #08233c;
+}
+
+.next_game_tickets_mobile {
+  background-color: #08233c;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.next_game_tickets_mobile a {
+  color: #faf9f6;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+}
+
+.next_game_tickets_mobile.disabled {
+  background-color: #dad9d3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.next_game_tickets_mobile:hover {
+  background-color: #f7b500;
+}
+
+.next_game_tickets_mobile:hover a {
+  color: #08233c;
+}

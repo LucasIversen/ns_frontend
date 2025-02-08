@@ -6,22 +6,7 @@ import { useTranslation } from "react-i18next";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../assets/colors";
-
-type matchup = {
-  id: string;
-  date: string | null;
-  dateEn: string | null;
-  week: number;
-  teamName: string;
-  ticketsLink: string | null;
-  result: string | null;
-  win: boolean | null;
-  location: string | null;
-  home: boolean;
-  teamLogo: string;
-  bye: boolean | null;
-  time: string | null;
-};
+import { matchup } from "./interfaces";
 
 const Schedule = () => {
   const [matchups, setMatchups] = useState<matchup[]>([]);

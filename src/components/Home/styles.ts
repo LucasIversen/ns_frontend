@@ -12,6 +12,9 @@ const styles: { [key: string]: CSSProperties } = {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    position: "relative",
+    paddingBottom: "100px",
+    backgroundColor: colors.offWhite,
   },
   image: {
     width: "80%",
@@ -157,6 +160,90 @@ const styles: { [key: string]: CSSProperties } = {
   instagramInnerContainer: {
     width: "80%",
     maxWidth: "600px",
+  },
+  nextGameBar: {
+    position: "absolute", // Floats relative to bannerImage
+    bottom: 40, // Moves it up into the video by 40px
+    zIndex: 10, // Ensures it appears above the video
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+  },
+  nextGameInfo: {
+    width: "90%",
+    maxWidth: "1000px",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 2fr 2fr",
+    height: "100px",
+    backgroundColor: colors.white,
+    borderRadius: "10px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+  },
+  nextGameInfoMobile: {
+    width: "90%",
+    maxWidth: "1000px",
+    display: "flex",
+    flexDirection: "column",
+    height: "140px",
+    backgroundColor: colors.white,
+    borderRadius: "10px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+  },
+  nextGameTopInfoMobile: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "70px",
+  },
+  nextGameTeam: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  nextGameLogo: {
+    height: "80px",
+    width: "auto",
+  },
+  timeAndDate: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: "Montserrat, sans-serif",
+    color: colors.darkBlue,
+    fontSize: "clamp(12px, 2vw, 18px)",
+  },
+  nextGameName: {
+    fontSize: "clamp(12px, 2vw, 18px)",
+    fontFamily: "Montserrat, sans-serif",
+    color: colors.darkBlue,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  nextGameCountdown: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "clamp(18px, 2vw, 24px)",
+    fontFamily: "Montserrat, sans-serif",
+    color: colors.darkBlue,
+  },
+  ticketsContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "0 20px",
+  },
+  nextGameCountdownMobile: {
+    display: "flex",
+    height: "70px",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "clamp(18px, 2vw, 24px)",
+    fontFamily: "Montserrat, sans-serif",
+    color: colors.darkBlue,
   },
 };
 
