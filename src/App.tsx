@@ -17,6 +17,7 @@ import OnlineEvent from "./components/OnlineEvent";
 import Roster from "./components/Roster";
 import Schedule from "./components/Schedule";
 import NewsletterUnsubscripe from "./components/NewsletterUnsubscripe";
+import Cheer from "./components/Cheer";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             path="newsletter_unsubscripe"
             element={<NewsletterUnsubscripe />}
           />
+          <Route path="cheer" element={<Cheer />} />
           <Route path="login" element={<Login />} />
           <Route
             path="cms"

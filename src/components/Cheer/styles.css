@@ -1,0 +1,158 @@
+/* Fix: Apply border-box to all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf9f6;
+}
+
+.audition-form-container {
+  width: 80%;
+  max-width: 700px;
+  padding: 100px 0px 50px 0px;
+  margin: auto;
+  text-align: center;
+}
+
+.audition-form-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+}
+
+.audition-form-container h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+}
+
+.audition-form-container p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+}
+
+.requirements h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+}
+
+.requirements ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.requirements li {
+  font-size: 14px;
+  border-radius: 8px;
+  width: auto;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+}
+
+.audition-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.audition-form input,
+.audition-form select,
+.audition-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.file-upload-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0px;
+  width: 100%;
+}
+
+.file-upload-box {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+button {
+  background-color: #f7b500;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #dad9d3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+button:hover {
+  background-color: #f4ca55;
+}
+
+.interview-option {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.interview-option:hover {
+  background-color: #f0f0f0;
+}
+
+.interview-option.selected {
+  background-color: #d4edda; /* Light green */
+  border-color: #28a745; /* Green border */
+  color: #155724;
+}

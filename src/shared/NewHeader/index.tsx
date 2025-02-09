@@ -144,6 +144,17 @@ const Header = () => {
               <ul className="dropdown">
                 <li
                   className={`dropdown-item ${
+                    currentRoute.includes("cheer") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/cheer");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {t("cheer")}
+                </li>
+                <li
+                  className={`dropdown-item ${
                     currentRoute.includes("faq") ? "active" : ""
                   }`}
                   onClick={() => {

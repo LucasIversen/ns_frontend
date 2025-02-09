@@ -164,7 +164,7 @@ const styles: { [key: string]: CSSProperties } = {
   nextGameBar: {
     position: "absolute", // Floats relative to bannerImage
     bottom: 40, // Moves it up into the video by 40px
-    zIndex: 10, // Ensures it appears above the video
+    zIndex: 2, // Ensures it appears above the video
     width: "100%",
     display: "flex",
     justifyContent: "center",
@@ -191,7 +191,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
   nextGameTopInfoMobile: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+    gridTemplateColumns: "1fr 1fr 1fr 2fr",
     justifyContent: "center",
     alignItems: "center",
     height: "70px",
@@ -200,6 +200,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
   },
   nextGameLogo: {
     height: "80px",
@@ -213,6 +214,7 @@ const styles: { [key: string]: CSSProperties } = {
     fontFamily: "Montserrat, sans-serif",
     color: colors.darkBlue,
     fontSize: "clamp(12px, 2vw, 18px)",
+    textAlign: "center",
   },
   nextGameName: {
     fontSize: "clamp(12px, 2vw, 18px)",
@@ -221,6 +223,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
   },
   nextGameCountdown: {
     display: "flex",
@@ -229,6 +232,7 @@ const styles: { [key: string]: CSSProperties } = {
     fontSize: "clamp(18px, 2vw, 24px)",
     fontFamily: "Montserrat, sans-serif",
     color: colors.darkBlue,
+    textAlign: "center",
   },
   ticketsContainer: {
     display: "flex",

@@ -149,6 +149,7 @@ const MobileHeader = () => {
             </div>
             {activeSubmenu === "info" && (
               <ul className="submenu">
+                <li onClick={() => performNavigate("/cheer")}>{t("cheer")}</li>
                 <li onClick={() => performNavigate("/faq")}>{t("faq")}</li>
                 <li onClick={() => performNavigate("/investor")}>
                   {t("investor")}
