@@ -81,7 +81,7 @@
 
 .file-upload-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
   gap: 20px;
   align-items: center;
   justify-content: center;
@@ -90,15 +90,19 @@
 }
 
 .file-upload-box {
-  width: 100%;
   height: 100px;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   background-color: white;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 input,
@@ -116,7 +120,7 @@ select {
   font-weight: bold;
 }
 
-button {
+.audition-form-container button {
   background-color: #f7b500;
   border: none;
   padding: 12px;
@@ -124,13 +128,13 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
+.audition-form-container button:disabled {
   background-color: #dad9d3;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-button:hover {
+.audition-form-container button:hover {
   background-color: #f4ca55;
 }
 
