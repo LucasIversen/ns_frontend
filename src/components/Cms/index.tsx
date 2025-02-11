@@ -5,6 +5,8 @@ import News from "./News";
 import Media from "./Media";
 import Investor from "./Investor";
 import Faq from "./Faq";
+import CheerSignups from "./CheerSignups";
+import { auth } from "../../firebase";
 
 const Cms = () => {
   const [tab, setTab] = useState("news");
@@ -21,10 +23,21 @@ const Cms = () => {
         return <Investor />;
       case "newsletter":
         return <Newsletter />;
+      case "cheer":
+        return <CheerSignups />;
       default:
         return <div>News</div>;
     }
   };
+
+  const userIsDevin = auth.currentUser?.uid === "cRuGBHss6PbxsDuHXSHv3aTLYI93";
+  if (userIsDevin) {
+    return (
+      <div style={styles.tabContentDevin}>
+        <CheerSignups />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -58,6 +71,12 @@ const Cms = () => {
           onClick={() => setTab("newsletter")}
         >
           Nyhedsbrev
+        </div>
+        <div
+          style={tab == "cheer" ? styles.tabSelected : styles.tab}
+          onClick={() => setTab("cheer")}
+        >
+          Cheer Audition
         </div>
       </div>
 

@@ -43,6 +43,17 @@
   font-family: Montserrat, sans-serif;
 }
 
+.audition-form-container a {
+  font-size: 18px;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+}
+
+.audition-form-container a:hover {
+  text-decoration: underline;
+}
+
 .requirements h4 {
   font-size: 16px;
   font-weight: bold;
@@ -69,6 +80,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 25px;
 }
 
 .audition-form input,

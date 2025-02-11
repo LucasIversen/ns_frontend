@@ -53,6 +53,7 @@
   "shop": "Shop",
   "cheer": "Cheerleading",
   "cheer_form": {
+    "learn_more": "Learn more about Nordic Storm Cheerleaders here",
     "title": "Nordic Storm Cheerleading Auditions",
     "description": "Join our team and showcase your cheer and dance skills. Fill out the form below to register for the auditions.",
     "success_message": "Your audition has been submitted successfully!",

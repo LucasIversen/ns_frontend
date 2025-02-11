@@ -27,6 +27,12 @@ const styles: { [key: string]: CSSProperties } = {
     flexDirection: "column",
     alignItems: "center",
   },
+  tabContentDevin: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "100px",
+  },
 };
 
 export default styles;

@@ -206,6 +206,14 @@ const Cheer = () => {
             </ul>
           </div>
 
+          <a
+            href="https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/cheerAuditions%2FNordic%20Storm_Cheerleading%20Tryout%20Info%20and%20Requirements.pdf?alt=media&token=9d88ce3d-62c9-446f-b1e3-be8a22bda4d3"
+            className="cta-button"
+            target="_blank"
+          >
+            {t("cheer_form.learn_more")}
+          </a>
+
           {success ? (
             <div className="success-message">
               {t("cheer_form.success_message")}
