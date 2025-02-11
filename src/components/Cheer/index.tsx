@@ -278,6 +278,7 @@ const Cheer = () => {
                 required
                 onChange={handleChange}
               />
+              <label>{t("cheer_form.date_of_birth")}</label>
               <input
                 type="date"
                 name="dateOfBirth"

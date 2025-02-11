@@ -101,6 +101,13 @@
   width: 100%;
 }
 
+@media (max-width: 600px) {
+  .file-upload-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .file-upload-box {
   height: 100px;
   display: flex;
