@@ -44,10 +44,9 @@
 }
 
 .audition-form-container a {
-  font-size: 18px;
-  color: #08233c;
+  font-size: 16px;
+  color: #00aff0;
   font-family: Montserrat, sans-serif;
-  font-weight: bold;
 }
 
 .audition-form-container a:hover {
@@ -185,4 +184,31 @@ select {
   background-color: #d4edda; /* Light green */
   border-color: #28a745; /* Green border */
   color: #155724;
+}
+
+.disclaimer {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.disclaimer input {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.disclaimer p {
+  font-size: 14px;
+  color: #08233c;
+  font-family: Montserrat, sans-serif;
+}
+
+.disclaimer a {
+  font-size: 14px;
+  color: #00aff0;
+  font-family: Montserrat, sans-serif;
 }

@@ -45,6 +45,7 @@ const Cheer = () => {
   const [auditionVideo, setAuditionVideo] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const { t } = useTranslation();
 
   const formFilledOut = useMemo(
@@ -57,8 +58,10 @@ const Cheer = () => {
   );
 
   const interviewDays = [
+    t("cheer_form.monday"),
     t("cheer_form.tuesday"),
     t("cheer_form.wednesday"),
+    t("cheer_form.thursday"),
     t("cheer_form.friday"),
   ];
 
@@ -205,14 +208,6 @@ const Cheer = () => {
               <li>{t("cheer_form.info.date_3")}</li>
             </ul>
           </div>
-
-          <a
-            href="https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/cheerAuditions%2FNordic%20Storm_Cheerleading%20Tryout%20Info%20and%20Requirements.pdf?alt=media&token=9d88ce3d-62c9-446f-b1e3-be8a22bda4d3"
-            className="cta-button"
-            target="_blank"
-          >
-            {t("cheer_form.learn_more")}
-          </a>
 
           {success ? (
             <div className="success-message">
@@ -384,7 +379,24 @@ const Cheer = () => {
                 </div>
               </div>
 
-              <button type="submit" disabled={loading || !formFilledOut}>
+              <div className="disclaimer">
+                <input
+                  type="checkbox"
+                  required
+                  onClick={() => setTermsAccepted(!termsAccepted)}
+                />
+                <p className="disclaimer-text">
+                  {t("cheer_form.disclaimer_text") + " "}
+                  <a href="https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/cheerAuditions%2FNordic%20Storm_Cheerleading%20Audition%20Info%20and%20Requirements.pdf?alt=media&token=a0661983-52d9-4237-b55a-8adc3616ace9">
+                    {t("cheer_form.disclaimer_link")}
+                  </a>
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading || !formFilledOut || !termsAccepted}
+              >
                 {loading ? t("cheer_form.submitting") : t("cheer_form.submit")}
               </button>
             </form>

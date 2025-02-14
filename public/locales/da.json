@@ -72,8 +72,10 @@
     "tshirt_large": "Large",
     "tshirt_xlarge": "X-Large",
     "interview_availability": "Tilgængelighed til interview:",
+    "monday": "Mandag (03/03)",
     "tuesday": "Tirsdag (04/03)",
     "wednesday": "Onsdag (05/03)",
+    "thursday": "Torsdag (06/03)",
     "friday": "Fredag (07/03)",
     "social_media": "Sociale medier",
     "experience": "Erfaring med dans/cheer",
@@ -83,11 +85,14 @@
     "submitting": "Indsender...",
     "submit": "Indsend audition",
     "date_of_birth": "Fødselsdato",
+    "date_3": "22/03: Finale audition i København",
+    "disclaimer_text": "Jeg har læst og accepterer",
+    "disclaimer_link": "tryout betingelserne og vilkårene",
     "info": {
       "title": "Nordic Storm Cheerleading Auditions",
       "intro": "Vi søger passionerede og energiske dansere til Nordic Storm Cheerleaders! Vis dine færdigheder og bliv en del af en spændende sæson med optrædener på Gladsaxe Stadion og muligvis rejser i hele Europa.",
       "position_title": "Danser Position",
-      "position_desc": "Som Nordic Storm Cheerleader vil du udføre hip hop-, jazz- og pom-koreografier, underholde fans og repræsentere holdet ved arrangementer. Du skal være fysisk fit og kunne udføre energiske rutiner.",
+      "position_desc": "Som Nordic Storm Cheerleader vil du udføre hip hop-, jazz- og pom-koreografier, underholde fans og repræsentere holdet ved arrangementer. Du skal være fysisk fit og kunne udføre energiske rutiner. Danser er en ulønnet position, men atleterne er ikke forpligtet til at betale for at være på holdet og vil blive kompenseret på andre måder (se Information og Krav).",
       "requirements_title": "Krav",
       "requirement_1": "Skal være mindst 18 år ved tilmelding.",
       "requirement_2": "Indsend et headshot og en 45-sekunders freestyle-video.",
@@ -98,8 +103,7 @@
       "tryout_3": "Finale auditions afholdes live i København.",
       "dates_title": "Vigtige Datoer",
       "date_1": "10/02: Audition tilmelding åbner",
-      "date_2": "28/02: Deadline for tilmelding & videoindsendelse",
-      "date_3": "22/03: Finale audition i København"
+      "date_2": "28/02: Deadline for tilmelding & videoindsendelse"
     }
   }
 }
