@@ -387,7 +387,10 @@ const Cheer = () => {
                 />
                 <p className="disclaimer-text">
                   {t("cheer_form.disclaimer_text") + " "}
-                  <a href="https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/cheerAuditions%2FNordic%20Storm_Cheerleading%20Audition%20Info%20and%20Requirements.pdf?alt=media&token=a0661983-52d9-4237-b55a-8adc3616ace9">
+                  <a
+                    href="https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/cheerAuditions%2FNordic%20Storm_Cheerleading%20Audition%20Info%20and%20Requirements.pdf?alt=media&token=a0661983-52d9-4237-b55a-8adc3616ace9"
+                    target="_blank"
+                  >
                     {t("cheer_form.disclaimer_link")}
                   </a>
                 </p>
