@@ -48,6 +48,7 @@ const Home = () => {
   const [email, setEmail] = useState<string>("");
   const [nextHomeGame, setNextHomeGame] = useState<matchup | null>(null);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [firstName, setFirstName] = useState<string>("");
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -131,22 +132,25 @@ const Home = () => {
 
   const newsletterSignUp = async () => {
     const isEmailValid = email.includes("@") && email.includes(".");
-    if (!isEmailValid) {
+    if (!isEmailValid || firstName === "") {
       alert(t("enterValidEmail"));
     } else {
-      const mcEndpoint =
-        "https://nordicstorm.us14.list-manage.com/subscribe/post?u=4733b77aff832ee71ea28fe20&id=2afc549ac1";
-      const params = new URLSearchParams({
-        EMAIL: email,
-      });
+      const mailchimpUrl =
+        "https://nordicstorm.us14.list-manage.com/subscribe/post?u=4733b77aff832ee71ea28fe20&id=2afc549ac1&f_id=00bcc2e1f0";
+      const formData = new FormData();
+      formData.append("EMAIL", email);
+      formData.append("FNAME", firstName);
+      formData.append("tags", "271");
 
-      fetch(`${mcEndpoint}&${params.toString()}`, {
+      fetch(mailchimpUrl, {
         method: "POST",
-        mode: "no-cors",
+        body: formData,
+        mode: "no-cors", // This avoids CORS issues, but limits response handling
       })
         .then(() => {
           alert(t("newsletterSignUpSuccess"));
           setEmail("");
+          setFirstName("");
         })
         .catch(() => alert(t("newsletterSignUpError")));
     }
@@ -356,13 +360,26 @@ const Home = () => {
           style={isMobile ? styles.newsletterBarMobile : styles.newsletterBar}
         >
           <div style={styles.newsletterTitle}>{t("newsletterSignUp")}</div>
-          <div style={styles.newsletterInputContatiner}>
+          <div
+            style={
+              isMobile
+                ? styles.newsletterInputMobileContatiner
+                : styles.newsletterInputContatiner
+            }
+          >
             <input
               style={styles.newsletterInput}
               type="email"
               placeholder={t("email")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              style={styles.newsletterInput}
+              type="text"
+              placeholder={t("name")}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
             <div style={styles.newsletterButton} onClick={newsletterSignUp}>
               <FontAwesomeIcon

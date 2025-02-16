@@ -127,11 +127,18 @@ const styles: { [key: string]: CSSProperties } = {
     fontFamily: "Montserrat, sans-serif",
     color: colors.offWhite,
     textTransform: "uppercase",
+    textAlign: "center",
   },
   newsletterInputContatiner: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+  },
+  newsletterInputMobileContatiner: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
   },
   newsletterInput: {
     padding: "10px",
