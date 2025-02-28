@@ -1,47 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import "./styles.css";
-import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../../firebase";
 import { useTranslation } from "react-i18next";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../assets/colors";
-import { matchup } from "./interfaces";
+import CacheContext from "../../shared/CacheContext";
 
 const Schedule = () => {
-  const [matchups, setMatchups] = useState<matchup[]>([]);
-  const { i18n, t } = useTranslation();
-
-  const fetchMatchups = async () => {
-    try {
-      const matchupQuery = query(collection(db, "schedule"));
-
-      const querySnapshot = await getDocs(matchupQuery);
-
-      const schedule = querySnapshot.docs.map(
-        (doc) =>
-          ({
-            ...doc.data(),
-            id: doc.id,
-          } as matchup)
-      );
-
-      setMatchups(schedule.sort((a, b) => a.week - b.week));
-    } catch (error) {
-      console.error("Error loading schedule: ", error);
-    }
-  };
+  const cacheContext = useContext(CacheContext);
+  if (!cacheContext) {
+    throw new Error("MediaPage must be used within a CacheProvider");
+  }
+  const { schedule, fetchSchedule } = cacheContext;
 
   useEffect(() => {
-    fetchMatchups();
-  }, []);
+    if (!schedule) {
+      fetchSchedule();
+    }
+  }, [schedule, fetchSchedule]);
+
+  const { i18n, t } = useTranslation();
 
   return (
     <div className="schedule_container">
       <div className="header_container">
         <h1 className="schedule_title">{t("2025_schedule")}</h1>
       </div>
-      {matchups.map((matchup) => (
+      {schedule?.map((matchup) => (
         <div key={matchup.id} className="matchup">
           <div className="matchup_header">
             <div className="week">

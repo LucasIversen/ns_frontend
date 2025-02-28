@@ -1,70 +1,63 @@
-import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "../../firebase";
+import { useContext, useEffect } from "react";
 import styles from "./styles";
 import "./htmlStyles.css";
 import { useTranslation } from "react-i18next";
 import { article } from "../../shared/types";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { InstagramEmbed } from "react-social-media-embed";
+import CacheContext from "../../shared/CacheContext";
 
 const News = () => {
-  const [news, setNews] = useState<article | undefined>(undefined);
-  const id = window.location.pathname.split("/")[2];
-  const { i18n } = useTranslation();
-
-  const fetchSingleNews = async () => {
-    console.log("Fetching news item with ID:", id);
-    const docRef = doc(db, "news", id); // Reference to the specific document with the given ID
-
-    try {
-      const docSnap = await getDoc(docRef); // Fetch the document snapshot
-      if (docSnap.exists()) {
-        const newsItem = { ...docSnap.data(), id: docSnap.id } as article;
-        setNews(newsItem); // Set the fetched news item to state
-        console.log("Fetched news item:", newsItem);
-      } else {
-        console.log("No such document!");
-      }
-    } catch (error) {
-      console.log("Error getting document: ", error);
-    }
-  };
+  const cacheContext = useContext(CacheContext);
+  if (!cacheContext) {
+    throw new Error("MediaPage must be used within a CacheProvider");
+  }
+  const { news, fetchNews } = cacheContext;
 
   useEffect(() => {
-    fetchSingleNews();
-  }, []);
+    if (!news) {
+      fetchNews();
+    }
+  }, [news, fetchNews]);
 
-  if (!news) return <p>Loading...</p>;
+  const id = window.location.pathname.split("/")[2];
+  const { i18n } = useTranslation();
+  const article = news?.find((article: article) => article.id === id);
+
+  if (!article) return <p>Loading...</p>;
 
   const languageIsEnglish = i18n.language.includes("en");
-  const parts = !news ? [] : languageIsEnglish ? news.partsEn : news.parts;
+  const parts = !article
+    ? []
+    : languageIsEnglish
+    ? article.partsEn
+    : article.parts;
 
   return (
     <HelmetProvider>
       <Helmet>
-        <title>{news.title}</title>
-        <meta property="og:title" content={news.title} />
-        <meta property="og:description" content={news.description} />
-        <meta property="og:image" content={news.articleImage || ""} />
+        <title>{article.title}</title>
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:image" content={article.articleImage || ""} />
         <meta
           property="og:url"
-          content={`https://nordicstorm.net/news/${news.id}`}
+          content={`https://nordicstorm.net/news/${article.id}`}
         />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={news.title} />
-        <meta name="twitter:description" content={news.description} />
-        <meta name="twitter:image" content={news.articleImage || ""} />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.description} />
+        <meta name="twitter:image" content={article.articleImage || ""} />
       </Helmet>
       <div style={styles.newsOuterContainer}>
         {news ? (
           <div style={styles.newsContainer}>
             <div style={styles.newsTitleContainer}>
               <div style={styles.newsTitle}>
-                {languageIsEnglish ? news.titleEn : news.title}
+                {languageIsEnglish ? article.titleEn : article.title}
               </div>
-              <div style={styles.newsDate}>{news.newsDate}</div>
+              <div style={styles.newsDate}>{article.newsDate}</div>
             </div>
             <div style={styles.parts}>
               {parts.map((part: any, index: number) => {

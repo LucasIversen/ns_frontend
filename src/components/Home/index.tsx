@@ -1,32 +1,46 @@
-import { useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./styles";
 import Video from "../../assets/video.mp4";
 import NewsItem from "./NewsItem";
 import { useTranslation } from "react-i18next";
-import {
-  collection,
-  getDocs,
-  limit,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
 import MediaItem from "./MediaItem";
-import { db } from "../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../../assets/colors";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { matchup } from "../Schedule/interfaces";
 import "./home.css";
+import CacheContext from "../../shared/CacheContext";
 
 const Home = () => {
-  const calculateTimeLeft = () => {
-    if (!nextHomeGame?.isoTime) {
+  const cacheContext = useContext(CacheContext);
+  if (!cacheContext) {
+    throw new Error("MediaPage must be used within a CacheProvider");
+  }
+
+  const { t, i18n } = useTranslation();
+  const { media, fetchMedia } = cacheContext;
+  const { news, fetchNews } = cacheContext;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [email, setEmail] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const { schedule, fetchSchedule } = cacheContext;
+
+  const nextHomeGame = useCallback(() => {
+    if (!schedule) {
+      return null;
+    }
+    return schedule
+      .filter((matchup: matchup) => matchup.home && !matchup.result)
+      .sort((a: matchup, b: matchup) => a.week - b.week)[0];
+  }, [schedule]);
+
+  const calculateTimeLeft = useCallback(() => {
+    if (!nextHomeGame()?.isoTime) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
     const now = new Date();
-    const target = new Date(nextHomeGame.isoTime);
+    const target = new Date(nextHomeGame().isoTime);
     const difference = target.getTime() - now.getTime();
 
     if (difference <= 0) {
@@ -39,16 +53,22 @@ const Home = () => {
     const seconds = Math.floor((difference / 1000) % 60);
 
     return { days, hours, minutes, seconds };
-  };
-
-  const { t, i18n } = useTranslation();
-  const [news, setNews] = useState<any[]>([]);
-  const [media, setMedia] = useState<any[]>([]);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [email, setEmail] = useState<string>("");
-  const [nextHomeGame, setNextHomeGame] = useState<matchup | null>(null);
+  }, [nextHomeGame]);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [firstName, setFirstName] = useState<string>("");
+
+  useEffect(() => {
+    if (!schedule) {
+      fetchSchedule();
+    }
+  }, [schedule, fetchSchedule]);
+
+  useEffect(() => {
+    if (!media) fetchMedia();
+  }, [media, fetchMedia]);
+
+  useEffect(() => {
+    if (!news) fetchNews();
+  }, [news, fetchNews]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -57,77 +77,6 @@ const Home = () => {
 
     // Cleanup the event listener when the component is unmounted
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const fetchNews = async () => {
-    const newsQuery = query(
-      collection(db, "news"),
-      where("published", "==", true),
-      orderBy("newsDate", "desc"),
-      limit(5)
-    );
-
-    await getDocs(newsQuery)
-      .then((querySnapshot) => {
-        const newData = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setNews(newData);
-      })
-      .catch((error) => {
-        console.log("Error getting documents: ", error);
-      });
-  };
-
-  const fetchMedia = async () => {
-    const mediaQuery = query(
-      collection(db, "media"),
-      orderBy("date", "desc"),
-      limit(5)
-    );
-
-    await getDocs(mediaQuery)
-      .then((querySnapshot) => {
-        const newData = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setMedia(newData);
-      })
-      .catch((error) => {
-        console.log("Error getting documents: ", error);
-      });
-  };
-
-  const fetchNextHomeGame = async () => {
-    const matchupQuery = query(
-      collection(db, "schedule"),
-      where("home", "==", true),
-      where("result", "==", null),
-      orderBy("week"),
-      limit(1)
-    );
-
-    await getDocs(matchupQuery)
-      .then((querySnapshot) => {
-        const nextHomeGame = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }))[0] as matchup;
-        console.log("nextHomeGame", nextHomeGame);
-
-        setNextHomeGame(nextHomeGame);
-      })
-      .catch((error) => {
-        console.log("Error getting documents: ", error);
-      });
-  };
-
-  useEffect(() => {
-    fetchNews();
-    fetchMedia();
-    fetchNextHomeGame();
   }, []);
 
   const newsletterSignUp = async () => {
@@ -162,7 +111,7 @@ const Home = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [nextHomeGame]);
+  }, [nextHomeGame, calculateTimeLeft]);
 
   const isMobile = windowWidth <= 920;
   const languageIsEnglish = i18n.language.includes("en");
@@ -202,26 +151,26 @@ const Home = () => {
             playsInline
           />
 
-          {nextHomeGame && !isMobile ? (
+          {nextHomeGame() && !isMobile ? (
             <div style={styles.nextGameBar}>
               <div style={styles.nextGameInfo}>
                 <div style={styles.timeAndDate}>
                   <div style={styles.nextGameDate}>
                     {i18n.language === "en"
-                      ? nextHomeGame.dateEn
-                      : nextHomeGame.date}
+                      ? nextHomeGame().dateEn
+                      : nextHomeGame().date}
                   </div>
-                  <div style={styles.nextGameTime}>{nextHomeGame.time}</div>
+                  <div style={styles.nextGameTime}>{nextHomeGame().time}</div>
                 </div>
                 <div style={styles.nextGameTeam}>
                   <img
                     style={styles.nextGameLogo}
-                    src={nextHomeGame.teamLogo}
+                    src={nextHomeGame().teamLogo}
                     alt="Team Logo"
                   />
                 </div>
-                <div style={styles.nextGameName}>{nextHomeGame.teamName}</div>
-                {nextHomeGame.isoTime && (
+                <div style={styles.nextGameName}>{nextHomeGame().teamName}</div>
+                {nextHomeGame().isoTime && (
                   <div style={styles.nextGameCountdown}>
                     {languageIsEnglish ? (
                       <div style={styles.nextGameCountdownTime}>
@@ -239,7 +188,7 @@ const Home = () => {
                 <div style={styles.ticketsContainer}>
                   <div className="next_game_tickets">
                     <a
-                      href={nextHomeGame.ticketsLink || ""}
+                      href={nextHomeGame().ticketsLink || ""}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -249,30 +198,32 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          ) : nextHomeGame && isMobile ? (
+          ) : nextHomeGame() && isMobile ? (
             <div style={styles.nextGameBar}>
               <div style={styles.nextGameInfoMobile}>
                 <div style={styles.nextGameTopInfoMobile}>
                   <div style={styles.nextGameTeam}>
                     <img
                       style={styles.nextGameLogo}
-                      src={nextHomeGame.teamLogo}
+                      src={nextHomeGame().teamLogo}
                       alt="Team Logo"
                     />
                   </div>
-                  <div style={styles.nextGameName}>{nextHomeGame.teamName}</div>
+                  <div style={styles.nextGameName}>
+                    {nextHomeGame().teamName}
+                  </div>
                   <div style={styles.timeAndDate}>
                     <div style={styles.nextGameDate}>
                       {i18n.language === "en"
-                        ? nextHomeGame.dateEn
-                        : nextHomeGame.date}
+                        ? nextHomeGame().dateEn
+                        : nextHomeGame().date}
                     </div>
-                    <div style={styles.nextGameTime}>{nextHomeGame.time}</div>
+                    <div style={styles.nextGameTime}>{nextHomeGame().time}</div>
                   </div>
                   <div style={styles.ticketsContainer}>
                     <div className="next_game_tickets_mobile">
                       <a
-                        href={nextHomeGame.ticketsLink || ""}
+                        href={nextHomeGame().ticketsLink || ""}
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -281,7 +232,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                {nextHomeGame.isoTime && (
+                {nextHomeGame().isoTime && (
                   <div style={styles.nextGameCountdownMobile}>
                     {languageIsEnglish ? (
                       <div style={styles.nextGameCountdownTime}>
@@ -301,11 +252,11 @@ const Home = () => {
           ) : null}
         </div>
 
-        {news.length > 0 ? (
+        {news?.length ?? 0 > 0 ? (
           <div style={styles.newsBar}>
             <div style={styles.newsTitle}>{t("news")}</div>
             <div style={styles.newsItems}>
-              {news.map((article, index) => {
+              {news?.slice(0, 5).map((article, index) => {
                 return (
                   <div
                     style={index == 0 ? styles.firstItem : styles.item}
@@ -331,11 +282,11 @@ const Home = () => {
           </div>
         ) : null}
 
-        {media.length > 0 ? (
+        {media?.length ?? 0 > 0 ? (
           <div style={styles.mediaBar}>
             <div style={styles.mediaTitle}>{t("media")}</div>
             <div style={styles.mediaItems}>
-              {media.map((media, index) => {
+              {media?.slice(0, 5).map((media, index) => {
                 return (
                   <div
                     style={index == 0 ? styles.firstItem : styles.item}

@@ -18,41 +18,44 @@ import Roster from "./components/Roster";
 import Schedule from "./components/Schedule";
 import NewsletterUnsubscripe from "./components/NewsletterUnsubscripe";
 import Cheer from "./components/Cheer";
+import { CacheProvider } from "./shared/CacheContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="news" element={<NewsOverview />} />
-          <Route path="news/:id" element={<News />} />
-          <Route path="media" element={<MediaOverview />} />
-          <Route path="media/:id" element={<Media />} />
-          <Route path="faq" element={<FAQ />} />
-          <Route path="investor" element={<Investor />} />
-          <Route path="about_us" element={<AboutUs />} />
-          <Route path="online_event/:id" element={<OnlineEvent />} />
-          <Route path="roster" element={<Roster />} />
-          <Route path="schedule" element={<Schedule />} />
-          <Route
-            path="newsletter_unsubscripe"
-            element={<NewsletterUnsubscripe />}
-          />
-          <Route path="cheer" element={<Cheer />} />
-          <Route path="login" element={<Login />} />
-          <Route
-            path="cms"
-            element={
-              <PrivateRoute>
-                <Cms />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <CacheProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="news" element={<NewsOverview />} />
+            <Route path="news/:id" element={<News />} />
+            <Route path="media" element={<MediaOverview />} />
+            <Route path="media/:id" element={<Media />} />
+            <Route path="faq" element={<FAQ />} />
+            <Route path="investor" element={<Investor />} />
+            <Route path="about_us" element={<AboutUs />} />
+            <Route path="online_event/:id" element={<OnlineEvent />} />
+            <Route path="roster" element={<Roster />} />
+            <Route path="schedule" element={<Schedule />} />
+            <Route
+              path="newsletter_unsubscripe"
+              element={<NewsletterUnsubscripe />}
+            />
+            <Route path="cheer" element={<Cheer />} />
+            <Route path="login" element={<Login />} />
+            <Route
+              path="cms"
+              element={
+                <PrivateRoute>
+                  <Cms />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </CacheProvider>
   );
 }
 

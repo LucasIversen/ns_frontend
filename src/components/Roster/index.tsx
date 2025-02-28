@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./styles.css"; // Include this CSS file for styling and animations
-import { Player } from "./interfaces";
 import PlayerCard from "./Player";
-import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../../firebase";
+import CacheContext from "../../shared/CacheContext";
 
 const Roster = () => {
+  const cacheContext = useContext(CacheContext);
+  if (!cacheContext) {
+    throw new Error("MediaPage must be used within a CacheProvider");
+  }
+  const { roster, fetchRoster } = cacheContext;
+
+  useEffect(() => {
+    if (!roster) {
+      fetchRoster();
+    }
+  }, [roster, fetchRoster]);
+
   const [activeTab, setActiveTab] = useState("offence");
-  const [players, setPlayers] = useState<Player[]>([]);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 600);
 
   useEffect(() => {
@@ -21,67 +30,11 @@ const Roster = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const fetchPlayers = async () => {
-      const playerQuery = query(collection(db, "players"));
-
-      const querySnapshot = await getDocs(playerQuery);
-
-      const playerDocs = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      })) as Player[];
-
-      const positionOrder = [
-        "Quarterback",
-        "Running Back",
-        "Wide Receiver",
-        "Tight End",
-        "Tackle",
-        "Tackle/Guard",
-        "Guard",
-        "Center",
-        "Linebacker",
-        "Cornerback",
-        "Defensive End",
-        "Defensive Back",
-        "Defensive Back/Return Specialist",
-        "Defensive Tackle",
-        "Defensive Lineman",
-        "Safety",
-        "Safety/Return Specialist",
-        "Kicker",
-        "Punter",
-        "Long Snapper",
-        "Head Coach",
-        "Offensive Coordinator",
-        "Defensive Coordinator",
-        "Special Teams Coordinator",
-        "Assistant Coach",
-        "Secondary coach",
-        "Defensive Line coach",
-        "Offensive Line coach",
-        "Quarterbacks coach",
-        "Wide Receivers coach",
-      ];
-
-      const playersSorted = playerDocs.sort((a, b) =>
-        positionOrder.indexOf(a.position) > positionOrder.indexOf(b.position)
-          ? 1
-          : -1
-      );
-
-      setPlayers(playersSorted);
-    };
-
-    fetchPlayers();
-  });
-
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
 
-  const filteredPlayers = players.filter((player) =>
+  const filteredPlayers = roster?.filter((player) =>
     player.team.includes(activeTab)
   );
 
@@ -177,7 +130,7 @@ const Roster = () => {
 
       <div className="grid-container">
         <div className="grid">
-          {filteredPlayers.map((player) => (
+          {filteredPlayers?.map((player) => (
             <PlayerCard key={player.id} player={player} />
           ))}
         </div>
