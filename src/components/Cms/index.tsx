@@ -3,10 +3,10 @@ import styles from "./styles";
 import Newsletter from "./Newsletter";
 import News from "./News";
 import Media from "./Media";
-import Investor from "./Investor";
 import Faq from "./Faq";
 import CheerSignups from "./CheerSignups";
 import { auth } from "../../firebase";
+import CreatePlayerForm from "./Roster";
 
 const Cms = () => {
   const [tab, setTab] = useState("news");
@@ -19,8 +19,8 @@ const Cms = () => {
         return <Media />;
       case "faq":
         return <Faq />;
-      case "investor":
-        return <Investor />;
+      case "roster":
+        return <CreatePlayerForm />;
       case "newsletter":
         return <Newsletter />;
       case "cheer":
@@ -40,7 +40,7 @@ const Cms = () => {
   }
 
   return (
-    <div>
+    <div style={{ paddingTop: "50px" }}>
       <div style={styles.tabSelector}>
         <div
           style={tab == "news" ? styles.tabSelected : styles.tab}
@@ -61,10 +61,10 @@ const Cms = () => {
           FAQ
         </div>
         <div
-          style={tab == "investor" ? styles.tabSelected : styles.tab}
-          onClick={() => setTab("investor")}
+          style={tab == "roster" ? styles.tabSelected : styles.tab}
+          onClick={() => setTab("roster")}
         >
-          Investor kontakt
+          Roster
         </div>
         <div
           style={tab == "newsletter" ? styles.tabSelected : styles.tab}

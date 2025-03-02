@@ -132,6 +132,9 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
       "Offensive Line coach",
       "Quarterbacks coach",
       "Wide Receivers coach",
+      "Runningbacks coach",
+      "Tight Ends coach",
+      "Inside Linebackers coach",
     ];
 
     const playersSorted = playerDocs.sort((a, b) =>
