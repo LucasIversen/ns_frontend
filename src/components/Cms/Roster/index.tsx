@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import "./styles.css"; // Import CSS file
 import { db } from "../../../firebase";
 
+interface Player {
+  name: string;
+  position: string;
+  team: string[];
+  image: string;
+  age: string;
+  height: string;
+  nationality: string;
+  nationalityEn: string;
+  number: string;
+  instagram: string;
+}
+
 const CreatePlayerForm = () => {
-  const [player, setPlayer] = useState({
+  const [player, setPlayer] = useState<Player>({
     name: "",
     position: "",
-    team: [],
+    team: [] as string[],
     image: "",
     age: "",
     height: "",
@@ -19,12 +32,12 @@ const CreatePlayerForm = () => {
 
   const teams = ["offence", "defence", "coaches"];
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setPlayer((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleTeamChange = (e) => {
+  const handleTeamChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
     setPlayer((prev) => {
       const newTeams = checked
@@ -34,7 +47,7 @@ const CreatePlayerForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       await addDoc(collection(db, "players"), {
