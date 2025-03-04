@@ -55,7 +55,7 @@ const Home = () => {
         <meta property="og:title" content="Nordic Storm" />
         <meta
           property="og:description"
-          content="Nordic Storm, the newest team in the European League of Football."
+          content="Nordic Storm, the newest team in the European League of Football.."
         />
         <meta property="og:image" content="/assets/primary_logo-oczmX7WM.png" />
         <meta property="og:type" content="website" />
