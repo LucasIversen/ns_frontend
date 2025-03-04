@@ -50,6 +50,7 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
   });
 
   const fetchNews = async () => {
+    if (typeof window === "undefined") return; // Don't fetch on the server
     if (news) return; // Already cached, no need to fetch
 
     const newsQuery = query(
@@ -72,6 +73,7 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const fetchMedia = async () => {
+    if (typeof window === "undefined") return; // Don't fetch on the server
     if (media) return; // Already cached, no need to fetch
 
     const mediaQuery = query(collection(db, "media"), orderBy("date", "desc"));
@@ -90,6 +92,7 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const fetchRoster = async () => {
+    if (typeof window === "undefined") return; // Don't fetch on the server
     if (roster) return; // Already cached, no need to fetch
 
     const playerQuery = query(collection(db, "players"));
@@ -147,6 +150,7 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const fetchSchedule = async () => {
+    if (typeof window === "undefined") return; // Don't fetch on the server
     if (schedule) return; // Already cached, no need to fetch
 
     const matchupQuery = query(collection(db, "schedule"));
