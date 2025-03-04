@@ -3,6 +3,7 @@
   display: flex; /* Ensures central alignment */
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .card-content {

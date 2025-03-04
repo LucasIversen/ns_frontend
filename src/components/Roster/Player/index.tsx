@@ -5,10 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { colors } from "../../../assets/colors";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PlayerCard = (props: Props) => {
   const { player } = props;
   const [isFlipped, setIsFlipped] = useState(false);
+  const navigate = useNavigate();
 
   const { t, i18n } = useTranslation();
   const languageIsEnglish = i18n.language === "en";
@@ -17,10 +19,10 @@ const PlayerCard = (props: Props) => {
     e.preventDefault();
     e.stopPropagation();
 
-    console.log(window.innerWidth);
-
     if (window.innerWidth <= 600) {
       setIsFlipped((prev) => !prev);
+    } else {
+      navigate(`/player/${player.name.split(" ").join("_")}`);
     }
   };
 

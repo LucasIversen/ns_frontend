@@ -19,6 +19,7 @@ import Schedule from "./components/Schedule";
 import NewsletterUnsubscripe from "./components/NewsletterUnsubscripe";
 import Cheer from "./components/Cheer";
 import { CacheProvider } from "./shared/CacheContext";
+import Player from "./components/Player";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="about_us" element={<AboutUs />} />
             <Route path="online_event/:id" element={<OnlineEvent />} />
             <Route path="roster" element={<Roster />} />
+            <Route path="player/:id" element={<Player />} />
             <Route path="schedule" element={<Schedule />} />
             <Route
               path="newsletter_unsubscripe"
