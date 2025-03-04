@@ -8,6 +8,9 @@ const Media = () => {
 
   const fetchmedia = async () => {
     console.log("fetching media");
+
+    if (typeof window === "undefined") return; // Don't fetch on the server
+
     await getDocs(collection(db, "media"))
       .then((querySnapshot) => {
         console.log("querySnapshot", querySnapshot);

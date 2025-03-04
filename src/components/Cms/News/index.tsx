@@ -15,6 +15,9 @@ const News = () => {
 
   const fetchNews = async () => {
     console.log("fetching news");
+
+    if (typeof window === "undefined") return; // Don't fetch on the server
+
     await getDocs(collection(db, "news"))
       .then((querySnapshot) => {
         console.log("querySnapshot", querySnapshot);

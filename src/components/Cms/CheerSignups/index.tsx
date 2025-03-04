@@ -30,7 +30,7 @@ const CheerSignups = () => {
   const [expandedSignups, setExpandedSignups] = useState<string[]>([]);
 
   const fetchNews = async () => {
-    console.log("fetching news");
+    if (typeof window === "undefined") return; // Don't fetch on the server
     await getDocs(collection(db, "cheerAuditions"))
       .then((querySnapshot) => {
         console.log("querySnapshot", querySnapshot);

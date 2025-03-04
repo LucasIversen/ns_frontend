@@ -8,6 +8,9 @@ const Newsletter = () => {
 
   const fetchNewsletter = async () => {
     console.log("fetching newsletter signups");
+
+    if (typeof window === "undefined") return; // Don't fetch on the server
+
     await getDocs(collection(db, "newsletterSignups"))
       .then((querySnapshot) => {
         console.log("querySnapshot", querySnapshot);
