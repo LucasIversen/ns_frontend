@@ -6,6 +6,7 @@ import { article } from "../../shared/types";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { InstagramEmbed } from "react-social-media-embed";
 import CacheContext from "../../shared/CacheContext";
+import jsonArticles from "../../data/articles.json";
 
 const News = () => {
   const cacheContext = useContext(CacheContext);
@@ -33,22 +34,32 @@ const News = () => {
     ? article.partsEn
     : article.parts;
 
+  const jsonArticle =
+    (
+      jsonArticles as Record<
+        string,
+        (typeof jsonArticles)[keyof typeof jsonArticles]
+      >
+    )[id] || {};
+
+  console.log("jsonArtile", jsonArticle);
+
   return (
     <HelmetProvider>
       <Helmet>
-        <title>{article.title}</title>
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.description} />
-        <meta property="og:image" content={article.articleImage || ""} />
+        <title>{jsonArticle.title}</title>
+        <meta property="og:title" content={jsonArticle.title} />
+        <meta property="og:description" content={jsonArticle.description} />
+        <meta property="og:image" content={jsonArticle.articleImage || ""} />
         <meta
           property="og:url"
-          content={`https://nordicstorm.net/news/${article.id}`}
+          content={`https://nordicstorm.net/news/${jsonArticle.id}`}
         />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={article.title} />
-        <meta name="twitter:description" content={article.description} />
-        <meta name="twitter:image" content={article.articleImage || ""} />
+        <meta name="twitter:title" content={jsonArticle.title} />
+        <meta name="twitter:description" content={jsonArticle.description} />
+        <meta name="twitter:image" content={jsonArticle.articleImage || ""} />
       </Helmet>
       <div style={styles.newsOuterContainer}>
         {news ? (
