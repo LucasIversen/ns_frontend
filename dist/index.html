@@ -9,7 +9,49 @@
       rel="stylesheet"
     />
     <title>Nordic Storm</title>
-    <script type="module" crossorigin src="/assets/index-DnXxjcaz.js"></script>
+
+    <meta property="og:title" content="Nordic Storm - Latest News" />
+    <meta
+      property="og:description"
+      content="Catch up on the latest Nordic Storm updates!"
+    />
+    <meta property="og:image" content="/default-image.jpg" />
+
+    <script>
+      (function () {
+        const path = window.location.pathname;
+        const match = path.match(/^\/articles\/([^/]+)/);
+        if (!match) return;
+
+        const articleId = match[1];
+
+        // ✅ Fetch the pre-built articles.json file
+        fetch("/articles.json")
+          .then((response) => response.json())
+          .then((articles) => {
+            const article = articles[articleId];
+            if (!article) return;
+
+            // ✅ Update document title
+            document.title = article.title || "Nordic Storm - Article";
+
+            // ✅ Update Open Graph Meta Tags
+            document
+              .querySelector('meta[property="og:title"]')
+              .setAttribute("content", article.title);
+            document
+              .querySelector('meta[property="og:description"]')
+              .setAttribute("content", article.description);
+            document
+              .querySelector('meta[property="og:image"]')
+              .setAttribute("content", article.articleImage);
+          })
+          .catch((error) =>
+            console.error("Failed to load article metadata:", error)
+          );
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CvlB7eu2.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DpwXk--K.css">
   </head>
   <body>

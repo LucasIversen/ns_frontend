@@ -39,10 +39,7 @@ async function fetchArticles() {
       };
     });
 
-    fs.writeFileSync(
-      "src/data/articles.json",
-      JSON.stringify(articles, null, 2)
-    );
+    fs.writeFileSync("public/articles.json", JSON.stringify(articles, null, 2));
     console.log("✅ Articles JSON generated!");
   } catch (error) {
     console.error("❌ Error fetching articles:", error);
