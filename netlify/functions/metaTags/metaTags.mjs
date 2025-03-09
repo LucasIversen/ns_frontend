@@ -4,17 +4,21 @@ export default async (request, context) => {
     const pathSegments = url.pathname.split("/");
     const articleId = pathSegments[pathSegments.length - 1];
 
+    console.log("Article ID:", articleId);
+
     if (!articleId) {
       return new Response("Article ID not found", { status: 404 });
     }
 
     // ✅ Fetch the pre-built `articles.json` file instead of reading from disk
     const response = await fetch("https://your-netlify-site.com/articles.json");
+
     if (!response.ok) {
       throw new Error("Failed to load articles.json");
     }
 
     const articles = await response.json();
+    console.log("Articles:", articles.length);
     const article = articles[articleId];
 
     if (!article) {
