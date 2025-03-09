@@ -20,7 +20,7 @@
     <script>
       (function () {
         const path = window.location.pathname;
-        const match = path.match(/^\/articles\/([^/]+)/);
+        const match = path.match(/^\/news\/([^/]+)/);
         if (!match) return;
 
         const articleId = match[1];
@@ -31,6 +31,8 @@
           .then((articles) => {
             const article = articles[articleId];
             if (!article) return;
+
+            console.log("Article metadata:", article);
 
             // ✅ Update document title
             document.title = article.title || "Nordic Storm - Article";
