@@ -1,33 +1,49 @@
-export default async (request, context) => {
+const fs = require("fs");
+const path = require("path");
+
+exports.handler = async (event) => {
   try {
-    const url = new URL(request.url);
-    const pathSegments = url.pathname.split("/");
-    const articleId = pathSegments[pathSegments.length - 1];
+    console.log("🚀 Serverless Function Triggered!");
 
-    console.log("Article ID:", articleId);
-
-    if (!articleId) {
-      return new Response("Article ID not found", { status: 404 });
+    // ✅ Extract article ID from the URL path
+    const match = event.path.match(/\/news\/([^/]+)/);
+    if (!match) {
+      return {
+        statusCode: 400,
+        body: "Article ID not provided",
+      };
     }
 
-    // ✅ Fetch the pre-built `articles.json` file instead of reading from disk
-    const response = await fetch("https://your-netlify-site.com/articles.json");
+    const articleId = match[1];
+    console.log("📌 Extracted Article ID:", articleId);
 
-    if (!response.ok) {
-      throw new Error("Failed to load articles.json");
+    // ✅ Load `articles.json` from Netlify's deployed functions directory
+    const articlesPath = path.join(__dirname, "../../public/articles.json");
+
+    if (!fs.existsSync(articlesPath)) {
+      console.error("❌ Error: articles.json not found!");
+      return {
+        statusCode: 500,
+        body: "Internal Server Error: articles.json not found",
+      };
     }
 
-    const articles = await response.json();
-    console.log("Articles:", articles.length);
+    const articles = JSON.parse(fs.readFileSync(articlesPath, "utf8"));
+    console.log("✅ Loaded Articles JSON");
+
     const article = articles[articleId];
 
     if (!article) {
-      return new Response("Article not found", { status: 404 });
+      console.log("❌ Article Not Found");
+      return { statusCode: 404, body: "Article not found" };
     }
 
-    // ✅ Return dynamically generated meta tags
-    return new Response(
-      `
+    console.log("📝 Returning meta tags for:", article.title);
+
+    return {
+      statusCode: 200,
+      headers: { "Content-Type": "text/html" },
+      body: `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -38,7 +54,7 @@ export default async (request, context) => {
         <meta property="og:title" content="${article.title}" />
         <meta property="og:description" content="${article.description}" />
         <meta property="og:image" content="${article.articleImage}" />
-        <meta property="og:url" content="${url.href}" />
+        <meta property="og:url" content="https://your-site.com/news/${articleId}" />
       </head>
       <body>
         <p>Loading...</p>
@@ -46,9 +62,9 @@ export default async (request, context) => {
       </body>
       </html>
       `,
-      { headers: { "Content-Type": "text/html" } }
-    );
+    };
   } catch (error) {
-    return new Response(`Error: ${error.toString()}`, { status: 500 });
+    console.error("❌ Error in Function:", error);
+    return { statusCode: 500, body: "Internal Server Error" };
   }
 };
