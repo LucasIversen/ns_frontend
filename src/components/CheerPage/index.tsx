@@ -65,24 +65,8 @@ const CheerPage = () => {
         <Reveal
           styles={{ marginBottom: "50px", width: "80%", maxWidth: "1200px" }}
         >
-          <p>
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Malesuada nibh
-            congue fermentum auctor quis. Pulvinar justo turpis turpis
-            adipiscing habitasse facilisis. Scelerisque et ante laoreet potenti
-            nisi quisque convallis interdum. Iaculis imperdiet morbi natoque
-            condimentum nullam fringilla suscipit adipiscing. Cursus enim
-            vulputate suspendisse egestas integer eros. Dolor ridiculus nec
-            ligula platea curae torquent aptent.
-          </p>
-          <p>
-            Torquent per sociosqu molestie montes vestibulum eleifend praesent.
-            Sapien nascetur bibendum varius interdum torquent. Montes laoreet
-            praesent purus suscipit mattis class natoque mi. Aturpis tempus
-            montes bibendum efficitur dapibus sapien fames. Tempus velit luctus
-            morbi torquent purus natoque primis. Cras suspendisse integer magnis
-            arcu sagittis fusce. Amet euismod nulla ante netus faucibus. Felis
-            suspendisse maecenas imperdiet; odio class lectus justo molestie.
-          </p>
+          <p>{t("cheer_page.cheer_info1")}</p>
+          <p>{t("cheer_page.cheer_info2")}</p>
         </Reveal>
         <Reveal
           styles={{ marginBottom: "50px", width: "80%", maxWidth: "1200px" }}
@@ -92,20 +76,14 @@ const CheerPage = () => {
               <img src={devin} alt="devin" />
             </div>
             <div className="devin-info">
-              <h2>Cheerleading Coordinator - Devin Lockman</h2>
-              <p>
-                Devin has been a cheerleader for 10 years and has been the
-                coordinator of Nordic Storm Cheerleaders since 2018. He is
-                responsible for the team's training and performance schedule.
-                Write something about Devin here. It can be a short paragraph
-                about his background, experience, and role in the team. Maybe
-                add a link to his social media profiles. That would be kinda
-                cool I think?
-              </p>
+              <h2>{t("cheer_page.devin")}</h2>
+              <p>{t("cheer_page.devin1")}</p>
+              <p>{t("cheer_page.devin2")}</p>
+              <p>{t("cheer_page.devin3")}</p>
             </div>
           </div>
         </Reveal>
-        <Reveal
+        {/* <Reveal
           styles={{ marginBottom: "50px", width: "80%", maxWidth: "1200px" }}
         >
           <div className="devin-container">
@@ -125,16 +103,13 @@ const CheerPage = () => {
               <img src={devin} alt="devin" />
             </div>
           </div>
-        </Reveal>
+        </Reveal> */}
         <Reveal
           styles={{ marginBottom: "50px", width: "80%", maxWidth: "1200px" }}
         >
           <div className="contact-info">
-            <h2>Contact Information</h2>
-            <p>
-              For more information about Nordic Storm Cheerleaders, please
-              contact us in the form below.
-            </p>
+            <h2>{t("cheer_page.contact")}</h2>
+            <p>{t("cheer_page.contact_info")}</p>
             <form className="contact-form">
               <textarea
                 placeholder="Message"
