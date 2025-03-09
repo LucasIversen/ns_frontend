@@ -19,6 +19,7 @@ import Schedule from "./components/Schedule";
 import NewsletterUnsubscripe from "./components/NewsletterUnsubscripe";
 import Cheer from "./components/Cheer";
 import { CacheProvider } from "./shared/CacheContext";
+import CheerPage from "./components/CheerPage";
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
               path="newsletter_unsubscripe"
               element={<NewsletterUnsubscripe />}
             />
-            <Route path="cheer" element={<Cheer />} />
+            <Route path="cheer" element={<CheerPage />} />
             <Route path="login" element={<Login />} />
             <Route
               path="cms"

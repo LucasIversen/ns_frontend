@@ -1,0 +1,21 @@
+{
+	"siteId": "65a3a2b3-6188-464a-9d5d-63de7aee7332",
+	"geolocation": {
+		"data": {
+			"city": "Aarhus",
+			"country": {
+				"code": "DK",
+				"name": "Denmark"
+			},
+			"subdivision": {
+				"code": "82",
+				"name": "Central Jutland"
+			},
+			"timezone": "Europe/Copenhagen",
+			"latitude": 56.1567,
+			"longitude": 10.2153,
+			"postalCode": "8100"
+		},
+		"timestamp": 1741510733709
+	}
+}
