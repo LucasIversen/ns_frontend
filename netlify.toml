@@ -1,9 +1,2 @@
 [build]
   functions = "netlify/functions"
-
-[[redirects]]
-  from = "/news/:id"
-  to = "/.netlify/functions/metaTags?id=:id"
-  status = 200
-  force = true
-  conditions = {User-Agent = ["bot", "crawl", "spider", "slurp"]}
