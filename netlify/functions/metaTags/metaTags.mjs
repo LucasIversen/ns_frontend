@@ -6,7 +6,11 @@ exports.handler = async (event) => {
     console.log("🚀 Serverless Function Triggered!");
 
     // ✅ Extract article ID from the URL path
-    const match = event.path.match(/\/news\/([^/]+)/);
+    let match = event.path.match(/\/news\/([^/]+)/);
+    if (!match) {
+      match = event.path.match(/\/metaTags\/([^/]+)/);
+    }
+
     if (!match) {
       return {
         statusCode: 400,
@@ -18,7 +22,7 @@ exports.handler = async (event) => {
     console.log("📌 Extracted Article ID:", articleId);
 
     // ✅ Load `articles.json` from Netlify's deployed functions directory
-    const articlesPath = path.join(__dirname, "../../public/articles.json");
+    const articlesPath = path.join(process.cwd(), "public", "articles.json");
 
     if (!fs.existsSync(articlesPath)) {
       console.error("❌ Error: articles.json not found!");
