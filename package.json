@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node -r dotenv/config scripts/fetchArticles.js",
-    "build": "tsc -b && vite build && echo '/.netlify/functions/metaTags/:id /.netlify/functions/metaTags?id=:id 200!\n/news/:id /.netlify/functions/metaTags?id=:id 200! User-Agent=bot,crawl,spider,slurp\n/* /index.html 200' > dist/_redirects",
+    "build": "tsc -b && vite build && echo '/.netlify/functions/metaTags/:id /.netlify/functions/metaTags?id=:id 200!\n/news/:id /.netlify/functions/metaTags?id=:id 200! User-Agent=bot,crawl,spider,slurp,facebookexternalhit,Twitterbot,Slackbot,WhatsApp,LinkedInBot\n/* /index.html 200' > dist/_redirects",
     "lint": "eslint .",
     "preview": "vite preview"
   },
