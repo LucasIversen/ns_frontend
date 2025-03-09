@@ -1,2 +1,2 @@
-/news/:id /.netlify/functions/metaTags?id=:id 200!
+/share_news/:id /.netlify/functions/metaTags?id=:id 200!
 /* /index.html 200
