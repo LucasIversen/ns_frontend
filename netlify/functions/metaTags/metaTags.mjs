@@ -6,7 +6,7 @@ exports.handler = async (event) => {
     console.log("🚀 Serverless Function Triggered!");
 
     // ✅ Extract article ID from the URL path
-    let match = event.path.match(/\/news\/([^/]+)/);
+    let match = event.path.match(/\/share_news\/([^/]+)/);
     if (!match) {
       match = event.path.match(/\/metaTags\/([^/]+)/);
     }
