@@ -1,6 +1,3 @@
-[[redirects]]
-  from = "/news/:id"
-  to = "/.netlify/functions/metaTags"
-  status = 200
-  force = true
-  conditions = { User-Agent = ["bot", "crawl", "spider", "slurp"] }
+[[edge_functions]]
+  function = "metaTags"
+  path = "/news/:id"
