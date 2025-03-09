@@ -58,6 +58,7 @@ exports.handler = async (event) => {
       </head>
       <body>
         <p>Loading...</p>
+        <script>window.location.href = "/news/${articleId}";</script>
       </body>
       </html>
       `,

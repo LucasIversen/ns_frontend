@@ -1,3 +1,2 @@
-/.netlify/functions/metaTags/:id /.netlify/functions/metaTags?id=:id 200!
-/news/:id /.netlify/functions/metaTags?id=:id 200! User-Agent=bot,crawl,spider,slurp,facebookexternalhit,Twitterbot,Slackbot,WhatsApp,LinkedInBot
+/news/:id /.netlify/functions/metaTags?id=:id 200!
 /* /index.html 200
