@@ -17,7 +17,7 @@ import OnlineEvent from "./components/OnlineEvent";
 import Roster from "./components/Roster";
 import Schedule from "./components/Schedule";
 import NewsletterUnsubscripe from "./components/NewsletterUnsubscripe";
-import Cheer from "./components/Cheer";
+// import Cheer from "./components/Cheer";
 import { CacheProvider } from "./shared/CacheContext";
 import CheerPage from "./components/CheerPage";
 
