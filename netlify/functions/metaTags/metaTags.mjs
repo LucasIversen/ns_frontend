@@ -22,17 +22,13 @@ exports.handler = async (event) => {
     console.log("📌 Extracted Article ID:", articleId);
 
     // ✅ Load `articles.json` from Netlify's deployed functions directory
-    const articlesPath = path.join(process.cwd(), "public", "articles.json");
+    const response = await fetch("https://nordicstorm.net/articles.json");
 
-    if (!fs.existsSync(articlesPath)) {
-      console.error("❌ Error: articles.json not found!");
-      return {
-        statusCode: 500,
-        body: "Internal Server Error: articles.json not found",
-      };
+    if (!response.ok) {
+      throw new Error("Failed to load articles.json");
     }
 
-    const articles = JSON.parse(fs.readFileSync(articlesPath, "utf8"));
+    const articles = await response.json();
     console.log("✅ Loaded Articles JSON");
 
     const article = articles[articleId];
