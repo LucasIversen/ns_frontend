@@ -1,2 +1,3 @@
+/.netlify/functions/metaTags/:id /.netlify/functions/metaTags/:id 200!
 /news/:id /.netlify/functions/metaTags?id=:id 200! User-Agent=bot,crawl,spider,slurp
 /* /index.html 200
