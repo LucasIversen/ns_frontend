@@ -54,7 +54,7 @@ exports.handler = async (event) => {
         <meta property="og:title" content="${article.title}" />
         <meta property="og:description" content="${article.description}" />
         <meta property="og:image" content="${article.articleImage}" />
-        <meta property="og:url" content="https://your-site.com/news/${articleId}" />
+        <meta property="og:url" content="https://nordicstorm.net/news/${articleId}" />
       </head>
       <body>
         <p>Loading...</p>
