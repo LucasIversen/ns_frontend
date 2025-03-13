@@ -4,7 +4,7 @@ import { Props } from "./interfaces";
 
 const Reveal = (props: Props) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false, margin: "-25%" });
 
   const controls = useAnimation();
 
@@ -12,7 +12,7 @@ const Reveal = (props: Props) => {
     if (isInView) {
       controls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, props.children]);
 
   return (
     <div style={props.styles} ref={ref}>
