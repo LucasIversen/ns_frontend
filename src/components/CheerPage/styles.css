@@ -77,6 +77,28 @@
   grid-gap: 20px;
   width: 100%;
 }
+.nancy-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .devin-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .nancy-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .devin-image {
   display: flex;
   justify-content: center;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import cheerleaders from "../../assets/cheerleaders.png";
 import devin from "../../assets/devin.png";
+import nancy from "../../assets/nancy.jpeg";
 import Reveal from "../../shared/Reveal";
 import "./styles.css";
 import { motion } from "framer-motion";
@@ -83,27 +84,21 @@ const CheerPage = () => {
             </div>
           </div>
         </Reveal>
-        {/* <Reveal
+        <Reveal
           styles={{ marginBottom: "50px", width: "80%", maxWidth: "1200px" }}
         >
-          <div className="devin-container">
+          <div className="nancy-container">
             <div className="devin-info">
-              <h2>Dance Coach - Nancy Põlluste</h2>
-              <p>
-                Nancy has been a professional dancer for 15 years and has been
-                the dance coach of Nordic Storm Cheerleaders since 2019. She is
-                responsible for the team's choreography and dance routines.
-                Write something about Nancy here. It can be a short paragraph
-                about her background, experience, and role in the team. Maybe
-                add a link to her social media profiles. That would be kinda
-                cool I think?
-              </p>
+              <h2>{t("cheer_page.nancy")}</h2>
+              <p>{t("cheer_page.nancy1")}</p>
+              <p>{t("cheer_page.nancy2")}</p>
+              <p>{t("cheer_page.nancy3")}</p>
             </div>
             <div className="devin-image">
-              <img src={devin} alt="devin" />
+              <img src={nancy} alt="devin" />
             </div>
           </div>
-        </Reveal> */}
+        </Reveal>
         <Reveal
           styles={{ marginBottom: "50px", width: "80%", maxWidth: "1200px" }}
         >
