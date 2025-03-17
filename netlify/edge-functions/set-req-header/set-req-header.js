@@ -34,7 +34,7 @@ export default async (request, context) => {
     <meta name="description" content="${metaData.description}">
     <meta property="og:title" content="${metaData.title}">
     <meta property="og:description" content="${metaData.description}">
-    <meta property="og:image" content="${metaData.imageUrl}">
+    <meta property="og:image" content="${metaData.articleImage}">
   `;
 
   const updatedPage = page.replace("</head>", `${newMetaTags}</head>`);
