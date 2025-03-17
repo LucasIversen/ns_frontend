@@ -23,14 +23,13 @@ export default async (request, context) => {
   }
 
   // Replace placeholders in the HTML with real meta data
-  page = page
-    .replace("__META_TITLE__", metaData.title)
-    .replace("__META_DESCRIPTION__", metaData.description)
-    .replace("__META_IMAGE__", metaData.image);
+  const updatedPage = page
+    .replace("Nordic Storm", metaData.title)
+    .replace(
+      "Catch up on the latest Nordic Storm updates!",
+      metaData.description
+    )
+    .replace("https://nordicstorm.net/default-image.png", metaData.image);
 
-  return new Response(page, {
-    headers: {
-      "Content-Type": "text/html",
-    },
-  });
+  return new Response(updatedPage, response);
 };
