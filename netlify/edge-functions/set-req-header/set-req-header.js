@@ -22,14 +22,22 @@ export default async (request, context) => {
     return response; // If no metadata, return unmodified page
   }
 
-  // Replace placeholders in the HTML with real meta data
-  const updatedPage = page
-    .replace("Nordic Storm", metaData.title)
-    .replace(
-      "Catch up on the latest Nordic Storm updates!",
-      metaData.description
-    )
-    .replace("https://nordicstorm.net/default-image.png", metaData.image);
+  page = page.replace(
+    /<meta[^>]+(name|property)="(title|description|og:[^"]+)"[^>]*>/gi,
+    ""
+  );
+  page = page.replace(/<title>.*<\/title>/i, "");
+
+  // Inject new meta tags dynamically
+  const newMetaTags = `
+    <title>${metaData.title}</title>
+    <meta name="description" content="${metaData.description}">
+    <meta property="og:title" content="${metaData.title}">
+    <meta property="og:description" content="${metaData.description}">
+    <meta property="og:image" content="${metaData.image}">
+  `;
+
+  const updatedPage = page.replace("</head>", `${newMetaTags}</head>`);
 
   return new Response(updatedPage, response);
 };
