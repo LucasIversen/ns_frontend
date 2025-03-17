@@ -12,9 +12,11 @@ export default async (request, context) => {
   }
 
   // Fetch metadata from an API (replace with your actual API endpoint)
-  const articles = await fetch("/articles.json").then((res) => res.json());
+  const articles = await fetch("https://nordicstorm.net/articles.json").then(
+    (res) => res.json()
+  );
 
-  const metaData = articles[articleId];
+  const metaData = articles[newsId];
 
   if (!metaData) {
     return response; // If no metadata, return unmodified page
