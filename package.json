@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node -r dotenv/config scripts/fetchArticles.js",
-    "build": "tsc -b && vite build && echo '/share_news/:id /.netlify/functions/metaTags?id=:id 200!\n/* /index.html 200' > dist/_redirects",
+    "build": "tsc -b && vite build && echo '/news/* /news-placeholder.html 200' > dist/_redirects && echo '/* /index.html 200' >> dist/_redirects",
     "lint": "eslint .",
     "preview": "vite preview"
   },
