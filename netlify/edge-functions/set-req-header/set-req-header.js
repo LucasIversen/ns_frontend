@@ -9,7 +9,7 @@ export default async (request, context) => {
     const newsId = url.pathname.split("/").pop(); // Extracts ID from /news/:id
 
     if (!newsId) {
-      return response; // Return unmodified page if no ID is found
+      return new Response(page, response);
     }
 
     // Fetch metadata from an API (replace with your actual API endpoint)
@@ -20,7 +20,7 @@ export default async (request, context) => {
     const metaData = articles[newsId];
 
     if (!metaData) {
-      return response; // If no metadata, return unmodified page
+      return new Response(page, response);
     }
 
     page = page.replace(
@@ -42,6 +42,6 @@ export default async (request, context) => {
 
     return new Response(updatedPage, response);
   } catch (error) {
-    return response;
+    return new Response(page, response);
   }
 };
