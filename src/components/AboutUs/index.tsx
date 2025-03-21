@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import styles from "./styles";
-import alex from "../../assets/simple_logo.png";
+import alex from "../../assets/alex.jpg";
 import "./cssStyles.css";
 
 const AboutUs = () => {
