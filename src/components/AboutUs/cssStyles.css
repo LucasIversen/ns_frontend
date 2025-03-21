@@ -1,0 +1,39 @@
+.alexContainer {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+.alexImage {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.alexText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.alexTitle {
+  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.alexEmail {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.alexEmail:hover {
+  color: #00aff0;
+}
+
+@media (max-width: 768px) {
+  .alexContainer {
+    grid-template-columns: 1fr;
+  }
+}
