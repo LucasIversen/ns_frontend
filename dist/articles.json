@@ -546,6 +546,56 @@
     "description": "Quarterback Jadrian Clark og runningback Glen Toonga har netop skrevet under på en 1-årig aftale med det nye nordiske hold.",
     "descriptionEn": "Quarterback Jadrian Clark and running back Glen Toonga have just signed a 1-year deal with the new Nordic team."
   },
+  "NQ3zKpQ9a2LRcpCOjCvn": {
+    "id": "NQ3zKpQ9a2LRcpCOjCvn",
+    "description": "Nordic Storm henter Adrià Botella Moreno.",
+    "descriptionEn": "Adrià Botella Moreno sign with the Nordic Storm.",
+    "title": "Nordic Storm byder Adrià Botella Moreno velkommen til København",
+    "titleEn": "Nordic Storm Welcomes Adrià Botella Moreno to Copenhagen",
+    "articleImage": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FNQ3zKpQ9a2LRcpCOjCvn%2F482030249_122148117764452811_7215199360650152307_n.jpg?alt=media&token=32db71c2-c3e1-47a6-8930-74a82c86cdaf",
+    "parts": [
+      {
+        "sortValue": 0,
+        "imageText": "Adrià Botella Moreno",
+        "imageTextEn": "Adrià Botella Moreno",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FNQ3zKpQ9a2LRcpCOjCvn%2F482030249_122148117764452811_7215199360650152307_n.jpg?alt=media&token=32db71c2-c3e1-47a6-8930-74a82c86cdaf",
+        "type": "imageBlock",
+        "htmlEn": null,
+        "link": null,
+        "html": null
+      },
+      {
+        "link": null,
+        "type": "htmlBlock",
+        "imageUrl": null,
+        "htmlEn": "<p>Year five, team number five – Adrià Botella Moreno’s journey in the European League of Football now brings him to Nordic Storm. We are proud to welcome one of the most accomplished tight ends in the league as we continue building a championship-caliber roster for our debut season.</p><p>Since the ELF’s first season, Adrià has proven himself as one of the league’s elite players, earning a spot on the All-Star team every single year. His experience, leadership, and consistency make him a game-changer on any team, and we are excited to see him make an impact in Copenhagen.</p><p>Standing at <strong>1.98 meters</strong>, Adrià is a dominant force both as a blocker and a receiver. He ranks among the <strong>top ten all-time</strong> in several ELF receiving categories, with <strong>174 catches, 2,080 receiving yards, and 23 touchdowns</strong> in 45 games. His ability to control the field makes him a perfect addition to our offense.</p><p>With this signing, we continue to strengthen our team and set our sights on competing at the highest level. Adrià brings a winning mentality and proven talent to Nordic Storm, and we can’t wait to see him in action as we take on the ELF in 2025.</p><p>Welcome to Copenhagen, Adrià!</p>",
+        "html": "<p>Femte sæson, femte hold – Adrià Botella Morenos rejse i European League of Football fører ham nu til Nordic Storm. Vi er stolte af at kunne præsentere en af ligaens mest erfarne og talentfulde tight ends som en del af vores mandskab, når vi bygger et hold, der kan konkurrere om mesterskabet i vores debutsæson.</p><p>Siden ELF’s første sæson har Adrià bevist, at han hører til blandt de absolut bedste spillere i ligaen, og han har sikret sig en plads på All-Star-holdet hvert eneste år. Hans erfaring, lederskab og stabilitet gør ham til en gamechanger, og vi ser frem til at se ham gøre en forskel i København.</p><p>Med en højde på <strong>1,98 meter</strong> er Adrià en dominerende spiller både som blocker og receiver. Han ligger blandt <strong>de ti bedste i ELF’s historie</strong> inden for flere receiver-kategorier med <strong>174 catches, 2.080 receiving yards og 23 touchdowns</strong> i 45 kampe. Hans evne til at kontrollere spillet gør ham til en perfekt tilføjelse til vores offensiv.</p><p>Med denne signing fortsætter vi med at styrke vores hold og går efter at konkurrere på højeste niveau. Adrià bringer en vindersmentalitet og dokumenteret talent til Nordic Storm, og vi kan ikke vente med at se ham i aktion, når vi træder ind i ELF i 2025.</p><p>Velkommen til København, Adrià!</p>",
+        "imageText": null,
+        "imageTextEn": null,
+        "sortValue": 1
+      }
+    ],
+    "partsEn": [
+      {
+        "imageText": "Adrià Botella Moreno",
+        "sortValue": 0,
+        "type": "imageBlock",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FNQ3zKpQ9a2LRcpCOjCvn%2F482030249_122148117764452811_7215199360650152307_n.jpg?alt=media&token=32db71c2-c3e1-47a6-8930-74a82c86cdaf",
+        "html": null,
+        "link": null
+      },
+      {
+        "html": "<p>Year five, team number five – Adrià Botella Moreno’s journey in the European League of Football now brings him to Nordic Storm. We are proud to welcome one of the most accomplished tight ends in the league as we continue building a championship-caliber roster for our debut season.</p><p>Since the ELF’s first season, Adrià has proven himself as one of the league’s elite players, earning a spot on the All-Star team every single year. His experience, leadership, and consistency make him a game-changer on any team, and we are excited to see him make an impact in Copenhagen.</p><p>Standing at <strong>1.98 meters</strong>, Adrià is a dominant force both as a blocker and a receiver. He ranks among the <strong>top ten all-time</strong> in several ELF receiving categories, with <strong>174 catches, 2,080 receiving yards, and 23 touchdowns</strong> in 45 games. His ability to control the field makes him a perfect addition to our offense.</p><p>With this signing, we continue to strengthen our team and set our sights on competing at the highest level. Adrià brings a winning mentality and proven talent to Nordic Storm, and we can’t wait to see him in action as we take on the ELF in 2025.</p><p>Welcome to Copenhagen, Adrià!</p>",
+        "imageUrl": null,
+        "link": null,
+        "imageText": null,
+        "sortValue": 1,
+        "type": "htmlBlock"
+      }
+    ],
+    "newsDate": "2025-03-14",
+    "published": true
+  },
   "b2aKWGPDtISHlsLphDO7": {
     "id": "b2aKWGPDtISHlsLphDO7",
     "description": "Nordic storm har sikret sig tre stærke profiler: Kenneth Larsen, Alexander Kennedy Chaanhing og Marcus Boesen.",
@@ -796,6 +846,56 @@
     ],
     "published": true
   },
+  "fXMD1CAtzV2OivW3XmLB": {
+    "id": "fXMD1CAtzV2OivW3XmLB",
+    "description": "Nordic Storm har sikret sig endnu en nøglespiller til deres angreb med tilføjelsen af wide receiver Brendan Beaulieu.",
+    "descriptionEn": "Nordic Storm have added another key piece to their offense with the signing of wide receiver Brendan Beaulieu.",
+    "title": "Nordic Storm henter stjernereceiver Brendan Beaulieu",
+    "titleEn": "Nordic Storm Sign Star Receiver Brendan Beaulieu",
+    "articleImage": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FfXMD1CAtzV2OivW3XmLB%2F482997235_17892968436187768_2785804637005445870_n.jpg?alt=media&token=cca58735-b3e4-43ec-a228-60354970a6a4",
+    "partsEn": [
+      {
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FfXMD1CAtzV2OivW3XmLB%2F482997235_17892968436187768_2785804637005445870_n.jpg?alt=media&token=cca58735-b3e4-43ec-a228-60354970a6a4",
+        "html": null,
+        "imageText": "Brendan Beaulieu",
+        "link": null,
+        "sortValue": 0,
+        "type": "imageBlock"
+      },
+      {
+        "sortValue": 1,
+        "html": "<p>Nordic Storm have added another key piece to their offense with the signing of wide receiver Brendan Beaulieu for their 2025 debut season in the European League of Football. The former Potsdam Royals standout brings elite playmaking ability to Copenhagen as the team prepares for its first campaign.</p><p>Beaulieu dominated the 2024 German Football League season, racking up <strong>1,647 receiving yards and 27 touchdowns in just 15 games</strong>. His arrival strengthens an already explosive offense, making Nordic Storm a serious threat in their inaugural year.</p><p>Excited for this new chapter, Beaulieu is eager to hit the field.</p><blockquote>\"This is a once-in-a-lifetime opportunity. I am beyond grateful to be a part of this franchise! Can’t wait to go out there and compete with my teammates and for the city of Copenhagen. Go Storm!\"</blockquote><p>With his athleticism and ability to make big plays, Beaulieu is expected to be a game-changer for the Storm. As the team continues to build its roster, anticipation grows for what promises to be an electrifying first season in the ELF.</p>",
+        "link": null,
+        "imageUrl": null,
+        "type": "htmlBlock",
+        "imageText": null
+      }
+    ],
+    "parts": [
+      {
+        "link": null,
+        "imageText": "Brendan Beaulieu",
+        "type": "imageBlock",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FfXMD1CAtzV2OivW3XmLB%2F482997235_17892968436187768_2785804637005445870_n.jpg?alt=media&token=cca58735-b3e4-43ec-a228-60354970a6a4",
+        "htmlEn": null,
+        "imageTextEn": "Brendan Beaulieu",
+        "html": null,
+        "sortValue": 0
+      },
+      {
+        "imageUrl": null,
+        "imageTextEn": null,
+        "html": "<p>Nordic Storm har sikret sig endnu en nøglespiller til deres angreb med tilføjelsen af wide receiver Brendan Beaulieu til deres debut i European League of Football i 2025. Den tidligere Potsdam Royals-profil bringer masser af playmaking-evner til København, hvor holdet gør klar til sin første sæson.</p><p>Beaulieu imponerede i den tyske liga i 2024, hvor han leverede <strong>1.647 receiving yards og 27 touchdowns på bare 15 kampe</strong>. Han slutter sig nu til en allerede stærk offensiv, hvilket gør Nordic Storm til en farlig modstander fra dag ét.</p><p>Han ser frem til den nye udfordring og glæder sig til at komme i gang.</p><blockquote>\"Det her er en enestående mulighed. Jeg er utrolig taknemmelig for at blive en del af denne klub! Jeg kan ikke vente med at komme på banen og kæmpe sammen med mine holdkammerater og for byen København. Go Storm!\"</blockquote><p>Med sin fysik, hurtighed og evne til at afgøre kampe forventes Beaulieu at spille en central rolle for Storm. Som truppen tager form, stiger spændingen forud for holdets første sæson i ELF.</p>",
+        "link": null,
+        "sortValue": 1,
+        "htmlEn": "<p>Nordic Storm have added another key piece to their offense with the signing of wide receiver Brendan Beaulieu for their 2025 debut season in the European League of Football. The former Potsdam Royals standout brings elite playmaking ability to Copenhagen as the team prepares for its first campaign.</p><p>Beaulieu dominated the 2024 German Football League season, racking up <strong>1,647 receiving yards and 27 touchdowns in just 15 games</strong>. His arrival strengthens an already explosive offense, making Nordic Storm a serious threat in their inaugural year.</p><p>Excited for this new chapter, Beaulieu is eager to hit the field.</p><blockquote>\"This is a once-in-a-lifetime opportunity. I am beyond grateful to be a part of this franchise! Can’t wait to go out there and compete with my teammates and for the city of Copenhagen. Go Storm!\"</blockquote><p>With his athleticism and ability to make big plays, Beaulieu is expected to be a game-changer for the Storm. As the team continues to build its roster, anticipation grows for what promises to be an electrifying first season in the ELF.</p>",
+        "type": "htmlBlock",
+        "imageText": null
+      }
+    ],
+    "newsDate": "2025-03-08",
+    "published": true
+  },
   "gAFCG55h4kdvlgmD7Ch7": {
     "id": "gAFCG55h4kdvlgmD7Ch7",
     "description": "Her er et hurtigt overblik over vores 2025-modstandere",
@@ -844,6 +944,56 @@
         "html": "<p>Nordic Storm gør klar til en elektrisk debutsæson i European League of Football (ELF). Holdets kampplan byder på møder med nogle af ligaens stærkeste modstandere, og der er masser af action i vente for fansene.</p><p>Her er et hurtigt overblik over vores 2025-modstandere:</p><ul><li><strong>Rhein Fire</strong> – Uge 9 og 14</li><li><strong>Hamburg Sea Devils</strong> – Uge 8 og 13</li><li><strong>Berlin Thunder</strong> – Uge 3 og 10</li><li><strong>Helvetic Mercenaries</strong> – Uge 1 og 7</li><li><strong>Wroclaw Panthers</strong> – Uge 2 og 6</li><li><strong>Frankfurt Galaxy</strong> – Uge 5 og 11</li></ul><p>Denne sæson er Nordic Storms chance for at bevise sig på ELF-scenen. Med nye rivaler og intense kampe på programmet, bliver det en sæson, du ikke vil gå glip af!</p>"
       }
     ]
+  },
+  "hpQ3tdjU0GeN0inyTXEp": {
+    "id": "hpQ3tdjU0GeN0inyTXEp",
+    "description": "Nordic Storm kan med stor stolthed præsentere vores nyeste forstærkning: den britiske linebacker Emmanuel Falola, som slutter sig til holdet op til den kommende sæson.",
+    "descriptionEn": "The Nordic Storm are proud to announce the signing of British linebacker Emmanuel Falola for the upcoming season.",
+    "newsDate": "2025-03-26",
+    "title": "Emmanuel Falola skriver under med Nordic Storm",
+    "titleEn": "Emmanuel Falola Signs with the Nordic Storm",
+    "articleImage": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FhpQ3tdjU0GeN0inyTXEp%2F486091462_17895159273187768_1055735023398495739_n.jpg?alt=media&token=759065c2-09e1-4a31-97bd-bdf4ad2a7bf9",
+    "parts": [
+      {
+        "link": null,
+        "type": "imageBlock",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FhpQ3tdjU0GeN0inyTXEp%2F486091462_17895159273187768_1055735023398495739_n.jpg?alt=media&token=759065c2-09e1-4a31-97bd-bdf4ad2a7bf9",
+        "imageTextEn": "Emmanuel Falola",
+        "htmlEn": null,
+        "html": null,
+        "imageText": "Emmanuel Falola",
+        "sortValue": 0
+      },
+      {
+        "link": null,
+        "type": "htmlBlock",
+        "imageUrl": null,
+        "imageTextEn": null,
+        "imageText": null,
+        "sortValue": 1,
+        "htmlEn": "<p>The Nordic Storm are proud to announce the signing of British linebacker <strong>Emmanuel Falola</strong> for the upcoming season.</p><p>Falola joins the Storm fresh off a stint with the <strong>Rhein Fire</strong> in the <strong>2024 European League of Football (ELF)</strong> season — where he was part of a dominant defense of championship pedigree. His addition brings proven experience, versatility, and international pedigree to our linebacker corps.</p><p>At <strong>6’2” and 230 pounds</strong>, Falola is a physical presence on the field with sideline-to-sideline range, explosive tackling, and high football IQ. The 27-year-old has played at the highest levels across both Europe and North America — and now, he brings that global experience to Nordic soil.</p><p>Falola’s football journey began in the UK, where he helped lead <strong>Coventry University</strong> to back-to-back BUCS Division 2 Championships in 2018 and 2019. He continued his rise with the <strong>Kent Exiles</strong> and <strong>Bristol Aztecs</strong>, leading both in tackles and pushing the Aztecs into a 2022 playoff run.</p><p>In 2023, Falola was drafted by the <strong>Toronto Argonauts</strong> in the <strong>CFL Global Draft</strong>. His raw athleticism and skill earned him invitations to both the <strong>NFL International Player Pathway Program</strong> and the <strong>CFL Global Combine</strong> — placing him firmly on the radar of scouts worldwide.</p><p>With Falola now anchoring the defense, the Nordic Storm are taking a huge step forward in their championship pursuit.</p><p><strong>Welcome to the Storm, Emmanuel. Let’s make history.</strong></p>",
+        "html": "<p>Nordic Storm kan med stor stolthed præsentere vores nyeste forstærkning: den britiske linebacker <strong>Emmanuel Falola</strong>, som slutter sig til holdet op til den kommende sæson.</p><p>Falola kommer til Storm efter et år i <strong>Rhein Fire</strong>. Her var han en del af et af ligaens mest frygtede forsvar og bidrog med erfaring, fysik og disciplin på højeste europæiske niveau.</p><p>Med sine <strong>186 cm og 102 kg</strong> er Falola en markant tilstedeværelse på banen. Han er kendt for sin eksplosive tacklingsevne, hurtighed på tværs af banen og sit høje spilintellekt. Den 27-årige har allerede spillet i både Europa og Nordamerika – og nu glæder vi os til at se ham i Storm-trøjen.</p><p>Hans fodboldrejse begyndte i Storbritannien, hvor han førte <strong>Coventry University</strong> til to BUCS Division 2-mesterskaber i 2018 og 2019. Herefter var han en dominerende forsvarsspiller hos både <strong>Kent Exiles</strong> og <strong>Bristol Aztecs</strong>, hvor han var toneangivende i Aztecs’ slutspilsrun i 2022.</p><p>I 2023 blev Falola valgt af <strong>Toronto Argonauts</strong> i <strong>CFL Global Draft</strong>. Hans fysiske evner og potentiale har desuden sikret ham invitationer til både <strong>NFL’s International Player Pathway Program</strong> og <strong>CFL Global Combine</strong> – en tydelig indikation af, at hans talent er blevet bemærket internationalt.</p><p>Med Falola som ny drivkraft i forsvaret tager Nordic Storm endnu et skridt mod toppen.</p><p><strong>Velkommen til Storm, Emmanuel. Lad os skrive historie sammen.</strong></p>"
+      }
+    ],
+    "partsEn": [
+      {
+        "type": "imageBlock",
+        "sortValue": 0,
+        "imageText": "Emmanuel Falola",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FhpQ3tdjU0GeN0inyTXEp%2F486091462_17895159273187768_1055735023398495739_n.jpg?alt=media&token=759065c2-09e1-4a31-97bd-bdf4ad2a7bf9",
+        "html": null,
+        "link": null
+      },
+      {
+        "link": null,
+        "type": "htmlBlock",
+        "imageUrl": null,
+        "imageText": null,
+        "html": "<p>The Nordic Storm are proud to announce the signing of British linebacker <strong>Emmanuel Falola</strong> for the upcoming season.</p><p>Falola joins the Storm fresh off a stint with the <strong>Rhein Fire</strong> in the <strong>2024 European League of Football (ELF)</strong> season — where he was part of a dominant defense of championship pedigree. His addition brings proven experience, versatility, and international pedigree to our linebacker corps.</p><p>At <strong>6’2” and 230 pounds</strong>, Falola is a physical presence on the field with sideline-to-sideline range, explosive tackling, and high football IQ. The 27-year-old has played at the highest levels across both Europe and North America — and now, he brings that global experience to Nordic soil.</p><p>Falola’s football journey began in the UK, where he helped lead <strong>Coventry University</strong> to back-to-back BUCS Division 2 Championships in 2018 and 2019. He continued his rise with the <strong>Kent Exiles</strong> and <strong>Bristol Aztecs</strong>, leading both in tackles and pushing the Aztecs into a 2022 playoff run.</p><p>In 2023, Falola was drafted by the <strong>Toronto Argonauts</strong> in the <strong>CFL Global Draft</strong>. His raw athleticism and skill earned him invitations to both the <strong>NFL International Player Pathway Program</strong> and the <strong>CFL Global Combine</strong> — placing him firmly on the radar of scouts worldwide.</p><p>With Falola now anchoring the defense, the Nordic Storm are taking a huge step forward in their championship pursuit.</p><p><strong>Welcome to the Storm, Emmanuel. Let’s make history.</strong></p>",
+        "sortValue": 1
+      }
+    ],
+    "published": true
   },
   "iSIMGSiAUqpqeAsyPqVK": {
     "id": "iSIMGSiAUqpqeAsyPqVK",
