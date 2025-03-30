@@ -138,6 +138,7 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
       "Runningbacks coach",
       "Tight Ends coach",
       "Inside Linebackers coach",
+      "Outside Linebackers coach",
     ];
 
     const playersSorted = playerDocs.sort((a, b) =>
