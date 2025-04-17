@@ -3,10 +3,11 @@ import React, { createContext, useState } from "react";
 import { db } from "../firebase";
 import { Player } from "../components/Roster/interfaces";
 import { matchup } from "../components/Schedule/interfaces";
+import { article } from "./types";
 
 // Define the type for our context data
 interface CacheContextType {
-  news: any[] | null;
+  news: article[] | null;
   fetchNews: () => Promise<void>;
   media: any[] | null;
   fetchMedia: () => Promise<void>;

@@ -274,6 +274,7 @@ const Home = () => {
                       newsDate={article.newsDate}
                       articleImage={article.articleImage}
                       id={article.id}
+                      elfLink={article.elfLink ?? undefined}
                     />
                   </div>
                 );

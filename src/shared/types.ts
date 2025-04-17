@@ -8,6 +8,7 @@ export type article = {
   titleEn: string;
   parts: parts[];
   partsEn: parts[];
+  elfLink?: string | null;
 };
 
 export type parts = {

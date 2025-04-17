@@ -25,6 +25,10 @@ const News = () => {
   const article = news?.find((article: article) => article.id === id);
 
   if (!article) return <p>Loading...</p>;
+  else if (article.elfLink) {
+    window.open(article.elfLink, "_self");
+    return null;
+  }
 
   const languageIsEnglish = i18n.language.includes("en");
   const parts = !article

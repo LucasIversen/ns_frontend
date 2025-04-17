@@ -4,6 +4,7 @@ interface Props {
   newsDate: string;
   title: string;
   description: string;
+  elfLink?: string;
 }
 
 export default Props;

@@ -79,6 +79,7 @@ const NewsOverview = () => {
               newsDate={newsItem.newsDate}
               articleImage={newsItem.articleImage}
               id={newsItem.id}
+              elfLink={newsItem.elfLink ?? undefined}
             />
           ))}
         </div>
