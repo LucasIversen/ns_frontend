@@ -40,9 +40,9 @@ const News = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>{article.title}</title>
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.description} />
+        <title>{article.titleEn}</title>
+        <meta property="og:title" content={article.titleEn} />
+        <meta property="og:description" content={article.descriptionEn} />
         <meta property="og:image" content={article.articleImage || ""} />
         <meta
           property="og:url"
@@ -50,8 +50,8 @@ const News = () => {
         />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={article.title} />
-        <meta name="twitter:description" content={article.description} />
+        <meta name="twitter:title" content={article.titleEn} />
+        <meta name="twitter:description" content={article.descriptionEn} />
         <meta name="twitter:image" content={article.articleImage || ""} />
       </Helmet>
       <div style={styles.newsOuterContainer}>
