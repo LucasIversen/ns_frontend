@@ -272,7 +272,7 @@ const Home = () => {
                           : article.description
                       }
                       newsDate={article.newsDate}
-                      articleImage={article.articleImage}
+                      articleImage={article.articleImage ?? ""}
                       id={article.id}
                       elfLink={article.elfLink ?? undefined}
                     />
