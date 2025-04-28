@@ -32,9 +32,9 @@ export default async (request, context) => {
     // Inject new meta tags dynamically
     const newMetaTags = `
     <title>${metaData.title}</title>
-    <meta name="description" content="${metaData.description}">
-    <meta property="og:title" content="${metaData.title}">
-    <meta property="og:description" content="${metaData.description}">
+    <meta name="description" content="${metaData.descriptionEn}">
+    <meta property="og:title" content="${metaData.titleEn}">
+    <meta property="og:description" content="${metaData.descriptionEn}">
     <meta property="og:image" content="${metaData.articleImage}">
   `;
 
