@@ -58,9 +58,9 @@ const Schedule = () => {
                 <img src={matchup.teamLogo} alt="Team Logo" />
                 <div className="team_name">{matchup.teamName}</div>
               </div>
-              <div className="ticket_info_conatiner">
-                <div className="ticket_info">
-                  {matchup.home ? (
+              {matchup.home ? (
+                <div className="ticket_info_conatiner">
+                  <div className="ticket_info">
                     <div
                       className={
                         "tickets" + (matchup.ticketsLink ? "" : " disabled")
@@ -74,18 +74,33 @@ const Schedule = () => {
                         {t("tickets")}
                       </a>
                     </div>
-                  ) : (
-                    <div className="location">
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="icon"
-                        color={colors.darkBlue}
-                      />
-                      <div className="location_name">{matchup.location}</div>
-                    </div>
-                  )}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="away_container">
+                  <div className="location">
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className="icon"
+                      color={colors.darkBlue}
+                    />
+                    <div className="location_name">{matchup.location}</div>
+                  </div>
+                  <div
+                    className={
+                      "tickets" + (matchup.ticketsLink ? "" : " disabled")
+                    }
+                  >
+                    <a
+                      href={matchup.ticketsLink || ""}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t("tickets")}
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
