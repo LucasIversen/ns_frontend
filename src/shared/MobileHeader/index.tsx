@@ -161,15 +161,34 @@ const MobileHeader = () => {
             )}
           </li>
 
+          {/* Shop Menu */}
           <li>
             <div
               className="submenu-header"
-              onClick={() =>
-                window.open("https://nordicstorm.shop/shop/frontpage.html")
-              }
+              onClick={() => toggleSubmenu("shop")}
             >
               {t("shop")}
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={`chevron ${
+                  activeSubmenu === "info" ? "rotated" : ""
+                }`}
+              />
             </div>
+            {activeSubmenu === "shop" && (
+              <ul className="submenu">
+                <li
+                  onClick={() =>
+                    window.open("https://nordicstorm.shop/shop/frontpage.html")
+                  }
+                >
+                  {t("euShop")}
+                </li>
+                <li onClick={() => window.open("https://nordicstormmerch.us/")}>
+                  {t("usShop")}
+                </li>
+              </ul>
+            )}
           </li>
 
           {/* Language Menu */}

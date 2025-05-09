@@ -191,11 +191,34 @@ const Header = () => {
           </li>
           <li
             className="nav-item"
-            onClick={() =>
-              window.open("https://nordicstorm.shop/shop/frontpage.html")
-            }
+            onMouseEnter={() => handleMouseEnter("shop")}
+            onMouseLeave={handleMouseLeave}
           >
             {t("shop")}
+            {activeDropdown === "shop" && (
+              <ul className="dropdown">
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("cheer") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    window.open("https://nordicstorm.shop/shop/frontpage.html");
+                  }}
+                >
+                  {t("euShop")}
+                </li>
+                <li
+                  className={`dropdown-item ${
+                    currentRoute.includes("faq") ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    window.open("https://nordicstormmerch.us/");
+                  }}
+                >
+                  {t("usShop")}
+                </li>
+              </ul>
+            )}
           </li>
         </ul>
         <ul className="nav-list right">
