@@ -63,7 +63,10 @@ const Schedule = () => {
                   <div className="ticket_info">
                     <div
                       className={
-                        "tickets" + (matchup.ticketsLink ? "" : " disabled")
+                        "tickets" +
+                        (matchup.ticketsLink && matchup.result === null
+                          ? ""
+                          : " disabled")
                       }
                     >
                       <a
@@ -88,7 +91,10 @@ const Schedule = () => {
                   </div>
                   <div
                     className={
-                      "tickets" + (matchup.ticketsLink ? "" : " disabled")
+                      "tickets" +
+                      (matchup.ticketsLink && matchup.result === null
+                        ? ""
+                        : " disabled")
                     }
                   >
                     <a
