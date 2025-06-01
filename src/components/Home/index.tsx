@@ -30,8 +30,11 @@ const Home = () => {
     if (!schedule) {
       return null;
     }
+
     return schedule
-      .filter((matchup: matchup) => matchup.home && !matchup.result)
+      .filter(
+        (matchup: matchup) => matchup.home && !matchup.result && !matchup.bye
+      )
       .sort((a: matchup, b: matchup) => a.week - b.week)[0];
   }, [schedule]);
 
