@@ -279,6 +279,19 @@
     "newsDate": "2025-04-20",
     "published": true
   },
+  "FDft27ryvGN6J4jONq10": {
+    "id": "FDft27ryvGN6J4jONq10",
+    "description": "European League of Football (ELF) og Pluto.tv annoncere i samarbejde med Sport Live et etårigt partnerskab som bringer alle Nordic Storm-kampe og udvalgte slutspilskampe, samt mesterskabsspillet live til fans i Danmark.",
+    "descriptionEn": "The European League of Football (ELF) and Pluto.tv in partnership with Sport Live announced a one year partnership to bring all Nordic Storm games and selected playoff games, as well as the Championship Game live to fans in Denmark.",
+    "title": "Nordic Storm live: ELF udvider distributionen i Danmark",
+    "titleEn": "Nordic Storm live: ELF expands distribution in Denmark",
+    "parts": [],
+    "partsEn": [],
+    "articleImage": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FFDft27ryvGN6J4jONq10%2FPluto_denmark_Creative%2016x9.2b3f14e3.jpeg?alt=media&token=44b09927-9a24-4c09-ac5a-ebc130ccba22",
+    "elfLink": "https://europeanleague.football/news/nordic-storm-live-elf-expands-distribution-in-denmark-3327",
+    "newsDate": "2025-05-31",
+    "published": true
+  },
   "GbkFVccew1KFH3Elgnfh": {
     "id": "GbkFVccew1KFH3Elgnfh",
     "description": "Nordic Storm har lavet to markante signinger: den svenske offensive lineman Viktor Neumann og den danske tight end Jonathan Steinhauer.",
@@ -957,6 +970,56 @@
         "link": null
       }
     ],
+    "published": true
+  },
+  "YBHv1OK3ktvU43zhnjCh": {
+    "id": "YBHv1OK3ktvU43zhnjCh",
+    "description": "Søndag den 2. juni 2025 markerede en vigtig milepæl i Nordic Storms historie.",
+    "descriptionEn": "Sunday, June 2, 2025, marked an important milestone in Nordic Storm’s history.",
+    "title": "Første hjemmekamp i ELF: Nordic Storm vinder mod Berlin Thunder",
+    "titleEn": "First Home Game in the ELF: Nordic Storm Defeats Berlin Thunder",
+    "articleImage": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FYBHv1OK3ktvU43zhnjCh%2FDanielHurinsky_2025_Week3_BTHatNDS-137.jpg?alt=media&token=080f5a08-cf82-42b3-a9aa-f233c0a2100e",
+    "parts": [
+      {
+        "imageText": "Billede af Daniel Hurinský",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FYBHv1OK3ktvU43zhnjCh%2FDanielHurinsky_2025_Week3_BTHatNDS-137.jpg?alt=media&token=080f5a08-cf82-42b3-a9aa-f233c0a2100e",
+        "imageTextEn": "Photo by Daniel Hurinský",
+        "sortValue": 0,
+        "html": null,
+        "htmlEn": null,
+        "type": "imageBlock",
+        "link": null
+      },
+      {
+        "link": null,
+        "imageText": null,
+        "htmlEn": "<p>Sunday, June 2, 2025, marked an important milestone in Nordic Storm’s history. The team played its first official home game in the European League of Football (ELF) at Gladsaxe Stadion, where approximately 2,000 spectators showed up to support the Danish team.</p><p>Despite weather warnings leading up to the game, the afternoon turned out to be sunny, with a lively atmosphere and high expectations. There were some minor technical issues at the stadium, but the on-field performance lived up to the occasion.</p><h3>Early Lead and Strong Defense</h3><p>The game started well for Nordic Storm, as the team quickly took the lead following a blocked field goal attempt by Berlin Thunder, which was returned for a score. This early play energized the crowd and set the tone for the rest of the game.</p><p>The remainder of the game was characterized by solid defensive play from Nordic Storm, which consistently pressured Berlin’s offense and sacked the quarterback three times. Berlin struggled to build momentum and had to see their quarterback leave the game with an injury before halftime.</p><p>On offense, Nordic Storm produced several big plays. Although some were called back, the team secured a comfortable 22–0 lead by halftime. The lead was extended in the second half, and the game ended with a final score of 35–0.</p><h3>Looking Ahead to the Next Home Game</h3><p>Nordic Storm is now one of just three undefeated teams in the league and heads into a bye week before returning to Gladsaxe Stadion to face Frankfurt Galaxy.</p>",
+        "html": "<p>Søndag den 2. juni 2025 markerede en vigtig milepæl i Nordic Storms historie. Holdet spillede sin første officielle hjemmekamp i European League of Football (ELF) på Gladsaxe Stadion, hvor cirka 2.000 tilskuere var mødt op for at støtte det danske hold.</p><p>Trods varslede vejrproblemer blev det en solrig eftermiddag, hvor stemningen var høj, og forventningerne store. Der var enkelte tekniske udfordringer på stadion, men kampens forløb på banen levede fuldt op til dagen.</p><h3>Tidlig føring og stærkt forsvar</h3><p>Kampen fik en effektiv start for Nordic Storm, da holdet hurtigt bragte sig foran efter et blokeret field goal-forsøg fra Berlin Thunder, som blev returneret til scoring. Publikum blev aktiveret tidligt, og det satte tonen for resten af opgøret.</p><p>Resten af kampen var præget af et solidt forsvarsspil fra Nordic Storm, der gentagne gange pressede Berlin Thunders angreb og fik quarterbacken nedlagt tre gange. Berlin havde svært ved at skabe momentum og måtte se deres quarterback udgå med en skade før pausen.</p><p>På angrebssiden skabte Nordic Storm flere store spil, og selvom nogle blev kaldt tilbage, sikrede holdet sig en komfortabel føring på 22-0 ved pausen. I anden halvleg blev føringen udbygget, og kampen endte 35-0.</p><h3>Ser frem mod næste hjemmekamp</h3><p>Nordic Storm er nu ét af tre ubesejrede hold i ligaen og går på bye week, inden holdet igen spiller hjemme på Gladsaxe Stadion&nbsp;imod Frankfurt Galaxy.</p>",
+        "type": "htmlBlock",
+        "sortValue": 1,
+        "imageTextEn": null,
+        "imageUrl": null
+      }
+    ],
+    "partsEn": [
+      {
+        "link": null,
+        "type": "imageBlock",
+        "html": null,
+        "imageText": "Photo by Daniel Hurinský",
+        "sortValue": 0,
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nsbackend-3fd2c.appspot.com/o/articleImages%2FYBHv1OK3ktvU43zhnjCh%2FDanielHurinsky_2025_Week3_BTHatNDS-137.jpg?alt=media&token=080f5a08-cf82-42b3-a9aa-f233c0a2100e"
+      },
+      {
+        "imageUrl": null,
+        "imageText": null,
+        "type": "htmlBlock",
+        "link": null,
+        "sortValue": 1,
+        "html": "<p>Sunday, June 2, 2025, marked an important milestone in Nordic Storm’s history. The team played its first official home game in the European League of Football (ELF) at Gladsaxe Stadion, where approximately 2,000 spectators showed up to support the Danish team.</p><p>Despite weather warnings leading up to the game, the afternoon turned out to be sunny, with a lively atmosphere and high expectations. There were some minor technical issues at the stadium, but the on-field performance lived up to the occasion.</p><h3>Early Lead and Strong Defense</h3><p>The game started well for Nordic Storm, as the team quickly took the lead following a blocked field goal attempt by Berlin Thunder, which was returned for a score. This early play energized the crowd and set the tone for the rest of the game.</p><p>The remainder of the game was characterized by solid defensive play from Nordic Storm, which consistently pressured Berlin’s offense and sacked the quarterback three times. Berlin struggled to build momentum and had to see their quarterback leave the game with an injury before halftime.</p><p>On offense, Nordic Storm produced several big plays. Although some were called back, the team secured a comfortable 22–0 lead by halftime. The lead was extended in the second half, and the game ended with a final score of 35–0.</p><h3>Looking Ahead to the Next Home Game</h3><p>Nordic Storm is now one of just three undefeated teams in the league and heads into a bye week before returning to Gladsaxe Stadion to face Frankfurt Galaxy.</p>"
+      }
+    ],
+    "newsDate": "2025-06-02",
     "published": true
   },
   "b2aKWGPDtISHlsLphDO7": {
