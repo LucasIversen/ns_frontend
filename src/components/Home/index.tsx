@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./styles";
-import Video from "../../assets/video.mp4";
+import Video from "../../assets/video2.mp4";
 import NewsItem from "./NewsItem";
 import { useTranslation } from "react-i18next";
 import MediaItem from "./MediaItem";
