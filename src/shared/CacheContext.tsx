@@ -123,6 +123,7 @@ export const CacheProvider: React.FC<{ children: React.ReactNode }> = ({
       "Defensive Lineman",
       "Safety",
       "Safety/Return Specialist",
+      "Athlete",
       "Kicker",
       "Punter",
       "Kicker/Punter",
