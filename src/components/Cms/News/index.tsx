@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { useEffect, useState } from "react";
 import styles from "./styles";
@@ -12,6 +12,17 @@ const News = () => {
   const [selectedNewsId, setSelectedNewsId] = useState("");
   const [tabContent, setTabContent] = useState("news");
   const [editingArticle, setEditingArticle] = useState<any | null>(null);
+
+  const togglePublished = async (newsId: string, currentValue: boolean) => {
+    try {
+      const articleRef = doc(db, "news", newsId);
+      await updateDoc(articleRef, { published: !currentValue });
+      await fetchNews(); // Refresh the list
+    } catch (err) {
+      console.error("Fejl ved opdatering af 'published' status:", err);
+      alert("Kunne ikke opdatere 'published' status.");
+    }
+  };
 
   const fetchNews = async () => {
     console.log("fetching news");
@@ -85,6 +96,18 @@ const News = () => {
                   }}
                 >
                   Slet
+                </div>
+                <div
+                  style={{
+                    ...styles.publishButton,
+                    backgroundColor: newsItem.published ? "#d4edda" : "#f8d7da",
+                    color: newsItem.published ? "#155724" : "#721c24",
+                  }}
+                  onClick={() =>
+                    togglePublished(newsItem.id, newsItem.published)
+                  }
+                >
+                  {newsItem.published ? "Publiceret" : "Ikke publiceret"}
                 </div>
               </div>
             </div>

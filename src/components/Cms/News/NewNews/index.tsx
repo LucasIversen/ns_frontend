@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { article, parts, Props } from "./interfaces";
+import { article, CleanPart, parts, Props } from "./interfaces";
 import PartEditor from "../PartsEditor";
 import styles from "./styles";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
@@ -204,7 +204,17 @@ const NewNews = (props: Props) => {
       }
 
       // Update the article with the updated parts
-      await updateDoc(docRef, { parts: updatedParts });
+      const cleanParts: CleanPart[] = updatedParts.map((part) => ({
+        sortValue: part.sortValue,
+        html: part.html,
+        htmlEn: part.htmlEn,
+        imageText: part.imageText,
+        imageTextEn: part.imageTextEn,
+        imageUrl: part.imageUrl,
+        type: part.type,
+        link: part.link,
+      }));
+      await updateDoc(docRef, { parts: cleanParts });
 
       // Update local state
       setArticleData((prevData) => ({

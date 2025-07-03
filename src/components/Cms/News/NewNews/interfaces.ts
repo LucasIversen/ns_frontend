@@ -22,6 +22,8 @@ export type parts = {
   imageFile?: File | null; // Tilføjet for at gemme billedfilen midlertidigt
 };
 
+export type CleanPart = Omit<parts, "imageFile">;
+
 export interface Props {
   setTabContent: (tab: string) => void;
 }

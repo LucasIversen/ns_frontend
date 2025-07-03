@@ -7,6 +7,7 @@ import Faq from "./Faq";
 import CheerSignups from "./CheerSignups";
 import { auth } from "../../firebase";
 import CreatePlayerForm from "./Roster";
+import UpdateScheduleResults from "./Schedule";
 
 const Cms = () => {
   const [tab, setTab] = useState("news");
@@ -25,6 +26,8 @@ const Cms = () => {
         return <Newsletter />;
       case "cheer":
         return <CheerSignups />;
+      case "schedule":
+        return <UpdateScheduleResults />;
       default:
         return <div>News</div>;
     }
@@ -77,6 +80,12 @@ const Cms = () => {
           onClick={() => setTab("cheer")}
         >
           Cheer Audition
+        </div>
+        <div
+          style={tab == "schedule" ? styles.tabSelected : styles.tab}
+          onClick={() => setTab("schedule")}
+        >
+          Opdater Kampresultater
         </div>
       </div>
 

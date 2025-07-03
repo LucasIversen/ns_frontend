@@ -60,6 +60,14 @@ const styles: { [key: string]: CSSProperties } = {
     cursor: "pointer",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
   },
+  publishButton: {
+    padding: "8px 12px",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontWeight: "bold",
+    border: "1px solid transparent",
+    marginLeft: "8px",
+  },
 };
 
 export default styles;
