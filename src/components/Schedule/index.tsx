@@ -30,7 +30,11 @@ const Schedule = () => {
         <div key={matchup.id} className="matchup">
           <div className="matchup_header">
             <div className="week">
-              <div className="week_text">{t("week") + " " + matchup.week}</div>
+              <div className="week_text">
+                {matchup.playoff
+                  ? matchup.week
+                  : t("week") + " " + matchup.week}
+              </div>
               {!!matchup.date && matchup.date !== "" ? (
                 <div className="dot">•</div>
               ) : null}
