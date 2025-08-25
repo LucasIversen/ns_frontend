@@ -32,7 +32,7 @@ const Schedule = () => {
             <div className="week">
               <div className="week_text">
                 {matchup.playoff
-                  ? matchup.week
+                  ? matchup.playoffRound
                   : t("week") + " " + matchup.week}
               </div>
               {!!matchup.date && matchup.date !== "" ? (
